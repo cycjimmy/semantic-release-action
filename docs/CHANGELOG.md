@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v1.0.0...v1.1.0) (2019-10-17)
+
+
+### Features
+
+* add a new output - "new-release-published" ([be8f403](https://github.com/cycjimmy/semantic-release-action/commit/be8f403201951e0c7b237bb7daab2c561af7303d))
+
 # 1.0.0 (2019-10-17)
 
 
