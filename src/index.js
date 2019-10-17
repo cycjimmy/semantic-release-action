@@ -1,7 +1,5 @@
 const exec = require('./_exec');
 const path = require('path');
-const {WritableStreamBuffer} = require('stream-buffers');
-
 const core = require('@actions/core');
 const semanticRelease = require('semantic-release');
 
