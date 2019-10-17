@@ -3,9 +3,14 @@ const path = require('path');
 const core = require('@actions/core');
 const semanticRelease = require('semantic-release');
 
+const OutputKey_NewReleasePublished = 'new-release-published';
+
 const release = async () => {
   const branch = core.getInput('branch', {required: false}) || 'master';
   const extraPlugins = core.getInput('extra_plugins', {required: false}) || '';
+
+  // set outputs default
+  core.setOutput(OutputKey_NewReleasePublished, 'false');
 
   // pre-install plugins
   if (extraPlugins) {
@@ -15,7 +20,7 @@ const release = async () => {
     const {stdout, stderr} = await exec(`npm install ${_extraPlugins}`, {
       cwd: path.resolve(__dirname)
     });
-    console.log(stdout);
+    core.debug(stdout);
     if (stderr) {
       return Promise.reject(stderr);
     }
@@ -39,9 +44,13 @@ const release = async () => {
   for (const release of releases) {
     core.debug(`The release was published with plugin "${release.pluginName}".`);
   }
+
+  // set outputs default
+  core.setOutput(OutputKey_NewReleasePublished, 'true');
 };
 
 
 module.exports = () => {
+  core.debug('Initialization successful');
   release().catch(core.setFailed);
 };

@@ -11,6 +11,9 @@ inputs:
   extra_plugins:
     description: 'Extra plugins for pre-install'
     default: ''
+outputs:
+  new-release-published:
+    description: "Whether a new release was published"
 runs:
   using: 'node12'
   main: 'index.js'
