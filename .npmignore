@@ -1,0 +1,17 @@
+# IDE
+.idea
+.editorconfig
+
+# doc
+.github
+
+# test
+test
+.travis.yml
+
+# node
+yarn.lock
+yarn-error.log
+
+# project
+*.config.js

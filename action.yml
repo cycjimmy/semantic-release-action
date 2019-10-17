@@ -1,0 +1,16 @@
+name: 'Semantic Release Action'
+description: 'GitHub Action for Semantic Release'
+author: 'cycjimmy'
+branding:
+  icon: 'package'
+  color: 'orange'
+inputs:
+  branch:
+    description: 'The branch for release'
+    default: master
+  extra_plugins:
+    description: 'Extra plugins for pre-install'
+    default: ''
+runs:
+  using: 'node12'
+  main: 'index.js'
