@@ -1,4 +1,4 @@
-name: 'Semantic Release Action'
+name: 'Semantic Release'
 description: 'GitHub Action for Semantic Release'
 author: 'cycjimmy'
 branding:
