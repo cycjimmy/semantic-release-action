@@ -1,6 +1,12 @@
 # Semantic Release Action
-![](https://github.com/cycjimmy/semantic-release-action/workflows/Test%20Release/badge.svg)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+![][workflows-badge-image]
+[![semantic-release][semantic-image]][semantic-url]
+![npm license][license-image]
+
+[workflows-badge-image]: https://github.com/cycjimmy/semantic-release-action/workflows/Test%20Release/badge.svg
+[semantic-url]: https://github.com/semantic-release/semantic-release
+[semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[license-image]: https://img.shields.io/npm/l/@cycjimmy/semantic-release-action.svg?style=flat-square
 
 GitHub Action for [Semantic Release](https://github.com/semantic-release/semantic-release). 
 
@@ -21,7 +27,7 @@ A simple example
 ```yaml
 steps:
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v1.1.0
+    uses: cycjimmy/semantic-release-action@v1.2.0
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -31,7 +37,7 @@ An advanced example
 ```yaml
 steps:
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v1.1.0
+    uses: cycjimmy/semantic-release-action@v1.2.0
     id: semantic   # Need an `id` for output variables
     with:
       branch: master
