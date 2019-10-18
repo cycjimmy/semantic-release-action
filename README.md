@@ -12,6 +12,7 @@ GitHub Action for [Semantic Release](https://github.com/semantic-release/semanti
 * inputs:
   * `branch`: [Optional] The branch for release. Default `"master"`.
   * `extra_plugins`: [Optional] Extra plugins for pre-install. Default `""`.
+  * `dry_run`: [Optional] Whether to run semantic release in "dry-run" mode. It will override the dryRun attribute in your configuration file. Default `""`.
 * outputs:
   * `new-release-published`: Whether a new release was published. `true` or `false`
 
