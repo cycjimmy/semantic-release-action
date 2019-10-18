@@ -19,7 +19,7 @@ A simple example
 ```yaml
 steps:
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v1
+    uses: cycjimmy/semantic-release-action@v1.1.0
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -29,7 +29,7 @@ An advanced example
 ```yaml
 steps:
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v1
+    uses: cycjimmy/semantic-release-action@v1.1.0
     id: semantic   # Need an `id` for output variables
     with:
       branch: master
