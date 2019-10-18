@@ -43,7 +43,7 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> /home/runner/work/_temp/.npmrc
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@master
+        uses: cycjimmy/semantic-release-action@v1
         id: semantic
         with:
           branch: master
