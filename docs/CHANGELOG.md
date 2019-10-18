@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/cycjimmy/semantic-release-action/compare/v1.1.0...v1.2.0) (2019-10-18)
+
+
+### Features
+
+* **dry_run:** add a new input - "dry_run" ([65686aa](https://github.com/cycjimmy/semantic-release-action/commit/65686aabe72b7b976902b278411b8a4d16298fd0))
+
 # [1.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v1.0.0...v1.1.0) (2019-10-17)
 
 
