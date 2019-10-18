@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/cycjimmy/semantic-release-action/compare/v1.2.0...v1.2.1) (2019-10-18)
+
+
+### Bug Fixes
+
+* **branch v1:** push updates to v1 branch after releases([#1](https://github.com/cycjimmy/semantic-release-action/issues/1)) ([bb964eb](https://github.com/cycjimmy/semantic-release-action/commit/bb964eb28ee1823e67f82532b9e4d4fd3f135513))
+
 # [1.2.0](https://github.com/cycjimmy/semantic-release-action/compare/v1.1.0...v1.2.0) (2019-10-18)
 
 
