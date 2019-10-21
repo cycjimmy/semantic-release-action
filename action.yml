@@ -17,6 +17,14 @@ inputs:
 outputs:
   new-release-published:
     description: 'Whether a new release was published'
+  new-release-version:
+    description: "Version of the new release"
+  new-release-major-version:
+    description: "Major version of the new release"
+  new-release-minor-version:
+    description: "Minor version of the new release"
+  new-release-patch-version:
+    description: "Patch version of the new release"
 runs:
   using: 'node12'
   main: 'index.js'

@@ -22,6 +22,10 @@ GitHub Action for [Semantic Release](https://github.com/semantic-release/semanti
   * `dry_run`: [Optional] Whether to run semantic release in "dry-run" mode. It will override the dryRun attribute in your configuration file. Default `""`.
 * outputs:
   * `new-release-published`: Whether a new release was published. `true` or `false`
+  * `new-release-version`: Version of the new release
+  * `new-release-major-version`: Major version of the new release
+  * `new-release-minor-version`: Minor version of the new release
+  * `new-release-patch-version`: Patch version of the new release
 
 A simple example
 ```yaml

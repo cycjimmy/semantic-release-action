@@ -3,7 +3,13 @@ const path = require('path');
 const core = require('@actions/core');
 const semanticRelease = require('semantic-release');
 
-const OutputKey_NewReleasePublished = 'new-release-published';
+const OutputKeys = {
+  newReleasePublished: 'new-release-published',
+  newReleaseVersion: 'new-release-version',
+  newReleaseMajor: 'new-release-major-version',
+  newReleaseMinor: 'new-release-minor-version',
+  newReleasePatch: 'new-release-patch-version',
+};
 
 /**
  * handleDryRunOption
@@ -33,7 +39,7 @@ const release = async () => {
   const extraPlugins = core.getInput('extra_plugins', {required: false}) || '';
 
   // set outputs default
-  core.setOutput(OutputKey_NewReleasePublished, 'false');
+  core.setOutput(OutputKeys.newReleasePublished, 'false');
 
   // pre-install plugins
   if (extraPlugins) {
@@ -71,8 +77,15 @@ const release = async () => {
     core.debug(`The release was published with plugin "${release.pluginName}".`);
   }
 
-  // set outputs default
-  core.setOutput(OutputKey_NewReleasePublished, 'true');
+  const {version} = nextRelease;
+  const [major, minor, patch] = version.split('.');
+
+  // set outputs
+  core.setOutput(OutputKeys.newReleasePublished, 'true');
+  core.setOutput(OutputKeys.newReleaseVersion, version);
+  core.setOutput(OutputKeys.newReleaseMajor, major);
+  core.setOutput(OutputKeys.newReleaseMinor, minor);
+  core.setOutput(OutputKeys.newReleasePatch, patch);
 };
 
 
