@@ -21,11 +21,11 @@ GitHub Action for [Semantic Release](https://github.com/semantic-release/semanti
   * `extra_plugins`: [Optional] Extra plugins for pre-install. Default `""`.
   * `dry_run`: [Optional] Whether to run semantic release in "dry-run" mode. It will override the dryRun attribute in your configuration file. Default `""`.
 * outputs:
-  * `new-release-published`: Whether a new release was published. `true` or `false`
-  * `new-release-version`: Version of the new release
-  * `new-release-major-version`: Major version of the new release
-  * `new-release-minor-version`: Minor version of the new release
-  * `new-release-patch-version`: Patch version of the new release
+  * `new_release_published`: Whether a new release was published. `true` or `false`
+  * `new_release_version`: Version of the new release
+  * `new_release_major_version`: Major version of the new release
+  * `new_release_minor_version`: Minor version of the new release
+  * `new_release_patch_version`: Patch version of the new release
 
 A simple example
 ```yaml
@@ -53,7 +53,7 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       
   - name: Do something when a new release published
-    if: steps.semantic.outputs.new-release-published == 'true'
+    if: steps.semantic.outputs.new_release_published == 'true'
     run: ...
 ```
 

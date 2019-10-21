@@ -15,15 +15,15 @@ inputs:
     description: 'Whether to run semantic release in "dry-run" mode. It will override the dryRun attribute in your configuration file'
     default: ''
 outputs:
-  new-release-published:
+  new_release_published:
     description: 'Whether a new release was published'
-  new-release-version:
+  new_release_version:
     description: "Version of the new release"
-  new-release-major-version:
+  new_release_major_version:
     description: "Major version of the new release"
-  new-release-minor-version:
+  new_release_minor_version:
     description: "Minor version of the new release"
-  new-release-patch-version:
+  new_release_patch_version:
     description: "Patch version of the new release"
 runs:
   using: 'node12'

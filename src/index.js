@@ -4,11 +4,11 @@ const core = require('@actions/core');
 const semanticRelease = require('semantic-release');
 
 const OutputKeys = {
-  newReleasePublished: 'new-release-published',
-  newReleaseVersion: 'new-release-version',
-  newReleaseMajor: 'new-release-major-version',
-  newReleaseMinor: 'new-release-minor-version',
-  newReleasePatch: 'new-release-patch-version',
+  newReleasePublished: 'new_release_published',
+  newReleaseVersion: 'new_release_version',
+  newReleaseMajor: 'new_release_major_version',
+  newReleaseMinor: 'new_release_minor_version',
+  newReleasePatch: 'new_release_patch_version',
 };
 
 /**
