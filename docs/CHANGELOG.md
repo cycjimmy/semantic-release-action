@@ -1,3 +1,33 @@
+# [2.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v1.3.1...v2.0.0) (2019-10-21)
+
+
+### Styles
+
+* **outputs:** uniform outputs to underline format ([4cea44f](https://github.com/cycjimmy/semantic-release-action/commit/4cea44f71ac0f0c6e31dbb1fffeae5826eec6e2a))
+
+
+### BREAKING CHANGES
+
+* **outputs:** uniform outputs to underline format
+
+Before:
+
+outputs:
+- new-release-published:
+- new-release-version
+- new-release-major-version
+- new-release-minor-version
+- new-release-patch-version
+
+After:
+
+outputs:
+- new_release_published:
+- new_release_version
+- new_release_major_version
+- new_release_minor_version
+- new_release_patch_version
+
 ## [1.3.1](https://github.com/cycjimmy/semantic-release-action/compare/v1.3.0...v1.3.1) (2019-10-21)
 
 
