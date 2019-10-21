@@ -31,7 +31,7 @@ A simple example
 ```yaml
 steps:
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v1
+    uses: cycjimmy/semantic-release-action@v2
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -41,7 +41,7 @@ An advanced example
 ```yaml
 steps:
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v1
+    uses: cycjimmy/semantic-release-action@v2
     id: semantic   # Need an `id` for output variables
     with:
       branch: master
@@ -56,4 +56,6 @@ steps:
     if: steps.semantic.outputs.new_release_published == 'true'
     run: ...
 ```
+
+## [CHANGELOG](./docs/CHANGELOG.md)
 
