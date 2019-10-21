@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/cycjimmy/semantic-release-action/compare/v1.2.1...v1.3.0) (2019-10-21)
+
+
+### Features
+
+* **outputs:** Add outputs related to new release version ([12a1a39](https://github.com/cycjimmy/semantic-release-action/commit/12a1a39975a23b4915e90567d975240096cec66c))
+
 ## [1.2.1](https://github.com/cycjimmy/semantic-release-action/compare/v1.2.0...v1.2.1) (2019-10-18)
 
 
