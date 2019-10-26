@@ -10,10 +10,8 @@ inputs:
     default: master
   extra_plugins:
     description: 'Extra plugins for pre-install'
-    default: ''
   dry_run:
     description: 'Whether to run semantic release in "dry-run" mode. It will override the dryRun attribute in your configuration file'
-    default: ''
 outputs:
   new_release_published:
     description: 'Whether a new release was published'

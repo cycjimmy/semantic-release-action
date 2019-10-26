@@ -6,7 +6,7 @@ const inputs = require('./inputs.json');
  * @returns {{}|{dryRun: boolean}}
  */
 exports.handleDryRunOption = () => {
-  const dryRun = core.getInput(inputs.dry_run, {required: false}) || '';
+  const dryRun = core.getInput(inputs.dry_run);
 
   switch (dryRun) {
     case 'true':

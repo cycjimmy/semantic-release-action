@@ -16,7 +16,7 @@ const release = async () => {
   await setUpJob();
   await preInstallPlugins();
 
-  const branch = core.getInput(inputs.branch, {required: false}) || 'master';
+  const branch = core.getInput(inputs.branch) || 'master';
   const result = await semanticRelease({
     branch,
     ...(handleDryRunOption()),
