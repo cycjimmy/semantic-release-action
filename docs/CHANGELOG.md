@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/cycjimmy/semantic-release-action/compare/v2.0.0...v2.0.1) (2019-10-26)
+
+
+### Bug Fixes
+
+* **.npmrc:** clean up `.npmrc` file in the repo after releasing ([a0ef86e](https://github.com/cycjimmy/semantic-release-action/commit/a0ef86eea3257234992126447d883529ce057ece)), closes [#2](https://github.com/cycjimmy/semantic-release-action/issues/2) [/github.com/semantic-release/semantic-release/issues/974#issuecomment-546577677](https://github.com//github.com/semantic-release/semantic-release/issues/974/issues/issuecomment-546577677)
+
 # [2.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v1.3.1...v2.0.0) (2019-10-21)
 
 
