@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/cycjimmy/semantic-release-action/compare/v2.0.1...v2.0.2) (2019-10-26)
+
+
+### Bug Fixes
+
+* **.npmrc:** modify wrong cwd for exec ([6cfcf38](https://github.com/cycjimmy/semantic-release-action/commit/6cfcf38c9b9cce2215ff5ae7f509b6501c8f8206))
+
 ## [2.0.1](https://github.com/cycjimmy/semantic-release-action/compare/v2.0.0...v2.0.1) (2019-10-26)
 
 
