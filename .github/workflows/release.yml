@@ -16,32 +16,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Setup Node.js with GitHub Package Registry
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          registry-url: 'https://npm.pkg.github.com'
-          scope: 'cycjimmy'
-          always-auth: true
-
-      - name: Setup Node.js with Npm Package Registry
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          registry-url: 'https://registry.npmjs.org'
-          always-auth: true
-
-      - name: Set .npmrc
-        env:
-          CI: true
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN" > /home/runner/work/_temp/.npmrc
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> /home/runner/work/_temp/.npmrc
-
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@master
         id: semantic
@@ -54,9 +28,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Setup Node.js with GitHub Package Registry
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          registry-url: 'https://npm.pkg.github.com'
+          scope: 'cycjimmy'
+
       - name: Publish To GitHub Package Registry
         if: steps.semantic.outputs.new_release_published == 'true'
-        run: npm publish --@cycjimmy:registry='https://npm.pkg.github.com'
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
