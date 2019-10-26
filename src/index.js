@@ -62,9 +62,7 @@ const release = async () => {
 
   // Clean up `.npmrc` file in the repo after releasing
   {
-    const {stdout, stderr} = await exec(`rm -f .npmrc`, {
-      cwd: path.resolve(__dirname)
-    });
+    const {stdout, stderr} = await exec(`rm -f .npmrc`);
     core.debug(stdout);
     if (stderr) {
       core.debug(stderr);
