@@ -2,7 +2,22 @@ const core = require('@actions/core');
 const inputs = require('./inputs.json');
 
 /**
- * handleDryRunOption
+ * Handle Branch Option
+ * @returns {{}|{branch: string}}
+ */
+exports.handleBranchOption = () => {
+  const branchOption = {};
+  const branch = core.getInput(inputs.branch);
+
+  if (branch) {
+    branchOption.branch = branch;
+  }
+
+  return branchOption;
+};
+
+/**
+ * Handle DryRun Option
  * @returns {{}|{dryRun: boolean}}
  */
 exports.handleDryRunOption = () => {
