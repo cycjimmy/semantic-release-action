@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/cycjimmy/semantic-release-action/compare/v2.0.2...v2.0.3) (2019-10-28)
+
+
+### Bug Fixes
+
+* **inputs:** adjust the default for the "branch" configuration ([e5c555a](https://github.com/cycjimmy/semantic-release-action/commit/e5c555a6131ac6c67ba74b1e2d5e5cde56d38d10))
+
 ## [2.0.2](https://github.com/cycjimmy/semantic-release-action/compare/v2.0.1...v2.0.2) (2019-10-26)
 
 
