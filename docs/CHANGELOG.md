@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.0.3...v2.1.0) (2019-10-31)
+
+
+### Features
+
+* **inputs:** add semantic_version to specify version range([#3](https://github.com/cycjimmy/semantic-release-action/issues/3)) ([55e8862](https://github.com/cycjimmy/semantic-release-action/commit/55e8862f175cf05a7550c87bdbca1b440aeb1000))
+
 ## [2.0.3](https://github.com/cycjimmy/semantic-release-action/compare/v2.0.2...v2.0.3) (2019-10-28)
 
 
