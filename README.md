@@ -18,6 +18,7 @@ GitHub Action for [Semantic Release](https://github.com/semantic-release/semanti
 #### Step3: Add a [Workflow File](https://help.github.com/en/articles/workflow-syntax-for-github-actions) to your repository to create custom automated processes.
 * inputs:
   * `branch`: [Optional] The branch on which releases should happen. It will override the branch attribute in your configuration file. If the attribute is not configured on both sides, the default is master.
+  * `semantic_version`: [Optional] Specify specifying version range for semantic-release. If no version range is specified, semantic-release@^15 will be used by default.
   * `extra_plugins`: [Optional] Extra plugins for pre-install. You can also specify specifying version range for the extra plugins if you prefer.
   * `dry_run`: [Optional] Whether to run semantic release in "dry-run" mode. It will override the dryRun attribute in your configuration file.
 * outputs:
@@ -45,6 +46,7 @@ steps:
     id: semantic   # Need an `id` for output variables
     with:
       branch: master
+      semantic_version: 15.13.28
       # You can specify specifying version range for the extra plugins if you prefer.
       extra_plugins: |
         @semantic-release/git

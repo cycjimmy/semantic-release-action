@@ -7,6 +7,8 @@ branding:
 inputs:
   branch:
     description: 'The branch on which releases should happen. It will override the branch attribute in your configuration file. If the attribute is not configured on both sides, the default is master.'
+  semantic_version:
+    description: 'Specify specifying version range for semantic-release. If no version range is specified, semantic-release@^15 will be used by default.'
   extra_plugins:
     description: 'Extra plugins for pre-install. You can also specify specifying version range for the extra plugins if you prefer.'
   dry_run:
