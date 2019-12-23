@@ -31,6 +31,8 @@ GitHub Action for [Semantic Release](https://github.com/semantic-release/semanti
 A simple example
 ```yaml
 steps:
+  - name: Checkout
+    uses: actions/checkout@v1
   - name: Semantic Release
     uses: cycjimmy/semantic-release-action@v2
     env:
@@ -41,6 +43,8 @@ steps:
 An advanced example
 ```yaml
 steps:
+  - name: Checkout
+    uses: actions/checkout@v1
   - name: Semantic Release
     uses: cycjimmy/semantic-release-action@v2
     id: semantic   # Need an `id` for output variables
