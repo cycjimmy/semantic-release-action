@@ -34,3 +34,18 @@ exports.handleDryRunOption = () => {
       return {};
   }
 };
+
+/**
+ * Handle Extends Option
+ * @returns {{}|{extends: string}}
+ */
+exports.handleExtendsOption = () => {
+  const extendsOption = {};
+  const extends = core.getInput(inputs.extends);
+
+  if (extends) {
+    extendsOption.extends = extends;
+  }
+
+  return extendsOption;
+};

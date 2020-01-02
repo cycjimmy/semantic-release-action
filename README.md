@@ -21,6 +21,7 @@ GitHub Action for [Semantic Release](https://github.com/semantic-release/semanti
   * `semantic_version`: [Optional] Specify specifying version range for semantic-release. If no version range is specified, semantic-release@^15 will be used by default.
   * `extra_plugins`: [Optional] Extra plugins for pre-install. You can also specify specifying version range for the extra plugins if you prefer.
   * `dry_run`: [Optional] Whether to run semantic release in `dry-run` mode. It will override the dryRun attribute in your configuration file.
+  * `extends`: [Optional] Shareable configuration to use. It will override the extends attribute in your configuration file.
 * outputs:
   * `new_release_published`: Whether a new release was published. `true` or `false`
   * `new_release_version`: Version of the new release
@@ -55,6 +56,7 @@ steps:
       extra_plugins: |
         @semantic-release/git
         @semantic-release/changelog@3.0.0
+      extends: .github/release.config.js
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

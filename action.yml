@@ -13,6 +13,8 @@ inputs:
     description: 'Extra plugins for pre-install. You can also specify specifying version range for the extra plugins if you prefer.'
   dry_run:
     description: 'Whether to run semantic release in `dry-run` mode. It will override the dryRun attribute in your configuration file'
+  extends:
+    description: 'Shareable configuration to use. It will override the extends attribute in your configuration file.'
 outputs:
   new_release_published:
     description: 'Whether a new release was published'

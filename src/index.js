@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const {handleBranchOption, handleDryRunOption} = require('./handleOptions');
+const {handleBranchOption, handleDryRunOption, handleExtendsOption} = require('./handleOptions');
 const setUpJob = require('./setUpJob.task');
 const installSpecifyingVersionSemantic = require('./installSpecifyingVersionSemantic.task');
 const preInstallPlugins = require('./preInstallPlugins.task');
@@ -19,6 +19,7 @@ const release = async () => {
   const result = await semanticRelease({
     ...(handleBranchOption()),
     ...(handleDryRunOption()),
+    ...(handleExtendsOption()),
   });
 
   await cleanupNpmrc();
