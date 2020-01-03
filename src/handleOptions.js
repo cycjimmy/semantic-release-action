@@ -41,10 +41,10 @@ exports.handleDryRunOption = () => {
  */
 exports.handleExtendsOption = () => {
   const extendsOption = {};
-  const extends = core.getInput(inputs.extends);
+  const _extends = core.getInput(inputs.extends);
 
   if (extends) {
-    extendsOption.extends = extends;
+    extendsOption.extends = _extends;
   }
 
   return extendsOption;
