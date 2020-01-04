@@ -1,3 +1,4 @@
+const path = require('path');
 const core = require('@actions/core');
 const inputs = require('./inputs.json');
 
@@ -44,7 +45,7 @@ exports.handleExtendsOption = () => {
   const _extends = core.getInput(inputs.extends);
 
   if (_extends) {
-    extendsOption.extends = _extends;
+    extendsOption.extends = path.resolve(_extends);
   }
 
   return extendsOption;
