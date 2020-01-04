@@ -27,8 +27,11 @@ GitHub Action for [Semantic Release](https://github.com/semantic-release/semanti
   * `new_release_major_version`: Major version of the new release
   * `new_release_minor_version`: Minor version of the new release
   * `new_release_patch_version`: Patch version of the new release
+  
+### Examples
 
-A simple example
+#### A simple example
+
 ```yaml
 steps:
   - name: Checkout
@@ -40,7 +43,8 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-An advanced example
+#### Using `branch` and `semantic_version`
+
 ```yaml
 steps:
   - name: Checkout
@@ -51,11 +55,6 @@ steps:
     with:
       branch: master
       semantic_version: 15.13.28
-      # You can specify specifying version range for the extra plugins if you prefer.
-      extra_plugins: |
-        @semantic-release/git
-        @semantic-release/changelog@3.0.0
-      # NOTE: These extra plugins must also be specified in the your release config's plugins array
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -64,6 +63,40 @@ steps:
     if: steps.semantic.outputs.new_release_published == 'true'
     run: ...
 ```
+
+#### Passing Extra Plugins with `extra_plugins`
+
+The action can be used with `extra_plugins` option to specify plugins which are not in the [default list of plugins of semantic release](https://semantic-release.gitbook.io/semantic-release/usage/plugins#default-plugins). When using this option, please make sure that these plugins are also mentioned in your [semantic release config's plugins](https://semantic-release.gitbook.io/semantic-release/usage/configuration#plugins) array. For example, if you want to use `@semantic-release/git` and `@semantic-release/changelog` extra plugins, these must be added to `extra_plugins` in your actions file and `plugins` in your [release config file](https://semantic-release.gitbook.io/semantic-release/usage/configuration#configuration-file) as shown bellow:
+
+_github-action_
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v1
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v2
+    id: semantic   # Need an `id` for output variables
+    with:
+      # You can specify specifying version range for the extra plugins if you prefer.
+      extra_plugins: |
+        @semantic-release/git
+        @semantic-release/changelog@3.0.0
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+_release-config_
+
+```diff
+  plugins: [
+    .
+    .
++   "@semantic-release/git",
++   "@semantic-release/changelog"
+  ]
+```
+
 
 ## [CHANGELOG](./docs/CHANGELOG.md)
 
