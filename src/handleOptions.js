@@ -43,7 +43,7 @@ exports.handleExtendsOption = () => {
   const extendsOption = {};
   const _extends = core.getInput(inputs.extends);
 
-  if (extends) {
+  if (_extends) {
     extendsOption.extends = _extends;
   }
 
