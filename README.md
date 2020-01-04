@@ -55,6 +55,7 @@ steps:
       extra_plugins: |
         @semantic-release/git
         @semantic-release/changelog@3.0.0
+      # NOTE: These extra plugins must also be specified in the your release config's plugins array
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
