@@ -9,12 +9,11 @@ const inputs = require('./inputs.json');
  */
 module.exports = async () => {
   const semantic_version = core.getInput(inputs.semantic_version);
+  const versionSuffix = semantic_version
+    ? `@${semantic_version}`
+    : '';
 
-  if (!semantic_version) {
-    return Promise.resolve();
-  }
-
-  const {stdout, stderr} = await exec(`npm install semantic-release@${semantic_version}`, {
+  const {stdout, stderr} = await exec(`npm install semantic-release${versionSuffix}`, {
     cwd: path.resolve(__dirname, '..')
   });
   core.debug(stdout);

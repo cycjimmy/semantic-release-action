@@ -17,7 +17,7 @@ jobs:
         uses: ./
         with:
           extra_plugins: |
-            @semantic-release/git@7.0.18
+            @semantic-release/git
             @semantic-release/changelog
           dry_run: true
         env:
