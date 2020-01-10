@@ -18,6 +18,7 @@ jobs:
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@master
+        id: semantic
         with:
           extra_plugins: |
             @semantic-release/git@7.0.18
