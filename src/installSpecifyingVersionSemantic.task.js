@@ -15,7 +15,7 @@ module.exports = async () => {
   }
 
   const {stdout, stderr} = await exec(`npm install semantic-release@${semantic_version}`, {
-    cwd: path.resolve(__dirname)
+    cwd: path.resolve(__dirname, '..')
   });
   core.debug(stdout);
 

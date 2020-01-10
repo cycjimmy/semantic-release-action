@@ -19,7 +19,7 @@ module.exports = async () => {
     .replace(/[\n\r]/g, ' ');
 
   const {stdout, stderr} = await exec(`npm install ${_extraPlugins}`, {
-    cwd: path.resolve(__dirname)
+    cwd: path.resolve(__dirname, '..')
   });
   core.debug(stdout);
 
