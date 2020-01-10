@@ -51,17 +51,12 @@ steps:
     uses: actions/checkout@v1
   - name: Semantic Release
     uses: cycjimmy/semantic-release-action@v2
-    id: semantic   # Need an `id` for output variables
     with:
       branch: master
       semantic_version: 15.13.28
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      
-  - name: Do something when a new release published
-    if: steps.semantic.outputs.new_release_published == 'true'
-    run: ...
 ```
 
 #### Passing Extra Plugins with `extra_plugins`
@@ -75,7 +70,6 @@ steps:
     uses: actions/checkout@v1
   - name: Semantic Release
     uses: cycjimmy/semantic-release-action@v2
-    id: semantic   # Need an `id` for output variables
     with:
       # You can specify specifying version range for the extra plugins if you prefer.
       extra_plugins: |
@@ -97,6 +91,25 @@ _release-config_
   ]
 ```
 
+#### Using Output Variables
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v1
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v2
+    id: semantic   # Need an `id` for output variables
+    with:
+      branch: master
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+  - name: Do something when a new release published
+    if: steps.semantic.outputs.new_release_published == 'true'
+    run: ...
+```
 
 ## [CHANGELOG](./docs/CHANGELOG.md)
 
