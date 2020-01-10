@@ -22,6 +22,6 @@
   "homepage": "https://github.com/cycjimmy/semantic-release-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.0",
-    "semantic-release": "^15.13.28"
+    "semantic-release": "^15.14.0"
   }
 }
