@@ -16,9 +16,10 @@ jobs:
       - name: Semantic Release
         uses: ./
         with:
+          semantic_version: 15
           extra_plugins: |
-            @semantic-release/git
-            @semantic-release/changelog
+            @semantic-release/git@7
+            @semantic-release/changelog@3
           dry_run: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

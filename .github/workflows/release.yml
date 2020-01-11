@@ -21,6 +21,7 @@ jobs:
         id: semantic
         with:
           branch: master
+          semantic_version: 15
           extra_plugins: |
             @semantic-release/git@7
             @semantic-release/changelog@3
