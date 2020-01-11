@@ -43,22 +43,6 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-#### Using `branch` and `semantic_version`
-
-```yaml
-steps:
-  - name: Checkout
-    uses: actions/checkout@v2
-  - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v3
-    with:
-      branch: master
-      semantic_version: 15.13.28
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-```
-
 #### Passing Extra Plugins with `extra_plugins`
 
 The action can be used with `extra_plugins` option to specify plugins which are not in the [default list of plugins of semantic release](https://semantic-release.gitbook.io/semantic-release/usage/plugins#default-plugins). When using this option, please make sure that these plugins are also mentioned in your [semantic release config's plugins](https://semantic-release.gitbook.io/semantic-release/usage/configuration#plugins) array. For example, if you want to use `@semantic-release/git` and `@semantic-release/changelog` extra plugins, these must be added to `extra_plugins` in your actions file and `plugins` in your [release config file](https://semantic-release.gitbook.io/semantic-release/usage/configuration#configuration-file) as shown bellow:
@@ -89,6 +73,25 @@ _release-config_
 +   "@semantic-release/git",
 +   "@semantic-release/changelog"
   ]
+```
+
+#### Manually Specify a Version of Semantic-release and Its Plugins
+
+It is recommended to manually specify a version of semantic-release and its plugins to prevent errors caused during the official semantic-release upgrade.
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v2
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v3
+    with:
+      semantic_version: 15.14.0
+      extra_plugins: |
+        @semantic-release/git@7.0.18
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
 #### Using Output Variables
