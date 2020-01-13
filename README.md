@@ -37,7 +37,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v2
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v3
+    uses: cycjimmy/semantic-release-action@v2
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -53,7 +53,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v2
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v3
+    uses: cycjimmy/semantic-release-action@v2
     with:
       # You can specify specifying version range for the extra plugins if you prefer.
       extra_plugins: |
@@ -84,7 +84,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v2
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v3
+    uses: cycjimmy/semantic-release-action@v2
     with:
       semantic_version: 15.14.0
       extra_plugins: |
@@ -101,7 +101,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v2
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v3
+    uses: cycjimmy/semantic-release-action@v2
     id: semantic   # Need an `id` for output variables
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

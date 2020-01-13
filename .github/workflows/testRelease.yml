@@ -20,10 +20,9 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
         with:
-          semantic_version: 15
           extra_plugins: |
-            @semantic-release/git@7
-            @semantic-release/changelog@3
+            @semantic-release/git
+            @semantic-release/changelog
           dry_run: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
