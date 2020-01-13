@@ -1,3 +1,15 @@
+## [2.1.1](https://github.com/cycjimmy/semantic-release-action/compare/v2.1.0...v2.1.1) (2020-01-13)
+
+
+### Bug Fixes
+
+* **install:** uninterrupted installation errors ([3a7ccd6](https://github.com/cycjimmy/semantic-release-action/commit/3a7ccd6a7fe4ed5e17de6560568e0b7b200709ed))
+
+
+### Performance Improvements
+
+* use the latest version of semantic-release by default ([600e4f0](https://github.com/cycjimmy/semantic-release-action/commit/600e4f0e2b761e1745995b660d7d8a8977172d26))
+
 # [2.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.0.3...v2.1.0) (2019-10-31)
 
 
