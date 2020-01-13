@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/cycjimmy/semantic-release-action/compare/v2.1.1...v2.1.2) (2020-01-13)
+
+
+### Bug Fixes
+
+* fix wrong version ([db14ba3](https://github.com/cycjimmy/semantic-release-action/commit/db14ba3eee0c681deee056535d2da3cc39a9411b))
+
 ## [2.1.1](https://github.com/cycjimmy/semantic-release-action/compare/v2.1.0...v2.1.1) (2020-01-13)
 
 
