@@ -22,8 +22,5 @@ module.exports = async () => {
     cwd: path.resolve(__dirname, '..')
   });
   core.debug(stdout);
-
-  if (stderr) {
-    return Promise.reject(stderr);
-  }
+  core.error(stderr);
 };
