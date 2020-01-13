@@ -21,9 +21,10 @@ jobs:
         id: semantic
         with:
           branch: master
+          semantic_version: 15
           extra_plugins: |
-            @semantic-release/git@7.0.18
-            @semantic-release/changelog
+            @semantic-release/git@7
+            @semantic-release/changelog@3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
