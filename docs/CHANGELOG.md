@@ -1,3 +1,10 @@
+## [2.1.3](https://github.com/cycjimmy/semantic-release-action/compare/v2.1.2...v2.1.3) (2020-01-19)
+
+
+### Bug Fixes
+
+* **branch:** parameter `branch` does not work in semantic v16 ([3e27c51](https://github.com/cycjimmy/semantic-release-action/commit/3e27c518af9a3d781b70e0cf1cbccc626ae7f4f3)), closes [#15](https://github.com/cycjimmy/semantic-release-action/issues/15) [#15](https://github.com/cycjimmy/semantic-release-action/issues/15)
+
 ## [2.1.2](https://github.com/cycjimmy/semantic-release-action/compare/v2.1.1...v2.1.2) (2020-01-13)
 
 
