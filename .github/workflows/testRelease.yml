@@ -20,6 +20,7 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
         with:
+          branch: master
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
