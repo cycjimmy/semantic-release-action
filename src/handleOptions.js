@@ -9,8 +9,18 @@ exports.handleBranchOption = () => {
   const branchOption = {};
   const branch = core.getInput(inputs.branch);
 
-  if (branch) {
+  if (!branch) {
+    return branchOption;
+  }
+
+  const semanticVersion = require('semantic-release/package.json').version;
+  const semanticMajorVersion = Number(semanticVersion.replace(/\..+/g, ''));
+  core.debug(`semanticMajorVersion: ${semanticMajorVersion}`);
+
+  if (semanticMajorVersion < 16) {
     branchOption.branch = branch;
+  } else {
+    branchOption.branches = [branch];
   }
 
   return branchOption;
