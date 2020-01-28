@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/cycjimmy/semantic-release-action#readme",
   "dependencies": {
-    "@actions/core": "1.2.2"
+    "@actions/core": "1.2.2",
+    "marked": "0.7.0",
+    "@octokit/core": "2.1.2"
   }
 }
