@@ -57,8 +57,8 @@ steps:
     with:
       # You can specify specifying version range for the extra plugins if you prefer.
       extra_plugins: |
-        @semantic-release/git
         @semantic-release/changelog@3.0.0
+        @semantic-release/git
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -70,8 +70,8 @@ _release-config_
   plugins: [
     .
     .
-+   "@semantic-release/git",
 +   "@semantic-release/changelog"
++   "@semantic-release/git",
   ]
 ```
 
