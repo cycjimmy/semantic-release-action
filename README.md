@@ -109,7 +109,7 @@ steps:
       
   - name: Do something when a new release published
     if: steps.semantic.outputs.new_release_published == 'true'
-    run: ...
+    run: echo ${{ steps.semantic.outputs.new_release_version }}
 ```
 
 ## [CHANGELOG](./docs/CHANGELOG.md)
