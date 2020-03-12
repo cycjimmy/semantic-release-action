@@ -20,6 +20,8 @@ inputs:
   dry_run:
     required: false
     description: 'Whether to run semantic release in `dry-run` mode. It will override the dryRun attribute in your configuration file'
+  extends:
+    description: 'One or several sharable configurations, https://semantic-release.gitbook.io/semantic-release/usage/configuration#extends'
 outputs:
   new_release_published:
     description: 'Whether a new release was published'

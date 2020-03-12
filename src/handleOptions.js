@@ -59,3 +59,17 @@ exports.handleDryRunOption = () => {
       return {};
   }
 };
+
+/**
+ * Handle Extends Option
+ * @returns {{}|{extends: Array}|{extends: String}}
+ */
+exports.handleExtends = () => {
+  const extend = core.getInput(inputs.extends);
+
+  if (extend) {
+    return { extends: extend };
+  } else {
+    return {};
+  }
+};
