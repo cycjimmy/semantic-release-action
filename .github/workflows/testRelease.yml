@@ -36,4 +36,5 @@ jobs:
           echo ${{ steps.semantic.outputs.new_release_major_version }}
           echo ${{ steps.semantic.outputs.new_release_minor_version }}
           echo ${{ steps.semantic.outputs.new_release_patch_version }}
+          echo ${{ steps.semantic.outputs.new_release_notes }}
 
