@@ -27,6 +27,7 @@ GitHub Action for [Semantic Release](https://github.com/semantic-release/semanti
   * `new_release_major_version`: Major version of the new release
   * `new_release_minor_version`: Minor version of the new release
   * `new_release_patch_version`: Patch version of the new release
+  * `new_release_notes`: The release notes for the new release.
   
 ### Examples
 
