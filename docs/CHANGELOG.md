@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.1.3...v2.2.0) (2020-03-15)
+
+
+### Features
+
+* add release notes to output ([a56320d](https://github.com/cycjimmy/semantic-release-action/commit/a56320d643d6a8e0c688a84f18449153865b8bc4))
+
 ## [2.1.3](https://github.com/cycjimmy/semantic-release-action/compare/v2.1.2...v2.1.3) (2020-01-19)
 
 
