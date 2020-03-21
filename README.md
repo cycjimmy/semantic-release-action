@@ -54,7 +54,7 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-**It is recommended to manually specify a version of semantic-release and its plugins to prevent errors caused during the official semantic-release upgrade.**
+*It is recommended to manually specify a version of semantic-release to prevent errors caused during the official semantic-release upgrade.*
 
 #### branches
 > {Optional Input Parameter} The branches on which releases should happen. `branches` supports for **semantic-release above v16**.
@@ -146,7 +146,7 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-**It is recommended to manually specify a version of semantic-release and its plugins to prevent errors caused during the official semantic-release upgrade.**
+Similar to parameter `semantic_version`. *It is recommended to manually specify a version of semantic-release plugins to prevent errors caused.*
 
 ##### Release Config:
 ```diff
@@ -223,3 +223,4 @@ This project are released under the [MIT License][license-url].
 [license-url]: https://github.com/cycjimmy/semantic-release-action/blob/master/LICENSE
 
 [changelog-url]: https://github.com/cycjimmy/semantic-release-action/blob/master/docs/CHANGELOG.md
+
