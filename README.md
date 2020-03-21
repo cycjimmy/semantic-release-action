@@ -45,6 +45,53 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
+#### Setting `semantic_version` and `branch | branches` manually
+It is recommended to specify specifying version range for semantic-release. If no version range is specified, latest version will be used by default.
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v2
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v2
+    with:
+      semantic_version: 15.13.28  # It is recommended to specify specifying version range
+                                  # for semantic-release.
+      branch: master              # you can set branch for semantic-release older than v16.
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v2
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v2
+    with:
+      semantic_version: 16
+      # you can set branches for semantic-release above v16.
+      branches: |    
+        [
+          '+([0-9])?(.{+([0-9]),x}).x',
+          'master', 
+          'next', 
+          'next-major', 
+          {
+            name: 'beta', 
+            prerelease: true
+          }, 
+          {
+            name: 'alpha', 
+            prerelease: true
+          }
+        ]
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
 #### Passing Extra Plugins with `extra_plugins`
 
 The action can be used with `extra_plugins` option to specify plugins which are not in the [default list of plugins of semantic release](https://semantic-release.gitbook.io/semantic-release/usage/plugins#default-plugins). When using this option, please make sure that these plugins are also mentioned in your [semantic release config's plugins](https://semantic-release.gitbook.io/semantic-release/usage/configuration#plugins) array. For example, if you want to use `@semantic-release/git` and `@semantic-release/changelog` extra plugins, these must be added to `extra_plugins` in your actions file and `plugins` in your [release config file](https://semantic-release.gitbook.io/semantic-release/usage/configuration#configuration-file) as shown bellow:
