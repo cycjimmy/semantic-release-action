@@ -9,22 +9,28 @@ on:
     - cron: 0 2 * * 0
 
 jobs:
-  test:
-    name: release
+  test-semantic-latest:
+    name: test-semantic-latest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: ./
         id: semantic
         with:
+          dry_run: true
+          branches: |
+            [
+              'master',
+              {name: 'beta', prerelease: true},
+              {name: 'alpha', prerelease: true}
+            ]
           branch: master
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
-          dry_run: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -36,5 +42,40 @@ jobs:
           echo ${{ steps.semantic.outputs.new_release_major_version }}
           echo ${{ steps.semantic.outputs.new_release_minor_version }}
           echo ${{ steps.semantic.outputs.new_release_patch_version }}
-          echo ${{ steps.semantic.outputs.new_release_notes }}
+
+  test-semantic-v15:
+    name: test-semantic-v15
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Semantic Release
+        uses: ./
+        id: semantic_v15
+        with:
+          semantic_version: 15
+          dry_run: true
+          branches: |
+            [
+              'master',
+              {name: 'beta', prerelease: true},
+              {name: 'alpha', prerelease: true}
+            ]
+          branch: master
+          extra_plugins: |
+            @semantic-release/git@7
+            @semantic-release/changelog@3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Test Outputs
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: |
+          echo ${{ steps.semantic.outputs.new_release_version }}
+          echo ${{ steps.semantic.outputs.new_release_major_version }}
+          echo ${{ steps.semantic.outputs.new_release_minor_version }}
+          echo ${{ steps.semantic.outputs.new_release_patch_version }}
+
 
