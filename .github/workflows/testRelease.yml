@@ -70,7 +70,7 @@ jobs:
 
       - name: Semantic Release
         uses: ./
-        id: semantic_v15
+        id: semantic
         with:
           semantic_version: 15
           dry_run: true
