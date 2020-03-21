@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.2.0...v2.3.0) (2020-03-21)
+
+
+### Features
+
+* **branches:** support branches of semantic-release v16+ ([706c0ef](https://github.com/cycjimmy/semantic-release-action/commit/706c0ef960497657ddf0655d0a69732323d93238)), closes [#24](https://github.com/cycjimmy/semantic-release-action/issues/24) [#25](https://github.com/cycjimmy/semantic-release-action/issues/25)
+
 # [2.2.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.1.3...v2.2.0) (2020-03-15)
 
 
