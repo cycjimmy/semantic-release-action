@@ -17,8 +17,9 @@ GitHub Action for [Semantic Release](https://github.com/semantic-release/semanti
 
 #### Step3: Add a [Workflow File](https://help.github.com/en/articles/workflow-syntax-for-github-actions) to your repository to create custom automated processes.
 * inputs:
-  * `branch`: [Optional] The branch on which releases should happen. It will override the branch attribute in your configuration file. If the attribute is not configured on both sides, the default is master.
   * `semantic_version`: [Optional] Specify specifying version range for semantic-release. If no version range is specified, latest version will be used by default.
+  * `branches`: [Optional] The branches on which releases should happen. It will override the branches attribute in your configuration file. If the attribute is not configured on both sides, the default is `['+([0-9])?(.{+([0-9]),x}).x', 'master', 'next', 'next-major', {name: 'beta', prerelease: true}, {name: 'alpha', prerelease: true}]`. **Support for semantic-release above v16**. See https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches for more information.
+  * `branch`: [Optional] The branch on which releases should happen. It will override the branch attribute in your configuration file. If the attribute is not configured on both sides, the default is master. **Support for semantic-release older than v16**.
   * `extra_plugins`: [Optional] Extra plugins for pre-install. You can also specify specifying version range for the extra plugins if you prefer.
   * `dry_run`: [Optional] Whether to run semantic release in `dry-run` mode. It will override the dryRun attribute in your configuration file.
 * outputs:
@@ -39,6 +40,53 @@ steps:
     uses: actions/checkout@v2
   - name: Semantic Release
     uses: cycjimmy/semantic-release-action@v2
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+#### Setting `semantic_version` and `branch | branches` manually
+It is recommended to specify specifying version range for semantic-release. If no version range is specified, latest version will be used by default.
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v2
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v2
+    with:
+      semantic_version: 15.13.28  # It is recommended to specify specifying version range
+                                  # for semantic-release.
+      branch: master              # you can set branch for semantic-release older than v16.
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v2
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v2
+    with:
+      semantic_version: 16
+      # you can set branches for semantic-release above v16.
+      branches: |    
+        [
+          '+([0-9])?(.{+([0-9]),x}).x',
+          'master', 
+          'next', 
+          'next-major', 
+          {
+            name: 'beta', 
+            prerelease: true
+          }, 
+          {
+            name: 'alpha', 
+            prerelease: true
+          }
+        ]
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
