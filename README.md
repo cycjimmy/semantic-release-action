@@ -208,7 +208,7 @@ steps:
 See [CHANGELOG][changelog-url].
 
 ## License
-This project are released under the [MIT License][license-url].
+This project is released under the [MIT License][license-url].
 
 <!-- Links: -->
 [workflows-badge-image]: https://github.com/cycjimmy/semantic-release-action/workflows/Test%20Release/badge.svg
