@@ -31,14 +31,14 @@ If you are using this action for protected branches, replace `GITHUB_TOKEN` with
 ### Inputs
 | Input Parameter  | Required | Description |
 |:----------------:|:--------:|-------------|
-| semantic_version | false    | [Details](#semantic_version) |
-| branches         | false    | [Details](#branches) |
-| branch           | false    | [Details](#branch) |
-| extra_plugins    | false    | [Details](#extra_plugins) |
-| dry_run          | false    | [Details](#dry_run) |
+| semantic_version | false    | Specify specifying version range for semantic-release. [[Details](#semantic_version)] |
+| branches         | false    | The branches on which releases should happen.[[Details](#branches)]<br>Support for **semantic-release above v16**. |
+| branch           | false    | The branch on which releases should happen.[[Details](#branch)]<br>Only support for **semantic-release older than v16**. |
+| extra_plugins    | false    | Extra plugins for pre-install. [[Details](#extra_plugins)] |
+| dry_run          | false    | Whether to run semantic release in `dry-run` mode. [[Details](#dry_run)] |
 
 #### semantic_version
-> {Optional Input Parameter} Specify specifying version range for semantic-release. If no version range is specified, latest version will be used by default.
+> {Optional Input Parameter} Specify specifying version range for semantic-release.<br>If no version range is specified, latest version will be used by default.
 
 ```yaml
 steps:
@@ -57,7 +57,7 @@ steps:
 *It is recommended to manually specify a version of semantic-release to prevent errors caused during the official semantic-release upgrade.*
 
 #### branches
-> {Optional Input Parameter} The branches on which releases should happen. `branches` supports for **semantic-release above v16**.
+> {Optional Input Parameter} The branches on which releases should happen.<br>`branches` supports for **semantic-release above v16**.
 
 ```yaml
 steps:
@@ -103,7 +103,7 @@ steps:
 See [configuration#branches](https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches) for more information.
 
 #### branch
-> {Optional Input Parameter} Similar to parameter `branches`. The branch on which releases should happen. `branch` only supports for **semantic-release older than v16**.
+> {Optional Input Parameter} Similar to parameter `branches`. The branch on which releases should happen.<br>`branch` only supports for **semantic-release older than v16**.
 
 ```yaml
 steps:
@@ -125,11 +125,11 @@ It will override the `branch` attribute in your configuration file. If the attri
 #### extra_plugins
 > {Optional Input Parameter} Extra plugins for pre-install. 
 
-##### Passing Extra Plugins with `extra_plugins`:
+The action can be used with `extra_plugins` option to specify plugins which are not in the [default list of plugins of semantic release](https://semantic-release.gitbook.io/semantic-release/usage/plugins#default-plugins). When using this option, please make sure that these plugins are also mentioned in your [semantic release config's plugins](https://semantic-release.gitbook.io/semantic-release/usage/configuration#plugins) array. 
 
-The action can be used with `extra_plugins` option to specify plugins which are not in the [default list of plugins of semantic release](https://semantic-release.gitbook.io/semantic-release/usage/plugins#default-plugins). When using this option, please make sure that these plugins are also mentioned in your [semantic release config's plugins](https://semantic-release.gitbook.io/semantic-release/usage/configuration#plugins) array. For example, if you want to use `@semantic-release/git` and `@semantic-release/changelog` extra plugins, these must be added to `extra_plugins` in your actions file and `plugins` in your [release config file](https://semantic-release.gitbook.io/semantic-release/usage/configuration#configuration-file) as shown bellow:
+For example, if you want to use `@semantic-release/git` and `@semantic-release/changelog` extra plugins, these must be added to `extra_plugins` in your actions file and `plugins` in your [release config file](https://semantic-release.gitbook.io/semantic-release/usage/configuration#configuration-file) as shown bellow:
 
-##### Github Action Workflow:
+Github Action Workflow:
 ```yaml
 steps:
   - name: Checkout
@@ -148,7 +148,7 @@ steps:
 
 Similar to parameter `semantic_version`. *It is recommended to manually specify a version of semantic-release plugins to prevent errors caused.*
 
-##### Release Config:
+Release Config:
 ```diff
   plugins: [
     .
@@ -158,7 +158,7 @@ Similar to parameter `semantic_version`. *It is recommended to manually specify 
 ```
 
 #### dry_run
-> {Optional Input Parameter} Whether to run semantic release in `dry-run` mode.<br> It will override the dryRun attribute in your configuration file.
+> {Optional Input Parameter} Whether to run semantic release in `dry-run` mode.<br>It will override the dryRun attribute in your configuration file.
 
 ```yaml
 steps:
@@ -183,7 +183,7 @@ steps:
 | new_release_patch_version | Patch version of the new release. (e.g. `0`) |
 | new_release_notes         | The release notes for the new release. |
 
-Using Output Variables:
+#### Using Output Variables:
 ```yaml
 steps:
   - name: Checkout
@@ -205,7 +205,7 @@ steps:
 ```
 
 ## Changelog
-See [CHANGELOG.md][changelog-url].
+See [CHANGELOG][changelog-url].
 
 ## License
 This project are released under the [MIT License][license-url].
