@@ -3,5 +3,6 @@
   "branches": "branches",
   "branch": "branch",
   "extra_plugins": "extra_plugins",
-  "dry_run": "dry_run"
+  "dry_run": "dry_run",
+  "extends": "extends"
 }

@@ -36,6 +36,7 @@ If you are using this action for protected branches, replace `GITHUB_TOKEN` with
 | branch           | false    | The branch on which releases should happen.[[Details](#branch)]<br>Only support for **semantic-release older than v16**. |
 | extra_plugins    | false    | Extra plugins for pre-install. [[Details](#extra_plugins)] |
 | dry_run          | false    | Whether to run semantic release in `dry-run` mode. [[Details](#dry_run)] |
+| extends          | false    | Use a sharable configuration [[Details](#extends)] |
 
 #### semantic_version
 > {Optional Input Parameter} Specify specifying version range for semantic-release.<br>If no version range is specified, latest version will be used by default.
@@ -168,6 +169,26 @@ steps:
     uses: cycjimmy/semantic-release-action@v2
     with:
       dry_run: true
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+#### extends
+The action can be used with `extends` option to extend an existing [sharable configuration](https://semantic-release.gitbook.io/semantic-release/usage/shareable-configurations) of semantic-release. Can be used in combination with `extra_plugins`.
+
+_github-action_
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v2
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v2
+    with:
+      # You can specify specifying version range for the extra plugins if you prefer.
+      extends: |
+        @semantic-release/apm-config
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
