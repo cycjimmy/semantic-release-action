@@ -1,3 +1,15 @@
+# [2.4.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.3.0...v2.4.0) (2020-04-30)
+
+
+### Bug Fixes
+
+* fixes rebase mistake for import of renamed func ([ddb8d28](https://github.com/cycjimmy/semantic-release-action/commit/ddb8d2814d0253519aec32bec92600fc9fc9a305))
+
+
+### Features
+
+* added ability to use the "extends" settings ([32db8a4](https://github.com/cycjimmy/semantic-release-action/commit/32db8a49b25f46b98a901084ada97b6aa7343813))
+
 # [2.3.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.2.0...v2.3.0) (2020-03-21)
 
 
