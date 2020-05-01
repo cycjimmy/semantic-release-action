@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/cycjimmy/semantic-release-action/compare/v2.4.0...v2.4.1) (2020-05-01)
+
+
+### Bug Fixes
+
+* **deps:** Update @actions/core to ^1.2.4 ([00f8039](https://github.com/cycjimmy/semantic-release-action/commit/00f8039cb6e50b6a052d33f8bbc76462e49a16ee))
+
 # [2.4.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.3.0...v2.4.0) (2020-04-30)
 
 
