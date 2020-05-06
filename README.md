@@ -177,8 +177,6 @@ steps:
 #### extends
 The action can be used with `extends` option to extend an existing [sharable configuration](https://semantic-release.gitbook.io/semantic-release/usage/shareable-configurations) of semantic-release. Can be used in combination with `extra_plugins`.
 
-_github-action_
-
 ```yaml
 steps:
   - name: Checkout
