@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/cycjimmy/semantic-release-action/compare/v2.4.1...v2.4.2) (2020-07-02)
+
+
+### Bug Fixes
+
+* **new_release_patch_version:** fix the problem of inaccurate new_release_patch_version ([5da0ac5](https://github.com/cycjimmy/semantic-release-action/commit/5da0ac558eb3a3a8eb75460ff9bd55cb1217da2d))
+
 ## [2.4.1](https://github.com/cycjimmy/semantic-release-action/compare/v2.4.0...v2.4.1) (2020-05-01)
 
 
