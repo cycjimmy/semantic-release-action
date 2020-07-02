@@ -6,7 +6,6 @@ on:
       - master
       - next
       - next-major
-      - next-major
       - alpha
       - beta
       - 'feat/**'

@@ -34,6 +34,8 @@ outputs:
     description: 'Minor version of the new release'
   new_release_patch_version:
     description: 'Patch version of the new release'
+  new_release_channel:
+    description: 'The distribution channel on which the last release was initially made available (undefined for the default distribution channel).'
   new_release_notes:
     description: 'The release notes for the new release.'
 runs:

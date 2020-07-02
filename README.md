@@ -200,6 +200,7 @@ steps:
 | new_release_major_version | Major version of the new release. (e.g. `1`) |
 | new_release_minor_version | Minor version of the new release. (e.g. `3`) |
 | new_release_patch_version | Patch version of the new release. (e.g. `0`) |
+| new_release_channel       | The distribution channel on which the last release was initially made available (undefined for the default distribution channel). |
 | new_release_notes         | The release notes for the new release. |
 
 #### Using Output Variables:

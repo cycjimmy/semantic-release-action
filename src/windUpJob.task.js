@@ -24,7 +24,7 @@ module.exports = async (result) => {
     core.debug(`The release was published with plugin "${release.pluginName}".`);
   }
 
-  const {version, notes} = nextRelease;
+  const {version, channel, notes} = nextRelease;
   const [major, minor, patch] = version.split(/\.|-|\s/g, 3);
 
   // set outputs
@@ -33,5 +33,6 @@ module.exports = async (result) => {
   core.setOutput(outputs.new_release_major_version, major);
   core.setOutput(outputs.new_release_minor_version, minor);
   core.setOutput(outputs.new_release_patch_version, patch);
+  core.setOutput(outputs.new_release_channel, channel);
   core.setOutput(outputs.new_release_notes, notes);
 };
