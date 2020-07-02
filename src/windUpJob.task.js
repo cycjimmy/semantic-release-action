@@ -25,7 +25,7 @@ module.exports = async (result) => {
   }
 
   const {version, notes} = nextRelease;
-  const [major, minor, patch] = version.split('.');
+  const [major, minor, patch] = version.split(/\.|-|\s/g, 3);
 
   // set outputs
   core.setOutput(outputs.new_release_published, 'true');
