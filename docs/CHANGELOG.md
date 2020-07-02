@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.4.2...v2.5.0) (2020-07-02)
+
+
+### Features
+
+* **outputs:** add new_release_channel ([ae40dc6](https://github.com/cycjimmy/semantic-release-action/commit/ae40dc665849d2b1a1a68751c65c88c0474395f4))
+
 ## [2.4.2](https://github.com/cycjimmy/semantic-release-action/compare/v2.4.1...v2.4.2) (2020-07-02)
 
 
