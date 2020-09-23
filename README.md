@@ -28,6 +28,19 @@ steps:
 **IMPORTANT**: `GITHUB_TOKEN` does not have the required permissions to operate on protected branches.
 If you are using this action for protected branches, replace `GITHUB_TOKEN` with [Personal Access Token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line). If using the `@semantic-release/git` plugin for protected branches, avoid persisting credentials as part of `actions/checkout@v2` by setting the parameter `persist-credentials: false`. This credential does not have the required permission to operate on protected branches.
 
+#### Private Packages
+
+If you are using this action to publish to the npm [GitHub Packages Registry][github-packages-registry],
+then make sure that you configure this in your `package.json` file:
+
+```json
+{
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    }
+}
+```
+
 ### Inputs
 | Input Parameter  | Required | Description |
 |:----------------:|:--------:|-------------|
@@ -244,3 +257,4 @@ This project is released under the [MIT License][license-url].
 
 [changelog-url]: https://github.com/cycjimmy/semantic-release-action/blob/master/docs/CHANGELOG.md
 
+[github-packages-registry]: https://github.com/features/packages
