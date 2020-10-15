@@ -197,7 +197,7 @@ steps:
   - name: Semantic Release
     uses: cycjimmy/semantic-release-action@v2
     with:
-      # You can specify specifying version range for the extra plugins if you prefer.
+      # You can extend an existing shareable configuration.
       extends: |
         @semantic-release/apm-config
     env:
