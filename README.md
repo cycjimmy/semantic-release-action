@@ -1,10 +1,11 @@
 # Semantic Release Action
+![][version-image]
 ![][workflows-badge-image]
 [![Release date][release-date-image]][release-url]
 [![semantic-release][semantic-image]][semantic-url]
 [![npm license][license-image]][license-url]
 
-GitHub Action for [Semantic Release](https://github.com/semantic-release/semantic-release). 
+GitHub Action for [Semantic Release][semantic-url]. 
 
 ## Usage
 ### Step1: Set any [Semantic Release Configuration](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration) in your repository.
@@ -35,9 +36,9 @@ then make sure that you configure this in your `package.json` file:
 
 ```json
 {
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
-    }
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
 ```
 
@@ -244,6 +245,8 @@ See [CHANGELOG][changelog-url].
 This project is released under the [MIT License][license-url].
 
 <!-- Links: -->
+[version-image]: https://img.shields.io/github/package-json/v/cycjimmy/semantic-release-action
+
 [workflows-badge-image]: https://github.com/cycjimmy/semantic-release-action/workflows/Test%20Release/badge.svg
 
 [release-date-image]: https://img.shields.io/github/release-date/cycjimmy/semantic-release-action
