@@ -13,7 +13,7 @@ module.exports = async () => {
     ? `@${semantic_version}`
     : '';
 
-  const {stdout, stderr} = await exec(`npm install semantic-release${versionSuffix}`, {
+  const {stdout, stderr} = await exec(`npm install semantic-release${versionSuffix} --silent`, {
     cwd: path.resolve(__dirname, '..')
   });
   core.debug(stdout);
