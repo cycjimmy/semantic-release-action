@@ -1,3 +1,10 @@
+## [2.5.1](https://github.com/cycjimmy/semantic-release-action/compare/v2.5.0...v2.5.1) (2020-11-12)
+
+
+### Bug Fixes
+
+* **deps:** upgrade dependencies ([2a98893](https://github.com/cycjimmy/semantic-release-action/commit/2a988931ba18eb8d84d8a7229672ce2fc932afc6)), closes [#44](https://github.com/cycjimmy/semantic-release-action/issues/44)
+
 # [2.5.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.4.2...v2.5.0) (2020-07-02)
 
 
