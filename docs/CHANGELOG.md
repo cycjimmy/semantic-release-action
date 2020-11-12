@@ -1,3 +1,10 @@
+## [2.5.2](https://github.com/cycjimmy/semantic-release-action/compare/v2.5.1...v2.5.2) (2020-11-12)
+
+
+### Bug Fixes
+
+* use silent installation to prevent npm WARN ([7ca507d](https://github.com/cycjimmy/semantic-release-action/commit/7ca507d26a166ce426d8326c6d47d2ae94e469ff)), closes [#48](https://github.com/cycjimmy/semantic-release-action/issues/48)
+
 ## [2.5.1](https://github.com/cycjimmy/semantic-release-action/compare/v2.5.0...v2.5.1) (2020-11-12)
 
 
