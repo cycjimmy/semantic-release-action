@@ -14,6 +14,11 @@ module.exports = async (result) => {
 
   const {lastRelease, commits, nextRelease, releases} = result;
 
+  if (!nextRelease) {
+    core.debug('No release published.');
+    return Promise.resolve();
+  }
+
   core.debug(`Published ${nextRelease.type} release version ${nextRelease.version} containing ${commits.length} commits.`);
 
   if (lastRelease.version) {
