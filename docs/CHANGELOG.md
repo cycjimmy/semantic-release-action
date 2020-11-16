@@ -1,3 +1,10 @@
+## [2.5.3](https://github.com/cycjimmy/semantic-release-action/compare/v2.5.2...v2.5.3) (2020-11-16)
+
+
+### Bug Fixes
+
+* fix a type error when nextRelease is undefined ([f1ae39a](https://github.com/cycjimmy/semantic-release-action/commit/f1ae39a58a030dccda8bd11b51266b4824871e1f))
+
 ## [2.5.2](https://github.com/cycjimmy/semantic-release-action/compare/v2.5.1...v2.5.2) (2020-11-12)
 
 
