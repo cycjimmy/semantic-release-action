@@ -35,7 +35,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           registry-url: 'https://npm.pkg.github.com'
           scope: 'cycjimmy'
 
