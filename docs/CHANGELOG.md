@@ -1,3 +1,10 @@
+## [2.5.4](https://github.com/cycjimmy/semantic-release-action/compare/v2.5.3...v2.5.4) (2021-04-30)
+
+
+### Bug Fixes
+
+* use error loglevel for installing dependencies ([ed6729b](https://github.com/cycjimmy/semantic-release-action/commit/ed6729b716d281c2c4058d3553f3229a80203a79)), closes [#57](https://github.com/cycjimmy/semantic-release-action/issues/57)
+
 ## [2.5.3](https://github.com/cycjimmy/semantic-release-action/compare/v2.5.2...v2.5.3) (2020-11-16)
 
 
