@@ -4,7 +4,7 @@ const path = require('path');
 const run = async () => {
   // Install Dependencies
   {
-    const {stdout, stderr} = await exec('npm ci --only=prod', {
+    const {stdout, stderr} = await exec('npm --loglevel error ci --only=prod', {
       cwd: path.resolve(__dirname)
     });
     console.log(stdout);
