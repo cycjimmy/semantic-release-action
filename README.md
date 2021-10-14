@@ -216,6 +216,7 @@ steps:
 | new_release_patch_version | Patch version of the new release. (e.g. `0`) |
 | new_release_channel       | The distribution channel on which the last release was initially made available (undefined for the default distribution channel). |
 | new_release_notes         | The release notes for the new release. |
+| last_release_version      | Version of the previous release, if there was one. (e.g. `1.2.0`) |
 
 #### Using Output Variables:
 ```yaml

@@ -40,4 +40,5 @@ module.exports = async (result) => {
   core.setOutput(outputs.new_release_patch_version, patch);
   core.setOutput(outputs.new_release_channel, channel);
   core.setOutput(outputs.new_release_notes, notes);
+  core.setOutput(outputs.last_release_version, lastRelease.version)
 };
