@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.5.4...v2.6.0) (2021-10-15)
+
+
+### Features
+
+* add output for last release version ([f8175c6](https://github.com/cycjimmy/semantic-release-action/commit/f8175c649133e2d9be14098cc4d41f7ef32316b6))
+
 ## [2.5.4](https://github.com/cycjimmy/semantic-release-action/compare/v2.5.3...v2.5.4) (2021-04-30)
 
 
