@@ -22,6 +22,6 @@
   "homepage": "https://github.com/cycjimmy/semantic-release-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@cycjimmy/awesome-js-funcs": "^2.4.0"
+    "@cycjimmy/awesome-js-funcs": "^3.0.1"
   }
 }
