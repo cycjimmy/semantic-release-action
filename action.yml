@@ -38,6 +38,8 @@ outputs:
     description: 'The distribution channel on which the last release was initially made available (undefined for the default distribution channel).'
   new_release_notes:
     description: 'The release notes for the new release.'
+  last_release_version:
+    description: 'Version of the previous release, if there was one.'
 runs:
   using: 'node12'
   main: 'index.js'
