@@ -23,6 +23,9 @@ inputs:
   extends:
     required: false
     description: 'One or several sharable configurations, https://semantic-release.gitbook.io/semantic-release/usage/configuration#extends'
+  working_directory:
+    required: false
+    description: 'Specify another working directory for semantic release. Default one is provided by github.'
 outputs:
   new_release_published:
     description: 'Whether a new release was published'

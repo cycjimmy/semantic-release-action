@@ -16,6 +16,9 @@ const inputs = require('./inputs.json');
  * @returns {Promise<void>}
  */
 const release = async () => {
+  if (core.getInput(inputs.working_directory)) {
+    process.chdir(core.getInput(inputs.working_directory));
+  }
   await setUpJob();
   await installSpecifyingVersionSemantic();
   await preInstall(core.getInput(inputs.extra_plugins));
