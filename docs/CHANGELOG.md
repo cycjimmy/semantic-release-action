@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.6.0...v2.7.0) (2021-12-12)
+
+
+### Features
+
+* add working dir ([7126083](https://github.com/cycjimmy/semantic-release-action/commit/71260837fb05623446dee88dd211f7530838b234))
+
 # [2.6.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.5.4...v2.6.0) (2021-10-15)
 
 
