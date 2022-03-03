@@ -44,5 +44,5 @@ outputs:
   last_release_version:
     description: 'Version of the previous release, if there was one.'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'index.js'
