@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.7.0...v3.0.0) (2022-03-03)
+
+
+### Features
+
+* switch operating environment to node16 ([b5f16ae](https://github.com/cycjimmy/semantic-release-action/commit/b5f16ae54b21667e3af8a1bd015ec069c8237674)), closes [#92](https://github.com/cycjimmy/semantic-release-action/issues/92) [#96](https://github.com/cycjimmy/semantic-release-action/issues/96)
+
+
+### BREAKING CHANGES
+
+* switch operating environment to node16
+
 # [2.7.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.6.0...v2.7.0) (2021-12-12)
 
 
