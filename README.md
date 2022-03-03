@@ -20,7 +20,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v3
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v2
+    uses: cycjimmy/semantic-release-action@v3
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -61,7 +61,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v3
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v2
+    uses: cycjimmy/semantic-release-action@v3
     with:
       semantic_version: 15.13.28  # It is recommended to specify specifying version range
                                   # for semantic-release.
@@ -80,7 +80,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v3
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v2
+    uses: cycjimmy/semantic-release-action@v3
     with:
       semantic_version: 16
       # you can set branches for semantic-release above v16.
@@ -126,7 +126,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v3
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v2
+    uses: cycjimmy/semantic-release-action@v3
     with:
       semantic_version: 15.13.28
       # you can set branch for semantic-release older than v16.
@@ -151,7 +151,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v3
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v2
+    uses: cycjimmy/semantic-release-action@v3
     with:
       # You can specify specifying version range for the extra plugins if you prefer.
       extra_plugins: |
@@ -181,7 +181,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v3
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v2
+    uses: cycjimmy/semantic-release-action@v3
     with:
       dry_run: true
     env:
@@ -197,7 +197,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v3
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v2
+    uses: cycjimmy/semantic-release-action@v3
     with:
       # You can extend an existing shareable configuration.
       extends: |
@@ -215,7 +215,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v3
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v2
+    uses: cycjimmy/semantic-release-action@v3
     with:
       # You can select another working directory like a subdirectory for example.
       working_directory: ./code
@@ -242,7 +242,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v3
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v2
+    uses: cycjimmy/semantic-release-action@v3
     id: semantic   # Need an `id` for output variables
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
