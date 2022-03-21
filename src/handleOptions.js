@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const stringToJson = require('@cycjimmy/awesome-js-funcs/cjs/typeConversion/stringToJson').default;
+const stringToJson = require('@cycjimmy/awesome-js-funcs/cjs/typeConversion/stringToJson.cjs').default;
 const inputs = require('./inputs.json');
 
 /**
