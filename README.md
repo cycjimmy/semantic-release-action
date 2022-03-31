@@ -43,15 +43,15 @@ then make sure that you configure this in your `package.json` file:
 ```
 
 ### Inputs
-| Input Parameter   | Required | Description |
-|:-----------------:|:--------:|-------------|
-| semantic_version  | false    | Specify specifying version range for semantic-release. [[Details](#semantic_version)] |
-| branches          | false    | The branches on which releases should happen.[[Details](#branches)]<br>Support for **semantic-release above v16**. |
-| branch            | false    | The branch on which releases should happen.[[Details](#branch)]<br>Only support for **semantic-release older than v16**. |
-| extra_plugins     | false    | Extra plugins for pre-install. [[Details](#extra_plugins)] |
-| dry_run           | false    | Whether to run semantic release in `dry-run` mode. [[Details](#dry_run)] |
-| extends           | false    | Use a sharable configuration [[Details](#extends)] |
-| working_directory | false    | Use another working directory for semantic release [[Details](#working_directory)] |
+|  Input Parameter  | Required | Description                                                                                                              |
+|:-----------------:|:--------:|--------------------------------------------------------------------------------------------------------------------------|
+| semantic_version  |  false   | Specify specifying version range for semantic-release. [[Details](#semantic_version)]                                    |
+|     branches      |  false   | The branches on which releases should happen.[[Details](#branches)]<br>Support for **semantic-release above v16**.       |
+|      branch       |  false   | The branch on which releases should happen.[[Details](#branch)]<br>Only support for **semantic-release older than v16**. |
+|   extra_plugins   |  false   | Extra plugins for pre-install. [[Details](#extra_plugins)]                                                               |
+|      dry_run      |  false   | Whether to run semantic release in `dry-run` mode. [[Details](#dry_run)]                                                 |
+|      extends      |  false   | Use a sharable configuration [[Details](#extends)]                                                                       |
+| working_directory |  false   | Use another working directory for semantic release [[Details](#working_directory)]                                       |
 
 #### semantic_version
 > {Optional Input Parameter} Specify specifying version range for semantic-release.<br>If no version range is specified, latest version will be used by default.
@@ -225,16 +225,16 @@ steps:
 ```
 
 ### Outputs
-| Output Parameter          | Description |
-|:-------------------------:|---|
-| new_release_published     | Whether a new release was published. The return value is in the form of a string. (`"true"` or `"false"`)  |
-| new_release_version       | Version of the new release. (e.g. `1.3.0`) |
-| new_release_major_version | Major version of the new release. (e.g. `1`) |
-| new_release_minor_version | Minor version of the new release. (e.g. `3`) |
-| new_release_patch_version | Patch version of the new release. (e.g. `0`) |
-| new_release_channel       | The distribution channel on which the last release was initially made available (undefined for the default distribution channel). |
-| new_release_notes         | The release notes for the new release. |
-| last_release_version      | Version of the previous release, if there was one. (e.g. `1.2.0`) |
+|     Output Parameter      | Description                                                                                                                       |
+|:-------------------------:|-----------------------------------------------------------------------------------------------------------------------------------|
+|   new_release_published   | Whether a new release was published. The return value is in the form of a string. (`"true"` or `"false"`)                         |
+|    new_release_version    | Version of the new release. (e.g. `1.3.0`)                                                                                        |
+| new_release_major_version | Major version of the new release. (e.g. `1`)                                                                                      |
+| new_release_minor_version | Minor version of the new release. (e.g. `3`)                                                                                      |
+| new_release_patch_version | Patch version of the new release. (e.g. `0`)                                                                                      |
+|    new_release_channel    | The distribution channel on which the last release was initially made available (undefined for the default distribution channel). |
+|     new_release_notes     | The release notes for the new release.                                                                                            |
+|   last_release_version    | Version of the previous release, if there was one. (e.g. `1.2.0`)                                                                 |
 
 #### Using Output Variables:
 ```yaml
