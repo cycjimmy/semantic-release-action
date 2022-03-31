@@ -228,13 +228,13 @@ steps:
 |     Output Parameter      | Description                                                                                                                       |
 |:-------------------------:|-----------------------------------------------------------------------------------------------------------------------------------|
 |   new_release_published   | Whether a new release was published. The return value is in the form of a string. (`"true"` or `"false"`)                         |
-|    new_release_version    | Version of the new release. (e.g. `1.3.0`)                                                                                        |
-| new_release_major_version | Major version of the new release. (e.g. `1`)                                                                                      |
-| new_release_minor_version | Minor version of the new release. (e.g. `3`)                                                                                      |
-| new_release_patch_version | Patch version of the new release. (e.g. `0`)                                                                                      |
+|    new_release_version    | Version of the new release. (e.g. `"1.3.0"`)                                                                                      |
+| new_release_major_version | Major version of the new release. (e.g. `"1"`)                                                                                    |
+| new_release_minor_version | Minor version of the new release. (e.g. `"3"`)                                                                                    |
+| new_release_patch_version | Patch version of the new release. (e.g. `"0"`)                                                                                    |
 |    new_release_channel    | The distribution channel on which the last release was initially made available (undefined for the default distribution channel). |
 |     new_release_notes     | The release notes for the new release.                                                                                            |
-|   last_release_version    | Version of the previous release, if there was one. (e.g. `1.2.0`)                                                                 |
+|   last_release_version    | Version of the previous release, if there was one. (e.g. `"1.2.0"`)                                                               |
 
 #### Using Output Variables:
 ```yaml
