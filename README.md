@@ -227,7 +227,7 @@ steps:
 ### Outputs
 | Output Parameter          | Description |
 |:-------------------------:|---|
-| new_release_published     | Whether a new release was published (`true` or `false`) |
+| new_release_published     | Whether a new release was published. The return value is in the form of a string. (`"true"` or `"false"`)  |
 | new_release_version       | Version of the new release. (e.g. `1.3.0`) |
 | new_release_major_version | Major version of the new release. (e.g. `1`) |
 | new_release_minor_version | Minor version of the new release. (e.g. `3`) |
