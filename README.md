@@ -200,8 +200,10 @@ steps:
     uses: cycjimmy/semantic-release-action@v3
     with:
       # You can extend an existing shareable configuration.
+      # And you can specify version range for the shareable configuration if you prefer.
       extends: |
-        @semantic-release/apm-config
+        @semantic-release/apm-config@^9.0.0
+        @mycompany/override-config
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
