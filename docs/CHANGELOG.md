@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v3.0.0...v3.1.0) (2022-08-05)
+
+
+### Features
+
+* handle versioned extends inputs correctly ([4a51b9f](https://github.com/cycjimmy/semantic-release-action/commit/4a51b9fada7267737750fded8b8edfb275acbbbb))
+
 # [3.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.7.0...v3.0.0) (2022-03-03)
 
 
