@@ -68,7 +68,11 @@ exports.handleExtends = () => {
   const extend = core.getInput(inputs.extends);
 
   if (extend) {
-    return { extends: extend };
+    const extendModuleNames = extend.split(/\r?\n/)
+      .map((name) => name.replace(/(?<!^)@.+/, ''))
+    return {
+      extends: extendModuleNames
+    };
   } else {
     return {};
   }
