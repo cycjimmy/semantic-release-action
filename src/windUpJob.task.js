@@ -14,16 +14,17 @@ module.exports = async (result) => {
 
   const {lastRelease, commits, nextRelease, releases} = result;
 
+  if (lastRelease.version) {
+    core.debug(`The last release was "${lastRelease.version}".`);
+    core.setOutput(outputs.last_release_version, lastRelease.version)
+  }
+
   if (!nextRelease) {
     core.debug('No release published.');
     return Promise.resolve();
   }
 
   core.debug(`Published ${nextRelease.type} release version ${nextRelease.version} containing ${commits.length} commits.`);
-
-  if (lastRelease.version) {
-    core.debug(`The last release was "${lastRelease.version}".`);
-  }
 
   for (const release of releases) {
     core.debug(`The release was published with plugin "${release.pluginName}".`);
@@ -40,5 +41,4 @@ module.exports = async (result) => {
   core.setOutput(outputs.new_release_patch_version, patch);
   core.setOutput(outputs.new_release_channel, channel);
   core.setOutput(outputs.new_release_notes, notes);
-  core.setOutput(outputs.last_release_version, lastRelease.version)
 };
