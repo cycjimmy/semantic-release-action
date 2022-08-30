@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/cycjimmy/semantic-release-action/compare/v3.1.0...v3.1.1) (2022-08-30)
+
+
+### Bug Fixes
+
+* set last_release_version output even if no release has been published ([b1467cd](https://github.com/cycjimmy/semantic-release-action/commit/b1467cd17e70d963d7925a60266adb249ee2223d))
+
 # [3.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v3.0.0...v3.1.0) (2022-08-05)
 
 
