@@ -8,9 +8,9 @@
 GitHub Action for [Semantic Release][semantic-url]. 
 
 ## Usage
-### Step1: Set any [Semantic Release Configuration](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration) in your repository.
+### Step1: Set any [Semantic Release Configuration](https://github.com/semantic-release/semantic-release/blob/main/docs/usage/configuration.md#configuration) in your repository.
 
-### Step2: [Add Secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) in your repository for the [Semantic Release Authentication](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/ci-configuration.md#authentication) Environment Variables.
+### Step2: [Add Secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) in your repository for the [Semantic Release Authentication](https://github.com/semantic-release/semantic-release/blob/main/docs/usage/ci-configuration.md#authentication) Environment Variables.
 
 ### Step3: Add a [Workflow File](https://help.github.com/en/articles/workflow-syntax-for-github-actions) to your repository to create custom automated processes.
 
@@ -277,8 +277,8 @@ This project is released under the [MIT License][license-url].
 [semantic-url]: https://github.com/semantic-release/semantic-release
 
 [license-image]: https://img.shields.io/npm/l/@cycjimmy/semantic-release-action.svg
-[license-url]: https://github.com/cycjimmy/semantic-release-action/blob/master/LICENSE
+[license-url]: https://github.com/cycjimmy/semantic-release-action/blob/main/LICENSE
 
-[changelog-url]: https://github.com/cycjimmy/semantic-release-action/blob/master/docs/CHANGELOG.md
+[changelog-url]: https://github.com/cycjimmy/semantic-release-action/blob/main/docs/CHANGELOG.md
 
 [github-packages-registry]: https://github.com/features/packages
