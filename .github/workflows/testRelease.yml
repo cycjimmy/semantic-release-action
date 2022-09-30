@@ -69,11 +69,11 @@ jobs:
           dry_run: true
           branches: |
             [
-              'master',
+              'main',
               {name: 'beta', prerelease: true},
               {name: 'alpha', prerelease: true}
             ]
-          branch: master
+          branch: main
           extra_plugins: |
             @semantic-release/git@7
             @semantic-release/changelog@3
