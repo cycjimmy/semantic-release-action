@@ -1,3 +1,10 @@
+## [3.1.2](https://github.com/cycjimmy/semantic-release-action/compare/v3.1.1...v3.1.2) (2022-10-19)
+
+
+### Bug Fixes
+
+* **actions:** update @actions/core to cope with new output ([3e7aded](https://github.com/cycjimmy/semantic-release-action/commit/3e7adedd114a31396550cb5ef5445170fae72f9e))
+
 ## [3.1.1](https://github.com/cycjimmy/semantic-release-action/compare/v3.1.0...v3.1.1) (2022-08-30)
 
 
