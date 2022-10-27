@@ -1,3 +1,29 @@
+## [3.1.1](https://github.com/cycjimmy/semantic-release-action/compare/v3.1.0...v3.1.1) (2022-08-30)
+
+
+### Bug Fixes
+
+* set last_release_version output even if no release has been published ([b1467cd](https://github.com/cycjimmy/semantic-release-action/commit/b1467cd17e70d963d7925a60266adb249ee2223d))
+
+# [3.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v3.0.0...v3.1.0) (2022-08-05)
+
+
+### Features
+
+* handle versioned extends inputs correctly ([4a51b9f](https://github.com/cycjimmy/semantic-release-action/commit/4a51b9fada7267737750fded8b8edfb275acbbbb))
+
+# [3.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.7.0...v3.0.0) (2022-03-03)
+
+
+### Features
+
+* switch operating environment to node16 ([b5f16ae](https://github.com/cycjimmy/semantic-release-action/commit/b5f16ae54b21667e3af8a1bd015ec069c8237674)), closes [#92](https://github.com/cycjimmy/semantic-release-action/issues/92) [#96](https://github.com/cycjimmy/semantic-release-action/issues/96)
+
+
+### BREAKING CHANGES
+
+* switch operating environment to node16
+
 # [2.7.0](https://github.com/cycjimmy/semantic-release-action/compare/v2.6.0...v2.7.0) (2021-12-12)
 
 

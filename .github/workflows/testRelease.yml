@@ -1,17 +1,11 @@
 name: Test Release
 
 on:
-  push:
+  pull_request:
     branches:
       - master
-      - next
-      - next-major
-      - alpha
-      - beta
-      - 'feat/**'
-      - 'fix/**'
-      - 'perf/**'
-      - 'refactor/**'
+      - main
+  push:
 
   schedule:
     - cron: 0 2 * * 0
@@ -22,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Semantic Release
         uses: ./
@@ -33,6 +27,7 @@ jobs:
             [
               '+([0-9])?(.{+([0-9]),x}).x',
               'master',
+              'main',
               'next',
               'next-major',
               {
@@ -44,7 +39,6 @@ jobs:
                 prerelease: true
               }
             ]
-          branch: master
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
@@ -65,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Semantic Release
         uses: ./
@@ -75,11 +69,11 @@ jobs:
           dry_run: true
           branches: |
             [
-              'master',
+              'main',
               {name: 'beta', prerelease: true},
               {name: 'alpha', prerelease: true}
             ]
-          branch: master
+          branch: main
           extra_plugins: |
             @semantic-release/git@7
             @semantic-release/changelog@3

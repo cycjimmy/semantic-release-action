@@ -1,12 +1,10 @@
 name: Release
 
 on:
-  pull_request:
-    branches:
-      - master
   push:
     branches:
       - master
+      - main
       - next
       - next-major
       - alpha
@@ -18,12 +16,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: ./
         id: semantic
         with:
+          branches: |
+            [
+              '+([0-9])?(.{+([0-9]),x}).x',
+              'master',
+              'main',
+              'next',
+              'next-major',
+              {
+                name: 'beta',
+                prerelease: true
+              },
+              {
+                name: 'alpha',
+                prerelease: true
+              }
+            ]
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
@@ -32,9 +46,9 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Setup Node.js with GitHub Package Registry
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
           registry-url: 'https://npm.pkg.github.com'
           scope: 'cycjimmy'
 
