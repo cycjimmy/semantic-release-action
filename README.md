@@ -234,7 +234,11 @@ steps:
 | new_release_patch_version | Patch version of the new release. (e.g. `0`) |
 | new_release_channel       | The distribution channel on which the last release was initially made available (undefined for the default distribution channel). |
 | new_release_notes         | The release notes for the new release. |
+| new_release_git_head      | The sha of the last commit being part of the new release |
+| new_release_git_tag       | The Git tag associated with the new release. |
 | last_release_version      | Version of the previous release, if there was one. (e.g. `1.2.0`) |
+| last_release_git_head     | The sha of the last commit being part of the last release, if there was one. |
+| last_release_git_tag      | The Git tag associated with the last release, if there was one. |
 
 #### Using Output Variables:
 ```yaml
