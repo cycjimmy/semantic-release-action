@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/cycjimmy/semantic-release-action/compare/v3.1.2...v3.2.0) (2022-11-04)
+
+
+### Features
+
+* added gitHead and gitTag outputs ([385af4f](https://github.com/cycjimmy/semantic-release-action/commit/385af4fa1ceaf60ec10e35b950e9c1cbb9375a8c))
+
 ## [3.1.2](https://github.com/cycjimmy/semantic-release-action/compare/v3.1.1...v3.1.2) (2022-10-19)
 
 
