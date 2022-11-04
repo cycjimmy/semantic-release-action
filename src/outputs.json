@@ -5,6 +5,10 @@
   "new_release_minor_version": "new_release_minor_version",
   "new_release_patch_version": "new_release_patch_version",
   "new_release_channel": "new_release_channel",
-  "new_release_notes": "new_release_notes",
-  "last_release_version": "last_release_version"
+  "new_release_notes": "new_release_notes",  
+  "new_release_git_head": "new_release_git_head",
+  "new_release_git_tag": "new_release_git_tag",
+  "last_release_version": "last_release_version",
+  "last_release_git_head": "last_release_git_head",
+  "last_release_git_tag": "last_release_git_tag"
 }
