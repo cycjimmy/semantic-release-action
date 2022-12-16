@@ -155,7 +155,7 @@ steps:
     with:
       # You can specify specifying version range for the extra plugins if you prefer.
       extra_plugins: |
-        @semantic-release/changelog@3.0.0
+        @semantic-release/changelog@6.0.0
         @semantic-release/git
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
