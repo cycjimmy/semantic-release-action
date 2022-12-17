@@ -3,7 +3,7 @@ name: Test Release
 on:
   pull_request:
     branches:
-      - master
+      - release
       - main
   push:
 
@@ -26,18 +26,8 @@ jobs:
           branches: |
             [
               '+([0-9])?(.{+([0-9]),x}).x',
-              'master',
-              'main',
-              'next',
-              'next-major',
-              {
-                name: 'beta',
-                prerelease: true
-              },
-              {
-                name: 'alpha',
-                prerelease: true
-              }
+              'release',
+              'main'
             ]
           extra_plugins: |
             @semantic-release/git
@@ -69,6 +59,7 @@ jobs:
           dry_run: true
           branches: |
             [
+              'release',
               'main',
               {name: 'beta', prerelease: true},
               {name: 'alpha', prerelease: true}

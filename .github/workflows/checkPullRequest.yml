@@ -3,7 +3,7 @@ name: Check Pull Request
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   release:
@@ -16,7 +16,7 @@ jobs:
       - name: Semantic Release
         uses: ./
         with:
-          branch: master
+          branch: main
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
