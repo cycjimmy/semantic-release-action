@@ -5,7 +5,7 @@
 [![semantic-release][semantic-image]][semantic-url]
 [![npm license][license-image]][license-url]
 
-GitHub Action for [Semantic Release][semantic-url]. 
+GitHub Action for [Semantic Release][semantic-url].
 
 ## Usage
 ### Step1: Set any [Semantic Release Configuration](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration) in your repository.
@@ -45,7 +45,7 @@ then make sure that you configure this in your `package.json` file:
 ### Inputs
 |  Input Parameter  | Required | Description                                                                                                              |
 |:-----------------:|:--------:|--------------------------------------------------------------------------------------------------------------------------|
-| semantic_version  |  false   | Specify specifying version range for semantic-release. [[Details](#semantic_version)]                                    |
+| semantic_version  |  false   | Specify version range for semantic-release. [[Details](#semantic_version)]                                               |
 |     branches      |  false   | The branches on which releases should happen.[[Details](#branches)]<br>Support for **semantic-release above v16**.       |
 |      branch       |  false   | The branch on which releases should happen.[[Details](#branch)]<br>Only support for **semantic-release older than v16**. |
 |   extra_plugins   |  false   | Extra plugins for pre-install. [[Details](#extra_plugins)]                                                               |
@@ -54,7 +54,7 @@ then make sure that you configure this in your `package.json` file:
 | working_directory |  false   | Use another working directory for semantic release [[Details](#working_directory)]                                       |
 
 #### semantic_version
-> {Optional Input Parameter} Specify specifying version range for semantic-release.<br>If no version range is specified, latest version will be used by default.
+> {Optional Input Parameter} Specify version range for semantic-release.
 
 ```yaml
 steps:
@@ -63,14 +63,17 @@ steps:
   - name: Semantic Release
     uses: cycjimmy/semantic-release-action@v3
     with:
-      semantic_version: 15.13.28  # It is recommended to specify specifying version range
-                                  # for semantic-release.
+      semantic_version: 19.0.5  # It is recommended to specify a version range
+                                # for semantic-release when using
+                                # semantic-release-action lower than @v3
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-*It is recommended to manually specify a version of semantic-release to prevent errors caused during the official semantic-release upgrade.*
+If no version range is specified with `cycjimmy/semantic-release-action@v3` then [semantic-release](https://github.com/semantic-release/semantic-release/) version [19.0.5](https://github.com/semantic-release/semantic-release/releases/tag/v19.0.5) is used. Earlier versions of `cycjimmy/semantic-release-action` default to using the latest version of [semantic-release](https://github.com/semantic-release/semantic-release/), so in this case it is recommended to specify version 19 or lower to avoid compatibility issues.
+
+*Note: [Version 20.0.0](https://github.com/semantic-release/semantic-release/releases/tag/v20.0.0) of [semantic-release](https://github.com/semantic-release/semantic-release/) and later is currently incompatible with `cycjimmy/semantic-release-action`, since it requires Node.js 18. GitHub does not provide this environment yet [for JavaScript actions](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions).*
 
 #### branches
 > {Optional Input Parameter} The branches on which releases should happen.<br>`branches` supports for **semantic-release above v16**.
@@ -84,18 +87,18 @@ steps:
     with:
       semantic_version: 16
       # you can set branches for semantic-release above v16.
-      branches: |    
+      branches: |
         [
           '+([0-9])?(.{+([0-9]),x}).x',
-          'master', 
-          'next', 
-          'next-major', 
+          'master',
+          'next',
+          'next-major',
           {
-            name: 'beta', 
+            name: 'beta',
             prerelease: true
-          }, 
+          },
           {
-            name: 'alpha', 
+            name: 'alpha',
             prerelease: true
           }
         ]
@@ -104,14 +107,14 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-`branches` will override the `branches` attribute in your configuration file. If the attribute is not configured on both sides, the default is: 
+`branches` will override the `branches` attribute in your configuration file. If the attribute is not configured on both sides, the default is:
 ```
 [
   '+([0-9])?(.{+([0-9]),x}).x',
-  'master', 
-  'next', 
-  'next-major', 
-  {name: 'beta', prerelease: true}, 
+  'master',
+  'next',
+  'next-major',
+  {name: 'beta', prerelease: true},
   {name: 'alpha', prerelease: true}
 ]
 ```
@@ -128,7 +131,7 @@ steps:
   - name: Semantic Release
     uses: cycjimmy/semantic-release-action@v3
     with:
-      semantic_version: 15.13.28
+      semantic_version: 19.0.5
       # you can set branch for semantic-release older than v16.
       branch: your-branch
     env:
@@ -139,9 +142,9 @@ steps:
 It will override the `branch` attribute in your configuration file. If the attribute is not configured on both sides, the default is `master`.
 
 #### extra_plugins
-> {Optional Input Parameter} Extra plugins for pre-install. 
+> {Optional Input Parameter} Extra plugins for pre-install.
 
-The action can be used with `extra_plugins` option to specify plugins which are not in the [default list of plugins of semantic release](https://semantic-release.gitbook.io/semantic-release/usage/plugins#default-plugins). When using this option, please make sure that these plugins are also mentioned in your [semantic release config's plugins](https://semantic-release.gitbook.io/semantic-release/usage/configuration#plugins) array. 
+The action can be used with `extra_plugins` option to specify plugins which are not in the [default list of plugins of semantic release](https://semantic-release.gitbook.io/semantic-release/usage/plugins#default-plugins). When using this option, please make sure that these plugins are also mentioned in your [semantic release config's plugins](https://semantic-release.gitbook.io/semantic-release/usage/configuration#plugins) array.
 
 For example, if you want to use `@semantic-release/git` and `@semantic-release/changelog` extra plugins, these must be added to `extra_plugins` in your actions file and `plugins` in your [release config file](https://semantic-release.gitbook.io/semantic-release/usage/configuration#configuration-file) as shown bellow:
 
@@ -253,7 +256,7 @@ steps:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      
+
   - name: Do something when a new release published
     if: steps.semantic.outputs.new_release_published == 'true'
     run: |
