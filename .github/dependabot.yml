@@ -9,3 +9,6 @@ updates:
     directory: /
     schedule:
       interval: daily
+    ignore:
+      - dependency-name: "semantic-release"
+        versions: [ "20.x" ]
