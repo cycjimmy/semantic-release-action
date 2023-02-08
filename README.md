@@ -73,7 +73,7 @@ steps:
 
 If no version range is specified with `cycjimmy/semantic-release-action@v3` then [semantic-release](https://github.com/semantic-release/semantic-release/) version [19.0.5](https://github.com/semantic-release/semantic-release/releases/tag/v19.0.5) is used. Earlier versions of `cycjimmy/semantic-release-action` default to using the latest version of [semantic-release](https://github.com/semantic-release/semantic-release/), so in this case it is recommended to specify version 19 or lower to avoid compatibility issues.
 
-*Note: [Version 20.0.0](https://github.com/semantic-release/semantic-release/releases/tag/v20.0.0) of [semantic-release](https://github.com/semantic-release/semantic-release/) and later is currently incompatible with `cycjimmy/semantic-release-action`, since it requires Node.js 18. GitHub does not provide this environment yet [for JavaScript actions](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions).*
+*Note: [Version 20.0.0](https://github.com/semantic-release/semantic-release/releases/tag/v20.0.0) of [semantic-release](https://github.com/semantic-release/semantic-release/) and later is currently incompatible with `cycjimmy/semantic-release-action`, since it requires Node.js 18. GitHub does not provide this environment yet for [JavaScript actions](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions).*
 
 #### branches
 > {Optional Input Parameter} The branches on which releases should happen.<br>`branches` supports for **semantic-release above v16**.
@@ -131,7 +131,7 @@ steps:
   - name: Semantic Release
     uses: cycjimmy/semantic-release-action@v3
     with:
-      semantic_version: 19.0.5
+      semantic_version: 15.13.28
       # you can set branch for semantic-release older than v16.
       branch: your-branch
     env:
