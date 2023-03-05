@@ -83,7 +83,7 @@ exports.handleExtends = () => {
  * @returns {{}|{tagFormat: String}}
  */
 exports.handleTagFormat = () => {
-  const tagFormat = core.getInput(inputs.tagFormat);
+  const tagFormat = core.getInput(inputs.tag_format);
 
   if (tagFormat) {
     return {

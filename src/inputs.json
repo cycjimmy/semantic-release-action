@@ -6,5 +6,5 @@
   "dry_run": "dry_run",
   "extends": "extends",
   "working_directory": "working_directory",
-  "tagFormat": "tagFormat"
+  "tag_format": "tag_format"
 }
