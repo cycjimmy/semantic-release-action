@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const {
   handleBranchesOption,
   handleDryRunOption,
+  handleCiOption,
   handleExtends,
 } = require('./handleOptions');
 const setUpJob = require('./setUpJob.task');
@@ -28,6 +29,7 @@ const release = async () => {
   const result = await semanticRelease({
     ...handleBranchesOption(),
     ...handleDryRunOption(),
+    ...handleCiOption(),
     ...handleExtends(),
   });
 

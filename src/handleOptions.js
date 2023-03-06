@@ -61,6 +61,25 @@ exports.handleDryRunOption = () => {
 };
 
 /**
+ * Handle Ci Option
+ * @returns {{}|{ci: boolean}}
+ */
+exports.handleCiOption = () => {
+  const ci = core.getInput(inputs.ci);
+
+  switch (ci) {
+    case 'true':
+      return { ci: true, noCi: false };
+
+    case 'false':
+      return { ci: false, noCi: true };
+
+    default:
+      return {};
+  }
+};
+
+/**
  * Handle Extends Option
  * @returns {{}|{extends: Array}|{extends: String}}
  */
