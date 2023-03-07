@@ -52,6 +52,7 @@ then make sure that you configure this in your `package.json` file:
 |      dry_run      |  false   | Whether to run semantic release in `dry-run` mode. [[Details](#dry_run)]                                                 |
 |      extends      |  false   | Use a sharable configuration [[Details](#extends)]                                                                       |
 | working_directory |  false   | Use another working directory for semantic release [[Details](#working_directory)]                                       |
+|     tag_format    |  false   | Specify format of tag (useful for monorepos)                                                                             |
 
 #### semantic_version
 > {Optional Input Parameter} Specify version range for semantic-release.
@@ -224,6 +225,22 @@ steps:
     with:
       # You can select another working directory like a subdirectory for example.
       working_directory: ./code
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+#### tag_format
+The default tag format on semantic-release is `v{version}`. You can override that behavior using this option (helpful when you are using monorepos)
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v3
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v3
+    with:
+      tag_format: custom-v{version}
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

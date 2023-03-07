@@ -77,3 +77,19 @@ exports.handleExtends = () => {
     return {};
   }
 };
+
+/**
+ * Handle TagFormat Option
+ * @returns {{}|{tagFormat: String}}
+ */
+exports.handleTagFormat = () => {
+  const tagFormat = core.getInput(inputs.tag_format);
+
+  if (tagFormat) {
+    return {
+      tagFormat
+    };
+  } else {
+    return {};
+  }
+};

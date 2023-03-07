@@ -26,6 +26,9 @@ inputs:
   working_directory:
     required: false
     description: 'Specify another working directory for semantic release. Default one is provided by github.'
+  tag_format:
+    required: false
+    description: 'The default tag format on semantic-release is v{version}. You can override that behavior using this option.'
 outputs:
   new_release_published:
     description: 'Whether a new release was published'

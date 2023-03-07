@@ -3,6 +3,7 @@ const {
   handleBranchesOption,
   handleDryRunOption,
   handleExtends,
+  handleTagFormat,
 } = require('./handleOptions');
 const setUpJob = require('./setUpJob.task');
 const installSpecifyingVersionSemantic = require('./installSpecifyingVersionSemantic.task');
@@ -29,6 +30,7 @@ const release = async () => {
     ...handleBranchesOption(),
     ...handleDryRunOption(),
     ...handleExtends(),
+    ...handleTagFormat()
   });
 
   await cleanupNpmrc();
