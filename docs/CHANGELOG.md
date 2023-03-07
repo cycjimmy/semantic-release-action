@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/cycjimmy/semantic-release-action/compare/v3.2.0...v3.3.0) (2023-03-07)
+
+
+### Features
+
+* support for option tagFormat ([ed38eb0](https://github.com/cycjimmy/semantic-release-action/commit/ed38eb0e9938eefc792510a75ec48d80fead9b21))
+
 # [3.2.0](https://github.com/cycjimmy/semantic-release-action/compare/v3.1.2...v3.2.0) (2022-11-04)
 
 
