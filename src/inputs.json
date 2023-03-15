@@ -4,6 +4,7 @@
   "branch": "branch",
   "extra_plugins": "extra_plugins",
   "dry_run": "dry_run",
+  "ci": "ci",
   "extends": "extends",
   "working_directory": "working_directory",
   "tag_format": "tag_format"

@@ -50,6 +50,7 @@ then make sure that you configure this in your `package.json` file:
 |      branch       |  false   | The branch on which releases should happen.[[Details](#branch)]<br>Only support for **semantic-release older than v16**. |
 |   extra_plugins   |  false   | Extra plugins for pre-install. [[Details](#extra_plugins)]                                                               |
 |      dry_run      |  false   | Whether to run semantic release in `dry-run` mode. [[Details](#dry_run)]                                                 |
+|        ci         |  false   | Whether to run semantic release with CI support. [[Details](#ci)]<br>Support for **semantic-release above v16**.         |
 |      extends      |  false   | Use a sharable configuration [[Details](#extends)]                                                                       |
 | working_directory |  false   | Use another working directory for semantic release [[Details](#working_directory)]                                       |
 |     tag_format    |  false   | Specify format of tag (useful for monorepos)                                                                             |
@@ -192,6 +193,24 @@ steps:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
+
+#### ci
+> {Optional Input Parameter} Whether to run semantic release with CI support (default true).<br>`ci` supports for **semantic-release above v16**.
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v3
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v3
+    with:
+      ci: false
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+`ci` can be used, e.g in combination with `dry_run` when generating the next release version in pull requests, where `semantic_release` would normally block the execution.
 
 #### extends
 The action can be used with `extends` option to extend an existing [sharable configuration](https://semantic-release.gitbook.io/semantic-release/usage/shareable-configurations) of semantic-release. Can be used in combination with `extra_plugins`.

@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const {
   handleBranchesOption,
   handleDryRunOption,
+  handleCiOption,
   handleExtends,
   handleTagFormat,
 } = require('./handleOptions');
@@ -29,6 +30,7 @@ const release = async () => {
   const result = await semanticRelease({
     ...handleBranchesOption(),
     ...handleDryRunOption(),
+    ...handleCiOption(),
     ...handleExtends(),
     ...handleTagFormat()
   });
