@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/cycjimmy/semantic-release-action/compare/v3.3.0...v3.4.0) (2023-03-15)
+
+
+### Features
+
+* add `ci` input parameter ([b356b18](https://github.com/cycjimmy/semantic-release-action/commit/b356b18b5f474bb4b9fe4bb5801b364ce24aa8f6))
+
 # [3.3.0](https://github.com/cycjimmy/semantic-release-action/compare/v3.2.0...v3.3.0) (2023-03-07)
 
 
