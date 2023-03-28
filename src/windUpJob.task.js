@@ -16,7 +16,9 @@ module.exports = async (result) => {
 
   if (lastRelease.version) {
     core.debug(`The last release was "${lastRelease.version}".`);
-    core.setOutput(outputs.last_release_version, lastRelease.version)
+    core.setOutput(outputs.last_release_version, lastRelease.version);
+    core.setOutput(outputs.last_release_git_head, lastRelease.gitHead);
+    core.setOutput(outputs.last_release_git_tag, lastRelease.gitTag);
   }
 
   if (!nextRelease) {
@@ -43,7 +45,4 @@ module.exports = async (result) => {
   core.setOutput(outputs.new_release_notes, notes);  
   core.setOutput(outputs.new_release_git_head, gitHead);
   core.setOutput(outputs.new_release_git_tag, gitTag);
-  core.setOutput(outputs.last_release_version, lastRelease.version);
-  core.setOutput(outputs.last_release_git_head, lastRelease.gitHead);
-  core.setOutput(outputs.last_release_git_tag, lastRelease.gitTag);
 };
