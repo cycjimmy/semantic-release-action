@@ -1,3 +1,10 @@
+## [3.4.2](https://github.com/cycjimmy/semantic-release-action/compare/v3.4.1...v3.4.2) (2023-03-30)
+
+
+### Bug Fixes
+
+* fix installation error for npm-audit ([86a0e59](https://github.com/cycjimmy/semantic-release-action/commit/86a0e59803808ad228284efb42a130def7974b7c)), closes [#159](https://github.com/cycjimmy/semantic-release-action/issues/159)
+
 ## [3.4.1](https://github.com/cycjimmy/semantic-release-action/compare/v3.4.0...v3.4.1) (2023-03-30)
 
 
