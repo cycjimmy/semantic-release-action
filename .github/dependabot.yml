@@ -11,4 +11,4 @@ updates:
       interval: daily
     ignore:
       - dependency-name: "semantic-release"
-        versions: [ "20.x" ]
+        versions: [ "20.x", "21.x" ]
