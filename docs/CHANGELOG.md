@@ -1,3 +1,10 @@
+## [3.4.1](https://github.com/cycjimmy/semantic-release-action/compare/v3.4.0...v3.4.1) (2023-03-30)
+
+
+### Bug Fixes
+
+* **windUpJob:** set last_release outputs before returning ([91e3dc6](https://github.com/cycjimmy/semantic-release-action/commit/91e3dc6dcc39e4b462a165d85338c4e6cf1db9b6))
+
 # [3.4.0](https://github.com/cycjimmy/semantic-release-action/compare/v3.3.0...v3.4.0) (2023-03-15)
 
 
