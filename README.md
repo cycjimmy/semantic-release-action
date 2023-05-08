@@ -259,7 +259,7 @@ steps:
   - name: Semantic Release
     uses: cycjimmy/semantic-release-action@v3
     with:
-      tag_format: custom-v{version}
+      tag_format: custom-v${version}
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
