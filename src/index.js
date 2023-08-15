@@ -26,8 +26,8 @@ const release = async () => {
   await preInstall(core.getInput(inputs.extra_plugins));
   await preInstall(core.getInput(inputs.extends));
 
-  const semanticRelease = require('semantic-release');
-  const result = await semanticRelease({
+  const semanticRelease = await import('semantic-release');
+  const result = await semanticRelease.default({
     ...handleBranchesOption(),
     ...handleDryRunOption(),
     ...handleCiOption(),

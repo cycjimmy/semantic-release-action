@@ -58,5 +58,5 @@ outputs:
   last_release_git_tag:
     description: 'The Git tag associated with the last release, if there was one.'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'index.js'
