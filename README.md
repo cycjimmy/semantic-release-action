@@ -67,7 +67,7 @@ steps:
     with:
       semantic_version: 19.0.5  # It is recommended to specify a version range
                                 # for semantic-release when using
-                                # semantic-release-action lower than @v3
+                                # semantic-release-action lower than @v4
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
