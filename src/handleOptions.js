@@ -47,6 +47,7 @@ exports.handleBranchesOption = () => {
  */
 exports.handleDryRunOption = () => {
   const dryRun = core.getInput(inputs.dry_run);
+  core.debug(`dryRun input: ${dryRun}`);
 
   switch (dryRun) {
     case 'true':
@@ -66,6 +67,7 @@ exports.handleDryRunOption = () => {
  */
 exports.handleCiOption = () => {
   const ci = core.getInput(inputs.ci);
+  core.debug(`ci input: ${ci}`);
 
   switch (ci) {
     case 'true':
@@ -85,6 +87,7 @@ exports.handleCiOption = () => {
  */
 exports.handleExtends = () => {
   const extend = core.getInput(inputs.extends);
+  core.debug(`extend input: ${extend}`);
 
   if (extend) {
     const extendModuleNames = extend.split(/\r?\n/)
@@ -103,6 +106,7 @@ exports.handleExtends = () => {
  */
 exports.handleTagFormat = () => {
   const tagFormat = core.getInput(inputs.tag_format);
+  core.debug(`citagFormat input: ${tagFormat}`);
 
   if (tagFormat) {
     return {

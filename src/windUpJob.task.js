@@ -12,7 +12,7 @@ module.exports = async (result) => {
     return Promise.resolve();
   }
 
-  const {lastRelease, commits, nextRelease, releases} = result;
+  const {lastRelease, commits, nextRelease, releases} = await result;
 
   if (lastRelease.version) {
     core.debug(`The last release was "${lastRelease.version}".`);
