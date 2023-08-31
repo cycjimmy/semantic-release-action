@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v3.4.2...v4.0.0) (2023-08-31)
+
+
+### Features
+
+* update node version on runner to 20 ([0c20554](https://github.com/cycjimmy/semantic-release-action/commit/0c2055456eeae973aeeb66cf5082061badb3502c))
+
+
+### BREAKING CHANGES
+
+* set the default node version to 20
+
 ## [3.4.2](https://github.com/cycjimmy/semantic-release-action/compare/v3.4.1...v3.4.2) (2023-03-30)
 
 
