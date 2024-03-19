@@ -121,7 +121,7 @@ exports.handleTagFormat = () => {
  * Handle repository-url Option
  * @returns {{}|{r: String}}
  */
-exports.handleRepositoryOption = () => {
+exports.handleRepositoryUrlOption = () => {
   const repositoryUrl = core.getInput(inputs.repository_url);
   core.debug(`repository_url input: ${repositoryUrl}`);
 

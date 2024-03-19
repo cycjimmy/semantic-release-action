@@ -1,4 +1,4 @@
-import { handleRepositoryOption } from './handleOptions';
+import { handleRepositoryUrlOption } from './handleOptions';
 
 const core = require('@actions/core');
 const {
@@ -35,7 +35,7 @@ const release = async () => {
     ...handleCiOption(),
     ...handleExtends(),
     ...handleTagFormat(),
-    ...handleRepositoryOption()
+    ...handleRepositoryUrlOption()
   });
 
   await cleanupNpmrc();
