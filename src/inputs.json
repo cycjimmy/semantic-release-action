@@ -7,5 +7,6 @@
   "ci": "ci",
   "extends": "extends",
   "working_directory": "working_directory",
-  "tag_format": "tag_format"
+  "tag_format": "tag_format",
+  "repository_url": "repository_url"
 }
