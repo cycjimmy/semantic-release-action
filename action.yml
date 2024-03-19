@@ -32,6 +32,9 @@ inputs:
   tag_format:
     required: false
     description: 'The default tag format on semantic-release is v{version}. You can override that behavior using this option.'
+  repository_url:
+    required: false
+    description: 'The Git repository url. If no repository url specified, current repository will be used by default.'
 outputs:
   new_release_published:
     description: 'Whether a new release was published'

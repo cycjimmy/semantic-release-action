@@ -116,3 +116,18 @@ exports.handleTagFormat = () => {
     return {};
   }
 };
+
+/**
+ * Handle repository-url Option
+ * @returns {{}|{r: String}}
+ */
+exports.handleRepositoryUrlOption = () => {
+  const repositoryUrl = core.getInput(inputs.repository_url);
+  core.debug(`repository_url input: ${repositoryUrl}`);
+
+  if (repositoryUrl) {
+    return { r: repositoryUrl }; 
+  } else {
+    return {};
+  }
+};

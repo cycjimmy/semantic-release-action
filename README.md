@@ -53,7 +53,8 @@ then make sure that you configure this in your `package.json` file:
 |        ci         |  false   | Whether to run semantic release with CI support. [[Details](#ci)]<br>Support for **semantic-release above v16**.         |
 |      extends      |  false   | Use a sharable configuration [[Details](#extends)]                                                                       |
 | working_directory |  false   | Use another working directory for semantic release [[Details](#working_directory)]                                       |
-|     tag_format    |  false   | Specify format of tag (useful for monorepos)                                                                             |
+|    tag_format     |  false   | Specify format of tag (useful for monorepos)                                                                             |
+|  repository_url   |  false   | The Git repository url. If no repository url specified, current repository will be used by default.                      |
 
 #### semantic_version
 > {Optional Input Parameter} Specify version range for semantic-release.
