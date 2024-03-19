@@ -1,5 +1,3 @@
-import { handleRepositoryUrlOption } from './handleOptions';
-
 const core = require('@actions/core');
 const {
   handleBranchesOption,
@@ -7,6 +5,7 @@ const {
   handleCiOption,
   handleExtends,
   handleTagFormat,
+  handleRepositoryUrlOption,
 } = require('./handleOptions');
 const setUpJob = require('./setUpJob.task');
 const installSpecifyingVersionSemantic = require('./installSpecifyingVersionSemantic.task');
