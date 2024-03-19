@@ -1,3 +1,15 @@
+# [4.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v4.0.0...v4.1.0) (2024-03-19)
+
+
+### Bug Fixes
+
+* fix syntax error for importing ([4297675](https://github.com/cycjimmy/semantic-release-action/commit/42976755bc1a5e38051e756e3a2344ea8f354379))
+
+
+### Features
+
+* add repository_url input ([8dffec4](https://github.com/cycjimmy/semantic-release-action/commit/8dffec4efa886f02052787d688bfccb2e9983b1a))
+
 # [4.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v3.4.2...v4.0.0) (2023-08-31)
 
 
