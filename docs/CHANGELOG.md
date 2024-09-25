@@ -1,3 +1,10 @@
+## [4.1.1](https://github.com/cycjimmy/semantic-release-action/compare/v4.1.0...v4.1.1) (2024-09-25)
+
+
+### Bug Fixes
+
+* default use semantic-release@24 ([c22487b](https://github.com/cycjimmy/semantic-release-action/commit/c22487b442697d88305e0088215bc9da5b07696d))
+
 # [4.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v4.0.0...v4.1.0) (2024-03-19)
 
 
