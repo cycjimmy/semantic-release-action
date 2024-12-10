@@ -1,3 +1,4 @@
+const core = require('@actions/core');
 const exec = require('./src/_exec');
 const path = require('path');
 
@@ -16,4 +17,4 @@ const run = async () => {
   require('./src/index')();
 };
 
-run().catch(console.error);
+run().catch(core.setFailed);
