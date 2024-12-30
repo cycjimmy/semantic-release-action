@@ -23,6 +23,9 @@ inputs:
   ci:
     required: false
     description: 'Whether to run semantic release with CI support (default: true). It will override the ci attribute in your configuration file'
+  unset_gha_env:
+    required: false
+    description: 'Whether to unset the GITHUB_ACTIONS environment variable. This can be useful when trying to run semantic-release as part of PR checks.'
   extends:
     required: false
     description: 'One or several sharable configurations, https://semantic-release.gitbook.io/semantic-release/usage/configuration#extends'

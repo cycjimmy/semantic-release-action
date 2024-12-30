@@ -126,7 +126,7 @@ exports.handleRepositoryUrlOption = () => {
   core.debug(`repository_url input: ${repositoryUrl}`);
 
   if (repositoryUrl) {
-    return { r: repositoryUrl }; 
+    return { r: repositoryUrl };
   } else {
     return {};
   }

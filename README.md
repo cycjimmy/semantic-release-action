@@ -51,6 +51,7 @@ then make sure that you configure this in your `package.json` file:
 |   extra_plugins   |  false   | Extra plugins for pre-install. [[Details](#extra_plugins)]                                                               |
 |      dry_run      |  false   | Whether to run semantic release in `dry-run` mode. [[Details](#dry_run)]                                                 |
 |        ci         |  false   | Whether to run semantic release with CI support. [[Details](#ci)]<br>Support for **semantic-release above v16**.         |
+|   unset_gha_env   |  false   | Whether to unset the GITHUB_ACTIONS environment variable.                                                                |
 |      extends      |  false   | Use a sharable configuration [[Details](#extends)]                                                                       |
 | working_directory |  false   | Use another working directory for semantic release [[Details](#working_directory)]                                       |
 |    tag_format     |  false   | Specify format of tag (useful for monorepos)                                                                             |
