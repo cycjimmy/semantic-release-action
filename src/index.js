@@ -27,6 +27,11 @@ const release = async () => {
   await preInstall(core.getInput(inputs.extra_plugins));
   await preInstall(core.getInput(inputs.extends));
 
+  if (core.getInput(inputs.unset_gha_env) === 'true') {
+    core.debug('Unset GITHUB_ACTIONS environment variable');
+    delete process.env.GITHUB_ACTIONS;
+  }
+
   const semanticRelease = await import('semantic-release');
   const result = await semanticRelease.default({
     ...handleBranchesOption(),
