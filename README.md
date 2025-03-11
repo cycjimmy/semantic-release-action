@@ -265,6 +265,29 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
+#### unset_gha_env
+Setting this to true will unset the `GITHUB_ACTIONS` environment variable. This can be useful when wanting to validate things such as merging of a PR would create a valid release.
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v4
+  - name: Temporarily merge PR branch
+    if: ${{ github.event_name == 'pull_request' }}
+    run: |
+      git config --global user.name github-actions
+      git config --global user.email github-actions@github.com
+      git merge --no-ff origin/${{ github.event.pull_request.head.ref }} --message "${{ github.event.pull_request.title }}"
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v4
+    with:
+      unset_gha_env: ${{ github.event_name == 'pull_request' }}
+      ci: ${{ github.event_name == 'pull_request' && false || '' }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
 ### Outputs
 |     Output Parameter      | Description                                                                                                                       |
 |:-------------------------:|-----------------------------------------------------------------------------------------------------------------------------------|
