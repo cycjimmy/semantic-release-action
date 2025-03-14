@@ -51,6 +51,7 @@ then make sure that you configure this in your `package.json` file:
 |   extra_plugins   |  false   | Extra plugins for pre-install. [[Details](#extra_plugins)]                                                               |
 |      dry_run      |  false   | Whether to run semantic release in `dry-run` mode. [[Details](#dry_run)]                                                 |
 |        ci         |  false   | Whether to run semantic release with CI support. [[Details](#ci)]<br>Support for **semantic-release above v16**.         |
+|   unset_gha_env   |  false   | Whether to unset the GITHUB_ACTIONS environment variable.                                                                |
 |      extends      |  false   | Use a sharable configuration [[Details](#extends)]                                                                       |
 | working_directory |  false   | Use another working directory for semantic release [[Details](#working_directory)]                                       |
 |    tag_format     |  false   | Specify format of tag (useful for monorepos)                                                                             |
@@ -259,6 +260,29 @@ steps:
     uses: cycjimmy/semantic-release-action@v4
     with:
       tag_format: custom-v${version}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+#### unset_gha_env
+Setting this to true will unset the `GITHUB_ACTIONS` environment variable. This can be useful when wanting to validate things such as merging of a PR would create a valid release.
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v4
+  - name: Temporarily merge PR branch
+    if: ${{ github.event_name == 'pull_request' }}
+    run: |
+      git config --global user.name github-actions
+      git config --global user.email github-actions@github.com
+      git merge --no-ff origin/${{ github.event.pull_request.head.ref }} --message "${{ github.event.pull_request.title }}"
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v4
+    with:
+      unset_gha_env: ${{ github.event_name == 'pull_request' }}
+      ci: ${{ github.event_name == 'pull_request' && false || '' }}
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

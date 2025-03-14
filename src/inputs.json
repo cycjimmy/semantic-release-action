@@ -5,6 +5,7 @@
   "extra_plugins": "extra_plugins",
   "dry_run": "dry_run",
   "ci": "ci",
+  "unset_gha_env": "unset_gha_env",
   "extends": "extends",
   "working_directory": "working_directory",
   "tag_format": "tag_format",
