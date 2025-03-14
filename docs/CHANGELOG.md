@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/cycjimmy/semantic-release-action/compare/v4.1.1...v4.2.0) (2025-03-14)
+
+
+### Features
+
+* add ability to unset GITHUB_ACTION env var ([266ea7e](https://github.com/cycjimmy/semantic-release-action/commit/266ea7eb8c90943aa9cddd3b0ed326d5e8784a26))
+
 ## [4.1.1](https://github.com/cycjimmy/semantic-release-action/compare/v4.1.0...v4.1.1) (2024-09-25)
 
 
