@@ -1,3 +1,10 @@
+## [4.2.1](https://github.com/cycjimmy/semantic-release-action/compare/v4.2.0...v4.2.1) (2025-06-07)
+
+
+### Bug Fixes
+
+* update marked terminal to v7.3.0 ([b52fa1b](https://github.com/cycjimmy/semantic-release-action/commit/b52fa1bae5b892a36c1e01fab61457344cc0c494))
+
 # [4.2.0](https://github.com/cycjimmy/semantic-release-action/compare/v4.1.1...v4.2.0) (2025-03-14)
 
 
