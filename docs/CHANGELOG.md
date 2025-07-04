@@ -1,3 +1,10 @@
+## [4.2.2](https://github.com/cycjimmy/semantic-release-action/compare/v4.2.1...v4.2.2) (2025-07-04)
+
+
+### Bug Fixes
+
+* **cleanupNpmrc.task.js:** Use @actions/io to remove .npmrc ([b7db0cb](https://github.com/cycjimmy/semantic-release-action/commit/b7db0cbbf5f42eb8fe027828c236fbc340b5429e))
+
 ## [4.2.1](https://github.com/cycjimmy/semantic-release-action/compare/v4.2.0...v4.2.1) (2025-06-07)
 
 
