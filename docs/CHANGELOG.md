@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v4.2.2...v5.0.0) (2025-08-30)
+
+
+### Features
+
+* update node version on runner to 24 ([7869323](https://github.com/cycjimmy/semantic-release-action/commit/78693238b0cffcbd79484ca9c3f634c6d1e3978a))
+
+
+### BREAKING CHANGES
+
+* this action now runs using node 24
+
 ## [4.2.2](https://github.com/cycjimmy/semantic-release-action/compare/v4.2.1...v4.2.2) (2025-07-04)
 
 
