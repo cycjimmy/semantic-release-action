@@ -1,3 +1,10 @@
+## [5.0.1](https://github.com/cycjimmy/semantic-release-action/compare/v5.0.0...v5.0.1) (2025-10-09)
+
+
+### Bug Fixes
+
+* improves result handling in windUpJob.task.js ([4267eee](https://github.com/cycjimmy/semantic-release-action/commit/4267eee56034cc3ee6f2fef9bdc3cc125ca073db))
+
 # [5.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v4.2.2...v5.0.0) (2025-08-30)
 
 

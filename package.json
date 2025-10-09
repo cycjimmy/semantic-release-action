@@ -1,6 +1,6 @@
 {
   "name": "@cycjimmy/semantic-release-action",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "GitHub Action for Semantic Release",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,6 @@
     "@cycjimmy/awesome-js-funcs": "^4.0.9",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "semantic-release": "^24.2.7"
+    "semantic-release": "^24.2.9"
   }
 }
