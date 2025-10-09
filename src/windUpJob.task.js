@@ -27,7 +27,7 @@ module.exports = async (result) => {
     core.setOutput(outputs.last_release_git_tag, lastRelease.gitTag);
   }
 
-  if (!nextRelease) {
+  if (!nextRelease?.version) {
     core.debug('No release published.');
     return;
   }
