@@ -22,7 +22,7 @@
   "homepage": "https://github.com/cycjimmy/semantic-release-action#readme",
   "dependencies": {
     "@actions/core": "^1.10.1",
-    "@actions/io": "^1.1.3",
+    "@actions/io": "^2.0.0",
     "@cycjimmy/awesome-js-funcs": "^4.0.9",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
