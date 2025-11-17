@@ -1,3 +1,15 @@
+# [6.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v5.0.2...v6.0.0) (2025-11-17)
+
+
+### Features
+
+* **deps:** update semantic-release to version 25 ([9246c0b](https://github.com/cycjimmy/semantic-release-action/commit/9246c0bd17405b1f20450501f39234912258bc50))
+
+
+### BREAKING CHANGES
+
+* **deps:** Update semantic-release to version 25
+
 ## [5.0.2](https://github.com/cycjimmy/semantic-release-action/compare/v5.0.1...v5.0.2) (2025-10-10)
 
 

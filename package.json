@@ -1,6 +1,6 @@
 {
   "name": "@cycjimmy/semantic-release-action",
-  "version": "5.0.2",
+  "version": "6.0.0",
   "description": "GitHub Action for Semantic Release",
   "main": "index.js",
   "scripts": {
