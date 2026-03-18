@@ -75,7 +75,7 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-If no version range is specified with `cycjimmy/semantic-release-action@v6` then [semantic-release](https://github.com/semantic-release/semantic-release/) version [24.2.7](https://github.com/semantic-release/semantic-release/releases/tag/v25.0.2) is used.
+If no version range is specified with `cycjimmy/semantic-release-action@v6` then [semantic-release@latest](https://github.com/semantic-release/semantic-release/releases) is used.
 
 #### branches
 > {Optional Input Parameter} The branches on which releases should happen.<br>`branches` supports for **semantic-release above v16**.
