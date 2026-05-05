@@ -6,7 +6,7 @@ import inputs from './inputs.json' with { type: 'json' };;
  * Handle Branches Option
  * @returns {{}|{branch: string}}
  */
-export const handleBranchesOption = () => {
+export const handleBranchesOption = async () => {
   const branchesOption = {};
   const branches = core.getInput(inputs.branches);
   const branch = core.getInput(inputs.branch);
@@ -14,7 +14,7 @@ export const handleBranchesOption = () => {
   core.debug(`branches input: ${branches}`);
   core.debug(`branch input: ${branch}`);
 
-  const { version } = import('semantic-release/package.json', { with: { type: 'json' } });
+  const { default: { version } } = await import('semantic-release/package.json', { with: { type: 'json' } });
   const semanticMajorVersion = Number(version.replace(/\..+/g, ''));
   core.debug(`semanticMajorVersion: ${semanticMajorVersion}`);
 
