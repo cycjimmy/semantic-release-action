@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import outputs from './outputs.json';
+import outputs from './outputs.json' with { type: 'json' };
 
 /**
  * windUpJob
