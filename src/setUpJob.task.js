@@ -1,7 +1,7 @@
-import path, {dirname} from 'path';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import * as core from '@actions/core';
-import outputs from './outputs.json';
+import outputs from './outputs.json' with { type: 'json' };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -16,6 +16,4 @@ export default async () => {
 
   core.debug('action_workspace: ' + path.resolve(__dirname, '..'));
   core.debug('process.cwd: ' + process.cwd());
-
-  return Promise.resolve();
 };
