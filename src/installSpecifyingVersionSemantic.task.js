@@ -11,7 +11,7 @@ const __dirname = dirname(__filename);
  * Install Specifying Version semantic-release
  * @returns {Promise<void>}
  */
-module.exports = async () => {
+export default async () => {
   const semantic_version = core.getInput(inputs.semantic_version);
   const versionSuffix = semantic_version
     ? `@${semantic_version}`

@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
  * Pre-install extra dependecies
  * @returns {Promise<void>}
  */
-module.exports = async extras => {
+export default async extras => {
   if (!extras) {
     return Promise.resolve();
   }

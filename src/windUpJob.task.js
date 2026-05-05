@@ -6,7 +6,7 @@ import outputs from './outputs.json';
  * @param result
  * @returns {Promise<void>}
  */
-module.exports = async (result) => {
+export default  async (result) => {
   const resolved = await result;
   if (!resolved) {
     core.debug('No release published.');

@@ -46,7 +46,7 @@ const release = async () => {
   await windUpJob(result);
 };
 
-module.exports = () => {
+export default async () => {
   core.debug('Initialization successful');
   release().catch(core.setFailed);
 };

@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
  * setUpJob
  * @returns {Promise<void>}
  */
-module.exports = async () => {
+export default async () => {
   // set outputs default
   core.setOutput(outputs.new_release_published, 'false');
 

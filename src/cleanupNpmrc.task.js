@@ -4,6 +4,6 @@ import io from '@actions/io';
  * Clean up `.npmrc` file in the repo after releasing
  * @returns {Promise<never>}
  */
-module.exports = async () => {
+export default async () => {
   await io.rmRF('.npmrc');
 };
