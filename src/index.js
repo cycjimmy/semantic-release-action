@@ -12,7 +12,7 @@ import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic
 import preInstall from './preInstall.task';
 import cleanupNpmrc from './cleanupNpmrc.task';
 import windUpJob from './windUpJob.task';
-import inputs from './inputs.json';
+import inputs from './inputs.json' with { type: 'json' };;
 
 /**
  * Release main task

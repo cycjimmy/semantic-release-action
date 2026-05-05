@@ -17,7 +17,8 @@ const run = async () => {
     }
   }
 
-  await import('./src/index.js')();
+  const mod = await import('./src/index.js');
+  await mod.default();
 };
 
 run().catch(console.error);

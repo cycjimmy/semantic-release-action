@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 import exec from './_exec';
-import inputs from './inputs.json';
+import inputs from './inputs.json' with { type: 'json' };;
 import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
 

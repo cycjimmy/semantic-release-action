@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 import stringToJson from '@cycjimmy/awesome-js-funcs/cjs/typeConversion/stringToJson.cjs';
-import inputs from './inputs.json';
+import inputs from './inputs.json' with { type: 'json' };;
 
 /**
  * Handle Branches Option
