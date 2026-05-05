@@ -7,11 +7,11 @@ import {
   handleTagFormat,
   handleRepositoryUrlOption,
 } from './handleOptions.js';
-import setUpJob from './setUpJob.task';
-import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic.task';
-import preInstall from './preInstall.task';
-import cleanupNpmrc from './cleanupNpmrc.task';
-import windUpJob from './windUpJob.task';
+import setUpJob from './setUpJob.task.js';
+import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic.task.js';
+import preInstall from './preInstall.task.js';
+import cleanupNpmrc from './cleanupNpmrc.task.js';
+import windUpJob from './windUpJob.task.js';
 import inputs from './inputs.json' with { type: 'json' };;
 
 /**
