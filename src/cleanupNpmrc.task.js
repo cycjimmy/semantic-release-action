@@ -1,4 +1,4 @@
-import io from '@actions/io';
+import * as io from '@actions/io';
 
 /**
  * Clean up `.npmrc` file in the repo after releasing
