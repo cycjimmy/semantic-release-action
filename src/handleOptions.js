@@ -1,4 +1,4 @@
-const core = require('@actions/core');
+import core from '@actions/core'
 const stringToJson = require('@cycjimmy/awesome-js-funcs/cjs/typeConversion/stringToJson.cjs').default;
 const inputs = require('./inputs.json');
 

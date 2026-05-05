@@ -1,4 +1,4 @@
-const core = require('@actions/core');
+import core from '@actions/core'
 const outputs = require('./outputs.json');
 
 /**
