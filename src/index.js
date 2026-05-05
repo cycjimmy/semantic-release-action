@@ -6,7 +6,7 @@ import {
   handleExtends,
   handleTagFormat,
   handleRepositoryUrlOption,
-} from './handleOptions';
+} from './handleOptions.js';
 import setUpJob from './setUpJob.task';
 import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic.task';
 import preInstall from './preInstall.task';

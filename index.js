@@ -17,7 +17,7 @@ const run = async () => {
     }
   }
 
-  import('./src/index.js')();
+  await import('./src/index.js')();
 };
 
 run().catch(console.error);
