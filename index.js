@@ -17,7 +17,7 @@ const run = async () => {
     }
   }
 
-  require('./src/index')();
+  import('./src/index.js')();
 };
 
 run().catch(console.error);

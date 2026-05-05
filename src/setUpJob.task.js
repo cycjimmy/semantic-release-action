@@ -1,6 +1,10 @@
-import path from 'path';
+import path, {dirname} from 'path';
+import { fileURLToPath } from 'url';
 import * as core from '@actions/core';
 import outputs from './outputs.json';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /**
  * setUpJob

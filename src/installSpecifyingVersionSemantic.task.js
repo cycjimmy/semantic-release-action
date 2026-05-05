@@ -1,7 +1,11 @@
-import path from 'path';
 import * as core from '@actions/core';
 import exec from './_exec';
 import inputs from './inputs.json';
+import path, {dirname} from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /**
  * Install Specifying Version semantic-release
