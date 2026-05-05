@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import stringToJson from '@cycjimmy/awesome-js-funcs/cjs/typeConversion/stringToJson.cjs';
+import stringToJson from '@cycjimmy/awesome-js-funcs/cjs/typeConversion/stringToJson.js';
 import inputs from './inputs.json' with { type: 'json' };;
 
 /**
