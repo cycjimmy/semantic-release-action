@@ -1,5 +1,5 @@
-const exec = require('./src/_exec');
-const path = require('path');
+import exec from './src/_exec';
+import path from 'path';
 
 const run = async () => {
   // Install Dependencies

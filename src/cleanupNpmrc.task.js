@@ -1,4 +1,4 @@
-const io = require('@actions/io');
+import io from '@actions/io';
 
 /**
  * Clean up `.npmrc` file in the repo after releasing

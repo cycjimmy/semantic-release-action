@@ -1,5 +1,5 @@
-import * as core from '@actions/core'
-const outputs = require('./outputs.json');
+import * as core from '@actions/core';
+import outputs from './outputs.json';
 
 /**
  * windUpJob

@@ -1,6 +1,6 @@
-const path = require('path');
-import * as core from '@actions/core'
-const outputs = require('./outputs.json');
+import path from 'path';
+import * as core from '@actions/core';
+import outputs from './outputs.json';
 
 /**
  * setUpJob

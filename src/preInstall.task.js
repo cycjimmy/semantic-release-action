@@ -1,6 +1,6 @@
-const path = require('path');
-import * as core from '@actions/core'
-const exec = require('./_exec');
+import path from 'path';
+import * as core from '@actions/core';
+import exec from './_exec';
 
 /**
  * Pre-install extra dependecies

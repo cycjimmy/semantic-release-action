@@ -1,7 +1,7 @@
-const path = require('path');
-import * as core from '@actions/core'
-const exec = require('./_exec');
-const inputs = require('./inputs.json');
+import path from 'path';
+import * as core from '@actions/core';
+import exec from './_exec';
+import inputs from './inputs.json';
 
 /**
  * Install Specifying Version semantic-release
