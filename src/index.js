@@ -1,18 +1,18 @@
 import * as core from '@actions/core'
-const {
+import {
   handleBranchesOption,
   handleDryRunOption,
   handleCiOption,
   handleExtends,
   handleTagFormat,
   handleRepositoryUrlOption,
-} = require('./handleOptions');
-const setUpJob = require('./setUpJob.task');
-const installSpecifyingVersionSemantic = require('./installSpecifyingVersionSemantic.task');
-const preInstall = require('./preInstall.task');
-const cleanupNpmrc = require('./cleanupNpmrc.task');
-const windUpJob = require('./windUpJob.task');
-const inputs = require('./inputs.json');
+} from './handleOptions';
+import setUpJob from './setUpJob.task';
+import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic.task';
+import preInstall from './preInstall.task';
+import cleanupNpmrc from './cleanupNpmrc.task';
+import windUpJob from './windUpJob.task';
+import inputs from './inputs.json';
 
 /**
  * Release main task
