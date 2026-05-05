@@ -1,5 +1,5 @@
 const path = require('path');
-import core from '@actions/core'
+import * as core from '@actions/core'
 const outputs = require('./outputs.json');
 
 /**

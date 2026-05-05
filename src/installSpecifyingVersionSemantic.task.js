@@ -1,5 +1,5 @@
 const path = require('path');
-import core from '@actions/core'
+import * as core from '@actions/core'
 const exec = require('./_exec');
 const inputs = require('./inputs.json');
 
