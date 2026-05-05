@@ -3,6 +3,7 @@
   "version": "6.0.0",
   "description": "GitHub Action for Semantic Release",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,4 +1,4 @@
-import exec from './src/_exec';
+import exec from './src/_exec.js';
 import path from 'path';
 
 const run = async () => {
