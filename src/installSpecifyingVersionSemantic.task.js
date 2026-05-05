@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import exec from './_exec';
+import exec from './_exec.js';
 import inputs from './inputs.json' with { type: 'json' };;
 import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';

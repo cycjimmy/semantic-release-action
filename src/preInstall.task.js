@@ -1,7 +1,7 @@
 import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
 import * as core from '@actions/core';
-import exec from './_exec';
+import exec from './_exec.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
