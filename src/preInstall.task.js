@@ -1,12 +1,16 @@
-const path = require('path');
-const core = require('@actions/core');
-const exec = require('./_exec');
+import path, {dirname} from 'path';
+import { fileURLToPath } from 'url';
+import * as core from '@actions/core';
+import exec from './_exec.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /**
  * Pre-install extra dependecies
  * @returns {Promise<void>}
  */
-module.exports = async extras => {
+export default async extras => {
   if (!extras) {
     return Promise.resolve();
   }

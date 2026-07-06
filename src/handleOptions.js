@@ -1,12 +1,12 @@
-const core = require('@actions/core');
-const stringToJson = require('@cycjimmy/awesome-js-funcs/cjs/typeConversion/stringToJson.cjs').default;
-const inputs = require('./inputs.json');
+import * as core from '@actions/core';
+import stringToJson from './stringToJson.js';
+import inputs from './inputs.json' with { type: 'json' };;
 
 /**
  * Handle Branches Option
  * @returns {{}|{branch: string}}
  */
-exports.handleBranchesOption = () => {
+export const handleBranchesOption = async () => {
   const branchesOption = {};
   const branches = core.getInput(inputs.branches);
   const branch = core.getInput(inputs.branch);
@@ -14,8 +14,8 @@ exports.handleBranchesOption = () => {
   core.debug(`branches input: ${branches}`);
   core.debug(`branch input: ${branch}`);
 
-  const semanticVersion = require('semantic-release/package.json').version;
-  const semanticMajorVersion = Number(semanticVersion.replace(/\..+/g, ''));
+  const { default: { version } } = await import('semantic-release/package.json', { with: { type: 'json' } });
+  const semanticMajorVersion = Number(version.replace(/\..+/g, ''));
   core.debug(`semanticMajorVersion: ${semanticMajorVersion}`);
 
   // older than v16
@@ -45,7 +45,7 @@ exports.handleBranchesOption = () => {
  * Handle DryRun Option
  * @returns {{}|{dryRun: boolean}}
  */
-exports.handleDryRunOption = () => {
+export const handleDryRunOption = () => {
   const dryRun = core.getInput(inputs.dry_run);
   core.debug(`dryRun input: ${dryRun}`);
 
@@ -65,7 +65,7 @@ exports.handleDryRunOption = () => {
  * Handle Ci Option
  * @returns {{}|{ci: boolean}}
  */
-exports.handleCiOption = () => {
+export const handleCiOption = () => {
   const ci = core.getInput(inputs.ci);
   core.debug(`ci input: ${ci}`);
 
@@ -85,7 +85,7 @@ exports.handleCiOption = () => {
  * Handle Extends Option
  * @returns {{}|{extends: Array}|{extends: String}}
  */
-exports.handleExtends = () => {
+export const handleExtends = () => {
   const extend = core.getInput(inputs.extends);
   core.debug(`extend input: ${extend}`);
 
@@ -104,7 +104,7 @@ exports.handleExtends = () => {
  * Handle TagFormat Option
  * @returns {{}|{tagFormat: String}}
  */
-exports.handleTagFormat = () => {
+export const handleTagFormat = () => {
   const tagFormat = core.getInput(inputs.tag_format);
   core.debug(`citagFormat input: ${tagFormat}`);
 
@@ -121,7 +121,7 @@ exports.handleTagFormat = () => {
  * Handle repository-url Option
  * @returns {{}|{r: String}}
  */
-exports.handleRepositoryUrlOption = () => {
+export const handleRepositoryUrlOption = () => {
   const repositoryUrl = core.getInput(inputs.repository_url);
   core.debug(`repository_url input: ${repositoryUrl}`);
 

@@ -1,12 +1,12 @@
-const core = require('@actions/core');
-const outputs = require('./outputs.json');
+import * as core from '@actions/core';
+import outputs from './outputs.json' with { type: 'json' };
 
 /**
  * windUpJob
  * @param result
  * @returns {Promise<void>}
  */
-module.exports = async (result) => {
+export default  async (result) => {
   const resolved = await result;
   if (!resolved) {
     core.debug('No release published.');

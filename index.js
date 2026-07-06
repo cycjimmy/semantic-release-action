@@ -1,5 +1,9 @@
-const exec = require('./src/_exec');
-const path = require('path');
+import exec from './src/_exec.js';
+import path, {dirname} from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const run = async () => {
   // Install Dependencies
@@ -13,7 +17,8 @@ const run = async () => {
     }
   }
 
-  require('./src/index')();
+  const mod = await import('./src/index.js');
+  await mod.default();
 };
 
 run().catch(console.error);

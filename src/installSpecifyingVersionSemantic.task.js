@@ -1,13 +1,17 @@
-const path = require('path');
-const core = require('@actions/core');
-const exec = require('./_exec');
-const inputs = require('./inputs.json');
+import * as core from '@actions/core';
+import exec from './_exec.js';
+import inputs from './inputs.json' with { type: 'json' };;
+import path, {dirname} from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /**
  * Install Specifying Version semantic-release
  * @returns {Promise<void>}
  */
-module.exports = async () => {
+export default async () => {
   const semantic_version = core.getInput(inputs.semantic_version);
   const versionSuffix = semantic_version
     ? `@${semantic_version}`
