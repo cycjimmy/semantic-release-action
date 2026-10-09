@@ -45,12 +45,11 @@ then make sure that you configure this in your `package.json` file:
 ### Inputs
 |  Input Parameter  | Required | Description                                                                                                              |
 |:-----------------:|:--------:|--------------------------------------------------------------------------------------------------------------------------|
-| semantic_version  |  false   | Specify version range for semantic-release. [[Details](#semantic_version)]                                               |
-|     branches      |  false   | The branches on which releases should happen.[[Details](#branches)]<br>Support for **semantic-release above v16**.       |
-|      branch       |  false   | The branch on which releases should happen.[[Details](#branch)]<br>Only support for **semantic-release older than v16**. |
+| semantic_version  |  false   | Specify version range for semantic-release (v16 or above required). [[Details](#semantic_version)]                       |
+|     branches      |  false   | The branches on which releases should happen.[[Details](#branches)]<br>Requires **semantic-release v16 or above**.       |
 |   extra_plugins   |  false   | Extra plugins for pre-install. [[Details](#extra_plugins)]                                                               |
 |      dry_run      |  false   | Whether to run semantic release in `dry-run` mode. [[Details](#dry_run)]                                                 |
-|        ci         |  false   | Whether to run semantic release with CI support. [[Details](#ci)]<br>Support for **semantic-release above v16**.         |
+|        ci         |  false   | Whether to run semantic release with CI support. [[Details](#ci)]                                                        |
 |   unset_gha_env   |  false   | Whether to unset the GITHUB_ACTIONS environment variable.                                                                |
 |      extends      |  false   | Use a sharable configuration [[Details](#extends)]                                                                       |
 | working_directory |  false   | Use another working directory for semantic release [[Details](#working_directory)]                                       |
@@ -58,7 +57,7 @@ then make sure that you configure this in your `package.json` file:
 |  repository_url   |  false   | The Git repository url. If no repository url specified, current repository will be used by default.                      |
 
 #### semantic_version
-> {Optional Input Parameter} Specify version range for semantic-release.
+> {Optional Input Parameter} Specify version range for semantic-release.<br>The minimum supported semantic-release version is **v16**; older versions fail with an error.
 
 ```yaml
 steps:
@@ -78,7 +77,7 @@ steps:
 If no version range is specified with `cycjimmy/semantic-release-action@v7` then [semantic-release@latest](https://github.com/semantic-release/semantic-release/releases) is used.
 
 #### branches
-> {Optional Input Parameter} The branches on which releases should happen.<br>`branches` supports for **semantic-release above v16**.
+> {Optional Input Parameter} The branches on which releases should happen.<br>`branches` requires **semantic-release v16 or above**.
 
 ```yaml
 steps:
@@ -88,7 +87,7 @@ steps:
     uses: cycjimmy/semantic-release-action@v7
     with:
       semantic_version: 16
-      # you can set branches for semantic-release above v16.
+      # you can set branches for semantic-release v16 or above.
       branches: |
         [
           '+([0-9])?(.{+([0-9]),x}).x',
@@ -124,26 +123,6 @@ steps:
 See [configuration#branches](https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches) for more information.
 
 **NOTE**: The `branches` input is evaluated as a JavaScript expression to support the array/object configuration above. Only pass content you trust — anyone able to edit the workflow file can already run arbitrary commands in your CI.
-
-#### branch
-> {Optional Input Parameter} Similar to parameter `branches`. The branch on which releases should happen.<br>`branch` only supports for **semantic-release older than v16**.
-
-```yaml
-steps:
-  - name: Checkout
-    uses: actions/checkout@v7
-  - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
-    with:
-      semantic_version: 15.13.28
-      # you can set branch for semantic-release older than v16.
-      branch: your-branch
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-```
-
-It will override the `branch` attribute in your configuration file. If the attribute is not configured on both sides, the default is `master`.
 
 #### extra_plugins
 > {Optional Input Parameter} Extra plugins for pre-install.
@@ -199,7 +178,7 @@ steps:
 ```
 
 #### ci
-> {Optional Input Parameter} Whether to run semantic release with CI support (default true).<br>`ci` supports for **semantic-release above v16**.
+> {Optional Input Parameter} Whether to run semantic release with CI support (default true).
 
 ```yaml
 steps:
@@ -328,6 +307,24 @@ steps:
       echo ${{ steps.semantic.outputs.new_release_minor_version }}
       echo ${{ steps.semantic.outputs.new_release_patch_version }}
 ```
+
+## Migration Notes
+
+### The `branch` input has been removed
+The `branch` input is no longer supported. Use the `branches` input instead:
+
+```diff
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v7
+    with:
+-     branch: your-branch
++     branches: your-branch
+```
+
+If the `branch` input is still passed, the action prints a deprecation warning and ignores it.
+
+### semantic-release below v16 is no longer supported
+This action now requires **semantic-release v16 or above**. If the installed semantic-release version is older (for example via `semantic_version: 15`), the action fails with an error. Update the `semantic_version` input to v16 or above, or remove it to use the latest version.
 
 ## Changelog
 See [CHANGELOG][changelog-url].

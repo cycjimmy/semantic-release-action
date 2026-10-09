@@ -1,5 +1,6 @@
 import * as core from '@actions/core';
 import {
+  warnDeprecatedInputs,
   handleBranchesOption,
   handleDryRunOption,
   handleCiOption,
@@ -9,6 +10,7 @@ import {
 } from './handleOptions.js';
 import setUpJob from './setUpJob.task.js';
 import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic.task.js';
+import assertSemanticReleaseVersion from './assertSemanticReleaseVersion.task.js';
 import preInstall from './preInstall.task.js';
 import cleanupNpmrc from './cleanupNpmrc.task.js';
 import windUpJob from './windUpJob.task.js';
@@ -23,7 +25,9 @@ const release = async () => {
     process.chdir(core.getInput(inputs.working_directory));
   }
   await setUpJob();
+  warnDeprecatedInputs();
   await installSpecifyingVersionSemantic();
+  await assertSemanticReleaseVersion();
   await preInstall(core.getInput(inputs.extra_plugins));
   await preInstall(core.getInput(inputs.extends));
 
@@ -33,7 +37,7 @@ const release = async () => {
   }
 
   const semanticRelease = await import('semantic-release');
-  const branchesOption = await handleBranchesOption();
+  const branchesOption = handleBranchesOption();
   const result = await semanticRelease.default({
     ...branchesOption,
     ...handleDryRunOption(),

@@ -7,13 +7,10 @@ branding:
 inputs:
   semantic_version:
     required: false
-    description: 'Specify specifying version range for semantic-release. If no version range is specified, latest version will be used by default'
+    description: 'Specify specifying version range for semantic-release (v16 or above required). If no version range is specified, latest version will be used by default'
   branches:
     required: false
-    description: 'The branches on which releases should happen. It will override the branches attribute in your configuration file. Support for semantic-release above v16. See https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches for more information.'
-  branch:
-    required: false
-    description: 'The branch on which releases should happen. It will override the branch attribute in your configuration file. If the attribute is not configured on both sides, the default is master. Support for semantic-release older than v16.'
+    description: 'The branches on which releases should happen. It will override the branches attribute in your configuration file. Requires semantic-release v16 or above. See https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches for more information.'
   extra_plugins:
     required: false
     description: 'Extra plugins for pre-install. You can also specify specifying version range for the extra plugins if you prefer.'

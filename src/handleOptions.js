@@ -4,41 +4,38 @@ import inputs from './inputs.json' with { type: 'json' };
 
 /**
  * Handle Branches Option
- * @returns {{}|{branch: string}|{branches: string|Array}}
+ * @returns {{}|{branches: string|Array}}
  */
-export const handleBranchesOption = async () => {
+export const handleBranchesOption = () => {
   const branchesOption = {};
   const branches = core.getInput(inputs.branches);
-  const branch = core.getInput(inputs.branch);
-
   core.debug(`branches input: ${branches}`);
-  core.debug(`branch input: ${branch}`);
 
-  const { default: { version } } = await import('semantic-release/package.json', { with: { type: 'json' } });
-  const semanticMajorVersion = Number(version.replace(/\..+/g, ''));
-  core.debug(`semanticMajorVersion: ${semanticMajorVersion}`);
-
-  // older than v16
-  if (semanticMajorVersion < 16) {
-    if (!branch) {
-      return branchesOption;
-    }
-
-    branchesOption.branch = branch;
+  if (!branches) {
     return branchesOption;
   }
 
-  // above v16
-  const strNeedConvertToJson = branches || branch || '';
-
-  if (!strNeedConvertToJson) {
-    return branchesOption;
-  }
-
-  const jsonOrStr = stringToJson('' + strNeedConvertToJson);
+  const jsonOrStr = stringToJson('' + branches);
   core.debug(`Converted branches attribute: ${JSON.stringify(jsonOrStr)}`);
   branchesOption.branches = jsonOrStr;
   return branchesOption;
+};
+
+/**
+ * Warn about removed legacy inputs. The `branch` input is no longer declared
+ * in action.yml; the runner still exports it as INPUT_BRANCH when users pass it.
+ */
+export const warnDeprecatedInputs = () => {
+  // hardcoded: 'branch' was removed from inputs.json
+  const branch = core.getInput('branch');
+
+  if (branch) {
+    core.warning(
+      `The 'branch' input is no longer supported and will be ignored. ` +
+      `Use the 'branches' input instead (requires semantic-release v16 or above). ` +
+      `See https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches`
+    );
+  }
 };
 
 /**
