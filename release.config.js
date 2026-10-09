@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   "dryRun": false,
   "plugins": [
     "@semantic-release/commit-analyzer",

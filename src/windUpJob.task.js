@@ -1,14 +1,13 @@
-const core = require('@actions/core');
-const outputs = require('./outputs.json');
+import * as core from '@actions/core';
+import outputs from './outputs.json' with { type: 'json' };
 
 /**
  * windUpJob
  * @param result
  * @returns {Promise<void>}
  */
-module.exports = async (result) => {
-  const resolved = await result;
-  if (!resolved) {
+export default async (result) => {
+  if (!result) {
     core.debug('No release published.');
     return;
   }
@@ -18,7 +17,7 @@ module.exports = async (result) => {
     commits = [],
     nextRelease = {},
     releases = [],
-  } = resolved;
+  } = result;
 
   if (lastRelease?.version) {
     core.debug(`The last release was "${lastRelease.version}".`);
@@ -48,7 +47,7 @@ module.exports = async (result) => {
   core.setOutput(outputs.new_release_minor_version, minor);
   core.setOutput(outputs.new_release_patch_version, patch);
   core.setOutput(outputs.new_release_channel, channel);
-  core.setOutput(outputs.new_release_notes, notes);  
+  core.setOutput(outputs.new_release_notes, notes);
   core.setOutput(outputs.new_release_git_head, gitHead);
   core.setOutput(outputs.new_release_git_tag, gitTag);
 };

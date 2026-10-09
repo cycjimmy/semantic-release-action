@@ -1,20 +1,48 @@
-const path = require('path');
-const core = require('@actions/core');
-const exec = require('./_exec');
+import path, {dirname} from 'path';
+import { fileURLToPath } from 'url';
+import * as core from '@actions/core';
+import runNpm from './runNpm.js';
+import isNpmSpec from './isNpmSpec.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /**
  * Pre-install extra dependecies
  * @returns {Promise<void>}
  */
-module.exports = async extras => {
+export default async extras => {
   if (!extras) {
     return Promise.resolve();
   }
 
-  const _extras = extras.replace(/['"]/g, '').replace(/[\n\r]/g, ' ');
-  const silentFlag = process.env.RUNNER_DEBUG === '1' ? '' : '--silent';
+  // Split into tokens and keep only plausible npm package specs: specs are
+  // passed to npm without a shell, and tokens starting with `-` are dropped
+  // so they can never be read as npm options
+  const extrasList = extras
+    .replace(/['"]/g, '')
+    .split(/\s+/)
+    .filter(Boolean);
+  const validSpecs = extrasList.filter((spec) => isNpmSpec(spec));
+  const invalidTokens = extrasList.filter((spec) => !isNpmSpec(spec));
 
-  const { stdout, stderr } = await exec(`npm install ${_extras} --no-audit ${silentFlag}`, {
+  if (invalidTokens.length) {
+    core.warning(`Ignored invalid package specs: ${invalidTokens.join(', ')}`);
+  }
+
+  if (!validSpecs.length) {
+    return Promise.resolve();
+  }
+
+  core.debug(`Installing extra packages: ${validSpecs.join(', ')}`);
+
+  const silentFlag = process.env.RUNNER_DEBUG === '1' ? '' : '--silent';
+  const args = ['install', ...validSpecs, '--no-audit'];
+  if (silentFlag) {
+    args.push(silentFlag);
+  }
+
+  const { stdout, stderr } = await runNpm(args, {
     cwd: path.resolve(__dirname, '..')
   });
   core.debug(stdout);

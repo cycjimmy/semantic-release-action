@@ -1,18 +1,20 @@
-const core = require('@actions/core');
-const {
+import * as core from '@actions/core';
+import {
+  warnDeprecatedInputs,
   handleBranchesOption,
   handleDryRunOption,
   handleCiOption,
   handleExtends,
   handleTagFormat,
   handleRepositoryUrlOption,
-} = require('./handleOptions');
-const setUpJob = require('./setUpJob.task');
-const installSpecifyingVersionSemantic = require('./installSpecifyingVersionSemantic.task');
-const preInstall = require('./preInstall.task');
-const cleanupNpmrc = require('./cleanupNpmrc.task');
-const windUpJob = require('./windUpJob.task');
-const inputs = require('./inputs.json');
+} from './handleOptions.js';
+import setUpJob from './setUpJob.task.js';
+import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic.task.js';
+import assertSemanticReleaseVersion from './assertSemanticReleaseVersion.task.js';
+import preInstall from './preInstall.task.js';
+import cleanupNpmrc from './cleanupNpmrc.task.js';
+import windUpJob from './windUpJob.task.js';
+import inputs from './inputs.json' with { type: 'json' };
 
 /**
  * Release main task
@@ -23,7 +25,9 @@ const release = async () => {
     process.chdir(core.getInput(inputs.working_directory));
   }
   await setUpJob();
+  warnDeprecatedInputs();
   await installSpecifyingVersionSemantic();
+  await assertSemanticReleaseVersion();
   await preInstall(core.getInput(inputs.extra_plugins));
   await preInstall(core.getInput(inputs.extends));
 
@@ -33,8 +37,9 @@ const release = async () => {
   }
 
   const semanticRelease = await import('semantic-release');
+  const branchesOption = handleBranchesOption();
   const result = await semanticRelease.default({
-    ...handleBranchesOption(),
+    ...branchesOption,
     ...handleDryRunOption(),
     ...handleCiOption(),
     ...handleExtends(),
@@ -46,7 +51,7 @@ const release = async () => {
   await windUpJob(result);
 };
 
-module.exports = () => {
+export default async () => {
   core.debug('Initialization successful');
   release().catch(core.setFailed);
 };

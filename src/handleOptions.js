@@ -1,51 +1,48 @@
-const core = require('@actions/core');
-const stringToJson = require('@cycjimmy/awesome-js-funcs/cjs/typeConversion/stringToJson.cjs').default;
-const inputs = require('./inputs.json');
+import * as core from '@actions/core';
+import stringToJson from './stringToJson.js';
+import inputs from './inputs.json' with { type: 'json' };
 
 /**
  * Handle Branches Option
- * @returns {{}|{branch: string}}
+ * @returns {{}|{branches: string|Array}}
  */
-exports.handleBranchesOption = () => {
+export const handleBranchesOption = () => {
   const branchesOption = {};
   const branches = core.getInput(inputs.branches);
-  const branch = core.getInput(inputs.branch);
-
   core.debug(`branches input: ${branches}`);
-  core.debug(`branch input: ${branch}`);
 
-  const semanticVersion = require('semantic-release/package.json').version;
-  const semanticMajorVersion = Number(semanticVersion.replace(/\..+/g, ''));
-  core.debug(`semanticMajorVersion: ${semanticMajorVersion}`);
-
-  // older than v16
-  if (semanticMajorVersion < 16) {
-    if (!branch) {
-      return branchesOption;
-    }
-
-    branchesOption.branch = branch;
+  if (!branches) {
     return branchesOption;
   }
 
-  // above v16
-  const strNeedConvertToJson = branches || branch || '';
-
-  if (!strNeedConvertToJson) {
-    return branchesOption;
-  }
-
-  const jsonOrStr = stringToJson('' + strNeedConvertToJson);
+  const jsonOrStr = stringToJson('' + branches);
   core.debug(`Converted branches attribute: ${JSON.stringify(jsonOrStr)}`);
   branchesOption.branches = jsonOrStr;
   return branchesOption;
 };
 
 /**
+ * Warn about removed legacy inputs. The `branch` input is no longer declared
+ * in action.yml; the runner still exports it as INPUT_BRANCH when users pass it.
+ */
+export const warnDeprecatedInputs = () => {
+  // hardcoded: 'branch' was removed from inputs.json
+  const branch = core.getInput('branch');
+
+  if (branch) {
+    core.warning(
+      `The 'branch' input is no longer supported and will be ignored. ` +
+      `Use the 'branches' input instead (requires semantic-release v16 or above). ` +
+      `See https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches`
+    );
+  }
+};
+
+/**
  * Handle DryRun Option
  * @returns {{}|{dryRun: boolean}}
  */
-exports.handleDryRunOption = () => {
+export const handleDryRunOption = () => {
   const dryRun = core.getInput(inputs.dry_run);
   core.debug(`dryRun input: ${dryRun}`);
 
@@ -65,7 +62,7 @@ exports.handleDryRunOption = () => {
  * Handle Ci Option
  * @returns {{}|{ci: boolean}}
  */
-exports.handleCiOption = () => {
+export const handleCiOption = () => {
   const ci = core.getInput(inputs.ci);
   core.debug(`ci input: ${ci}`);
 
@@ -85,7 +82,7 @@ exports.handleCiOption = () => {
  * Handle Extends Option
  * @returns {{}|{extends: Array}|{extends: String}}
  */
-exports.handleExtends = () => {
+export const handleExtends = () => {
   const extend = core.getInput(inputs.extends);
   core.debug(`extend input: ${extend}`);
 
@@ -104,9 +101,9 @@ exports.handleExtends = () => {
  * Handle TagFormat Option
  * @returns {{}|{tagFormat: String}}
  */
-exports.handleTagFormat = () => {
+export const handleTagFormat = () => {
   const tagFormat = core.getInput(inputs.tag_format);
-  core.debug(`citagFormat input: ${tagFormat}`);
+  core.debug(`tagFormat input: ${tagFormat}`);
 
   if (tagFormat) {
     return {
@@ -119,14 +116,14 @@ exports.handleTagFormat = () => {
 
 /**
  * Handle repository-url Option
- * @returns {{}|{r: String}}
+ * @returns {{}|{repositoryUrl: String}}
  */
-exports.handleRepositoryUrlOption = () => {
+export const handleRepositoryUrlOption = () => {
   const repositoryUrl = core.getInput(inputs.repository_url);
   core.debug(`repository_url input: ${repositoryUrl}`);
 
   if (repositoryUrl) {
-    return { r: repositoryUrl };
+    return { repositoryUrl };
   } else {
     return {};
   }
