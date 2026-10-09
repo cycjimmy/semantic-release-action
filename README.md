@@ -55,6 +55,7 @@ then make sure that you configure this in your `package.json` file:
 | working_directory |  false   | Use another working directory for semantic release [[Details](#working_directory)]                                       |
 |    tag_format     |  false   | Specify format of tag (useful for monorepos)                                                                             |
 |  repository_url   |  false   | The Git repository url. If no repository url specified, current repository will be used by default.                      |
+| skip_npm_plugin   |  false   | Whether to skip the @semantic-release/npm default plugin. [[Details](#skip_npm_plugin)]<br>Useful for non-Node.js projects. |
 
 #### semantic_version
 > {Optional Input Parameter} Specify version range for semantic-release.<br>The minimum supported semantic-release version is **v16**; older versions fail with an error.
@@ -270,6 +271,31 @@ steps:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
+
+#### skip_npm_plugin
+> {Optional Input Parameter} Whether to skip the `@semantic-release/npm` default plugin.<br>Useful for running the action in a project that is not a Node.js project (i.e. without a `package.json` file).
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v7
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v7
+    with:
+      skip_npm_plugin: true
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+The `@semantic-release/npm` default plugin requires a `package.json` file in the working directory. Without one, semantic-release fails with `SemanticReleaseError: Missing package.json file.` (ENOPKG) — even in `dry-run` mode. Set `skip_npm_plugin: true` to remove the npm plugin from the default plugins. The default plugins are then replaced with the following list (the [default plugins](https://semantic-release.gitbook.io/semantic-release/usage/plugins#default-plugins) of semantic-release without `@semantic-release/npm`):
+
+- `@semantic-release/commit-analyzer`
+- `@semantic-release/release-notes-generator`
+- `@semantic-release/github`
+
+Similar to the other options, it will override the `plugins` attribute in your configuration file. If you already maintain your own `plugins` array in your release configuration, you don't need this input — just omit `@semantic-release/npm` from your array.
+
+**NOTE**: `NPM_TOKEN` is not required when the npm plugin is skipped. Also note that configuring `npmPublish: false` or `private: true` on the npm plugin does **not** avoid the ENOPKG error, as the plugin checks for a `package.json` file before taking those settings into account. The only way to release a project without a `package.json` file is to not use the npm plugin at all.
 
 ### Outputs
 |     Output Parameter      | Description                                                                                                                       |

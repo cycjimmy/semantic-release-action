@@ -35,6 +35,9 @@ inputs:
   repository_url:
     required: false
     description: 'The Git repository url. If no repository url specified, current repository will be used by default.'
+  skip_npm_plugin:
+    required: false
+    description: 'Whether to skip the @semantic-release/npm default plugin. Useful for non-Node.js projects without a package.json file. When true, the default plugins are replaced with @semantic-release/commit-analyzer, @semantic-release/release-notes-generator and @semantic-release/github. It will override the plugins attribute in your configuration file.'
 outputs:
   new_release_published:
     description: 'Whether a new release was published'

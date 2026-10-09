@@ -1,12 +1,14 @@
 import * as core from '@actions/core';
 import {
   warnDeprecatedInputs,
+  warnIfNoPackageJson,
   handleBranchesOption,
   handleDryRunOption,
   handleCiOption,
   handleExtends,
   handleTagFormat,
   handleRepositoryUrlOption,
+  handleSkipNpmPluginOption,
 } from './handleOptions.js';
 import setUpJob from './setUpJob.task.js';
 import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic.task.js';
@@ -26,6 +28,7 @@ const release = async () => {
   }
   await setUpJob();
   warnDeprecatedInputs();
+  warnIfNoPackageJson();
   await installSpecifyingVersionSemantic();
   await assertSemanticReleaseVersion();
   await preInstall(core.getInput(inputs.extra_plugins));
@@ -44,7 +47,8 @@ const release = async () => {
     ...handleCiOption(),
     ...handleExtends(),
     ...handleTagFormat(),
-    ...handleRepositoryUrlOption()
+    ...handleRepositoryUrlOption(),
+    ...handleSkipNpmPluginOption()
   });
 
   await cleanupNpmrc();

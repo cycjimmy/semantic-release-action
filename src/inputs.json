@@ -8,5 +8,6 @@
   "extends": "extends",
   "working_directory": "working_directory",
   "tag_format": "tag_format",
-  "repository_url": "repository_url"
+  "repository_url": "repository_url",
+  "skip_npm_plugin": "skip_npm_plugin"
 }

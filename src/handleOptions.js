@@ -1,4 +1,5 @@
 import * as core from '@actions/core';
+import fs from 'fs';
 import stringToJson from './stringToJson.js';
 import inputs from './inputs.json' with { type: 'json' };
 
@@ -36,6 +37,26 @@ export const warnDeprecatedInputs = () => {
       `See https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches`
     );
   }
+};
+
+/**
+ * Warn when the working directory has no package.json and the npm default
+ * plugin is not skipped: @semantic-release/npm fails with ENOPKG in that case.
+ */
+export const warnIfNoPackageJson = () => {
+  const skipNpmPlugin = core.getInput(inputs.skip_npm_plugin) === 'true';
+
+  if (skipNpmPlugin || fs.existsSync('package.json')) {
+    return;
+  }
+
+  core.warning(
+    `No package.json file found in ${process.cwd()}. ` +
+    `The default @semantic-release/npm plugin requires one and will fail with ` +
+    `"Missing package.json file." (ENOPKG). ` +
+    `If this is not a Node.js project, set the 'skip_npm_plugin' input to true, ` +
+    `or define a custom 'plugins' array without @semantic-release/npm in your release configuration.`
+  );
 };
 
 /**
@@ -126,5 +147,29 @@ export const handleRepositoryUrlOption = () => {
     return { repositoryUrl };
   } else {
     return {};
+  }
+};
+
+/**
+ * Handle SkipNpmPlugin Option
+ * @returns {{}|{plugins: string[]}}
+ */
+export const handleSkipNpmPluginOption = () => {
+  const skipNpmPlugin = core.getInput(inputs.skip_npm_plugin);
+  core.debug(`skip_npm_plugin input: ${skipNpmPlugin}`);
+
+  switch (skipNpmPlugin) {
+    case 'true':
+      return {
+        plugins: [
+          '@semantic-release/commit-analyzer',
+          '@semantic-release/release-notes-generator',
+          '@semantic-release/github'
+        ]
+      };
+
+    case 'false':
+    default:
+      return {};
   }
 };
