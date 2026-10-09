@@ -12,7 +12,7 @@ import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic
 import preInstall from './preInstall.task.js';
 import cleanupNpmrc from './cleanupNpmrc.task.js';
 import windUpJob from './windUpJob.task.js';
-import inputs from './inputs.json' with { type: 'json' };;
+import inputs from './inputs.json' with { type: 'json' };
 
 /**
  * Release main task
@@ -33,8 +33,9 @@ const release = async () => {
   }
 
   const semanticRelease = await import('semantic-release');
+  const branchesOption = await handleBranchesOption();
   const result = await semanticRelease.default({
-    ...handleBranchesOption(),
+    ...branchesOption,
     ...handleDryRunOption(),
     ...handleCiOption(),
     ...handleExtends(),

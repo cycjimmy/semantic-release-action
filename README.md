@@ -123,6 +123,8 @@ steps:
 
 See [configuration#branches](https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches) for more information.
 
+**NOTE**: The `branches` input is evaluated as a JavaScript expression to support the array/object configuration above. Only pass content you trust — anyone able to edit the workflow file can already run arbitrary commands in your CI.
+
 #### branch
 > {Optional Input Parameter} Similar to parameter `branches`. The branch on which releases should happen.<br>`branch` only supports for **semantic-release older than v16**.
 
@@ -168,6 +170,8 @@ steps:
 ```
 
 Similar to parameter `semantic_version`. *It is recommended to manually specify a version of semantic-release plugins to prevent errors caused.*
+
+**NOTE**: `extra_plugins` accepts npm package specs (e.g. `@semantic-release/git@10.0.0` or `@semantic-release/git@>=10.0.0`) separated by whitespace or newlines. Each spec is passed to `npm install` as a single argument without a shell; tokens starting with `-` or containing quotes or similar unsafe characters are ignored and reported as a warning. Because whitespace separates specs, version ranges containing spaces (e.g. `>=1.0.0 <2.0.0`) are not supported. The same rules apply to the `extends` input.
 
 Release Config:
 ```diff

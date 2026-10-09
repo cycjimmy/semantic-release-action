@@ -21,4 +21,9 @@ const run = async () => {
   await mod.default();
 };
 
-run().catch(console.error);
+run().catch((error) => {
+  console.error(error instanceof Error ? error.stack : error);
+
+  // Exit with a non-zero code so the workflow step is marked as failed
+  process.exitCode = 1;
+});

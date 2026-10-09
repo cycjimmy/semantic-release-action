@@ -1,10 +1,10 @@
 import * as core from '@actions/core';
 import stringToJson from './stringToJson.js';
-import inputs from './inputs.json' with { type: 'json' };;
+import inputs from './inputs.json' with { type: 'json' };
 
 /**
  * Handle Branches Option
- * @returns {{}|{branch: string}}
+ * @returns {{}|{branch: string}|{branches: string|Array}}
  */
 export const handleBranchesOption = async () => {
   const branchesOption = {};
@@ -106,7 +106,7 @@ export const handleExtends = () => {
  */
 export const handleTagFormat = () => {
   const tagFormat = core.getInput(inputs.tag_format);
-  core.debug(`citagFormat input: ${tagFormat}`);
+  core.debug(`tagFormat input: ${tagFormat}`);
 
   if (tagFormat) {
     return {
@@ -119,14 +119,14 @@ export const handleTagFormat = () => {
 
 /**
  * Handle repository-url Option
- * @returns {{}|{r: String}}
+ * @returns {{}|{repositoryUrl: String}}
  */
 export const handleRepositoryUrlOption = () => {
   const repositoryUrl = core.getInput(inputs.repository_url);
   core.debug(`repository_url input: ${repositoryUrl}`);
 
   if (repositoryUrl) {
-    return { r: repositoryUrl };
+    return { repositoryUrl };
   } else {
     return {};
   }

@@ -11,7 +11,10 @@ const __dirname = dirname(__filename);
  * @returns {Promise<void>}
  */
 export default async () => {
-  // set outputs default
+  // set defaults for all outputs so they always exist
+  Object.values(outputs).forEach((output) => {
+    core.setOutput(output, '');
+  });
   core.setOutput(outputs.new_release_published, 'false');
 
   core.debug('action_workspace: ' + path.resolve(__dirname, '..'));
