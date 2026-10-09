@@ -1,3 +1,27 @@
+# [7.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v6.0.0...v7.0.0) (2026-10-09)
+
+
+### Bug Fixes
+
+* **ci:** improve error handling and npm package installation ([b7ca30e](https://github.com/cycjimmy/semantic-release-action/commit/b7ca30e8f5630203651f721e521e114ee905bace))
+* **release:** update GitHub Actions workflow for enhanced permissions and Node.js setup ([45d484c](https://github.com/cycjimmy/semantic-release-action/commit/45d484c29bc15ed2b7cb63b79fab2024d8f5e228))
+
+
+### Features
+
+* upgrade deps ([3341766](https://github.com/cycjimmy/semantic-release-action/commit/3341766fa2b64a1ede0f9e0fba9d8a63d57f26f2)), closes [#302](https://github.com/cycjimmy/semantic-release-action/issues/302)
+
+
+### Performance Improvements
+
+* require semantic-release v16 or above and remove branch input ([3d0cb78](https://github.com/cycjimmy/semantic-release-action/commit/3d0cb78a35a8c728aaf92f57448f7a366a501728))
+
+
+### BREAKING CHANGES
+
+* require semantic-release v16 or above and remove branch input
+* upgrade deps and use module type
+
 # [6.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v5.0.2...v6.0.0) (2025-11-17)
 
 
