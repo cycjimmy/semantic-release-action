@@ -14,9 +14,20 @@ jobs:
   release:
     name: release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # for semantic-release to publish a GitHub release and push version branches
+      issues: write # for semantic-release to comment on released issues
+      pull-requests: write # for semantic-release to comment on released pull requests
+      id-token: write # for npm trusted publishing (OIDC) with automatic provenance
+      packages: write # for publishing to GitHub Package Registry
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
 
       - name: Semantic Release
         uses: ./
@@ -43,7 +54,6 @@ jobs:
             @semantic-release/changelog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Setup Node.js with GitHub Package Registry
         uses: actions/setup-node@v7
