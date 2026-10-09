@@ -1,3 +1,10 @@
+# [7.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v7.0.0...v7.1.0) (2026-10-09)
+
+
+### Features
+
+* **core:** add option to skip npm plugin for non-Node.js projects ([d1038bc](https://github.com/cycjimmy/semantic-release-action/commit/d1038bc60313f92bfcba1be105b18a41e4501b18)), closes [#313](https://github.com/cycjimmy/semantic-release-action/issues/313)
+
 # [7.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v6.0.0...v7.0.0) (2026-10-09)
 
 
