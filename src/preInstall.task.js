@@ -36,11 +36,11 @@ export default async extras => {
 
   core.debug(`Installing extra packages: ${validSpecs.join(', ')}`);
 
-  const silentFlag = process.env.RUNNER_DEBUG === '1' ? '' : '--silent';
-  const args = ['install', ...validSpecs, '--no-audit'];
-  if (silentFlag) {
-    args.push(silentFlag);
-  }
+  // Keep the install output quiet, but still let npm print real errors
+  // (e.g. ERESOLVE peer dependency reports) to stderr; --silent would
+  // swallow them, leaving only an opaque "Command failed" message
+  const quietArgs = process.env.RUNNER_DEBUG === '1' ? [] : ['--loglevel', 'error'];
+  const args = ['install', ...validSpecs, '--no-audit', ...quietArgs];
 
   const { stdout, stderr } = await runNpm(args, {
     cwd: path.resolve(__dirname, '..')

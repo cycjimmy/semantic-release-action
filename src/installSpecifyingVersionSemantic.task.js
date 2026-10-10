@@ -26,7 +26,7 @@ export default async () => {
     : '';
 
   const {stdout, stderr} = await runNpm(
-    ['install', `semantic-release${versionSuffix}`, '--no-audit', '--silent'],
+    ['install', `semantic-release${versionSuffix}`, '--no-audit', '--loglevel', 'error'],
     {
       cwd: path.resolve(__dirname, '..')
     }
