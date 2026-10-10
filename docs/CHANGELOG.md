@@ -1,3 +1,10 @@
+## [7.1.1](https://github.com/cycjimmy/semantic-release-action/compare/v7.1.0...v7.1.1) (2026-10-10)
+
+
+### Bug Fixes
+
+* **ci:** improve error handling for push permission failures ([895d556](https://github.com/cycjimmy/semantic-release-action/commit/895d556be9f4f2e382d2713f135c582cfd36d619)), closes [#312](https://github.com/cycjimmy/semantic-release-action/issues/312)
+
 # [7.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v7.0.0...v7.1.0) (2026-10-09)
 
 
