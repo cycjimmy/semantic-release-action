@@ -1,3 +1,10 @@
+## [7.1.2](https://github.com/cycjimmy/semantic-release-action/compare/v7.1.1...v7.1.2) (2026-10-10)
+
+
+### Bug Fixes
+
+* **install:** improve npm install logging for error visibility ([3f9efbb](https://github.com/cycjimmy/semantic-release-action/commit/3f9efbbd5cb992eb6c220eff71af5dc7b1550ebc))
+
 ## [7.1.1](https://github.com/cycjimmy/semantic-release-action/compare/v7.1.0...v7.1.1) (2026-10-10)
 
 
