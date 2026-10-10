@@ -10,6 +10,7 @@ import {
   handleRepositoryUrlOption,
   handleSkipNpmPluginOption,
 } from './handleOptions.js';
+import handleError from './handleError.js';
 import setUpJob from './setUpJob.task.js';
 import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic.task.js';
 import assertSemanticReleaseVersion from './assertSemanticReleaseVersion.task.js';
@@ -57,5 +58,5 @@ const release = async () => {
 
 export default async () => {
   core.debug('Initialization successful');
-  release().catch(core.setFailed);
+  release().catch(handleError);
 };

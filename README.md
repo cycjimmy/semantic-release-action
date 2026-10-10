@@ -178,6 +178,8 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
+**NOTE**: `dry-run` mode still requires write access to the repository. At startup, semantic-release verifies push permission by running `git push --dry-run` ([`verifyAuth`](https://github.com/semantic-release/semantic-release/blob/master/lib/git.js)), and GitHub enforces write access for dry-run pushes as well — nothing is actually pushed. If the credentials cannot push — for example, the default `GITHUB_TOKEN` when the job does not grant `permissions: contents: write` — the action fails with `EGITNOPERMISSION: Cannot push to the Git repository.` even in `dry-run` mode. To fix it, grant write permission to the job, e.g. `permissions: contents: write` (or use a token with write access).
+
 #### ci
 > {Optional Input Parameter} Whether to run semantic release with CI support (default true).
 
