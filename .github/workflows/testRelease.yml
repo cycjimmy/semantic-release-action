@@ -54,8 +54,8 @@ jobs:
           echo ${{ steps.semantic.outputs.new_release_minor_version }}
           echo ${{ steps.semantic.outputs.new_release_patch_version }}
 
-  test-semantic-v16:
-    name: test-semantic-v16
+  test-semantic-v20:
+    name: test-semantic-v20
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -65,7 +65,7 @@ jobs:
         uses: ./
         id: semantic
         with:
-          semantic_version: 16
+          semantic_version: 20
           dry_run: true
           branches: |
             [
@@ -74,8 +74,8 @@ jobs:
               {name: 'alpha', prerelease: true}
             ]
           extra_plugins: |
-            @semantic-release/git@9
-            @semantic-release/changelog@5
+            @semantic-release/git@10
+            @semantic-release/changelog@6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SKIP_NPM_AUTH: 'true'
@@ -119,5 +119,3 @@ jobs:
           echo ${{ steps.semantic.outputs.new_release_major_version }}
           echo ${{ steps.semantic.outputs.new_release_minor_version }}
           echo ${{ steps.semantic.outputs.new_release_patch_version }}
-
-

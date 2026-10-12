@@ -33,7 +33,7 @@ export const warnDeprecatedInputs = () => {
   if (branch) {
     core.warning(
       `The 'branch' input is no longer supported and will be ignored. ` +
-      `Use the 'branches' input instead (requires semantic-release v16 or above). ` +
+      `Use the 'branches' input instead (requires semantic-release v20 or above). ` +
       `See https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches`
     );
   }
