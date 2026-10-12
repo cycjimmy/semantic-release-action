@@ -1,3 +1,9 @@
+// Set SKIP_NPM_AUTH=true to skip npm credential verification (e.g. dry-run
+// jobs that never publish). See @semantic-release/npm's `npmPublish` option.
+const npmPlugin = process.env.SKIP_NPM_AUTH === "true"
+  ? ["@semantic-release/npm", {"npmPublish": false}]
+  : "@semantic-release/npm";
+
 export default {
   "dryRun": false,
   "plugins": [
@@ -9,7 +15,7 @@ export default {
         "changelogFile": "docs/CHANGELOG.md"
       }
     ],
-    "@semantic-release/npm",
+    npmPlugin,
     "@semantic-release/github",
     [
       "@semantic-release/git",
