@@ -16,7 +16,6 @@ jobs:
       - name: Semantic Release
         uses: ./
         with:
-          branch: main
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
