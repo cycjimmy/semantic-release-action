@@ -1,3 +1,10 @@
+## [8.0.1](https://github.com/cycjimmy/semantic-release-action/compare/v8.0.0...v8.0.1) (2026-10-13)
+
+
+### Bug Fixes
+
+* bypass package manager shims for internal npm calls ([45d3d9c](https://github.com/cycjimmy/semantic-release-action/commit/45d3d9ca6a8641eba2ca90e7fd4b6cafb7f7f115)), closes [#258](https://github.com/cycjimmy/semantic-release-action/issues/258)
+
 # [8.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v7.1.2...v8.0.0) (2026-10-12)
 
 
