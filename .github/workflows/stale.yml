@@ -1,0 +1,56 @@
+name: Stale
+
+# Closes inactive issues: general half-year staleness plus a shorter
+# lifecycle for issues that are still waiting on reporter information.
+
+on:
+  schedule:
+    # Every day at 03:00 UTC
+    - cron: '0 3 * * *'
+
+permissions:
+  issues: write
+
+jobs:
+  stale:
+    name: Mark and close stale issues
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v10
+        with:
+          # Issues only, never touch pull requests
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+          # Mark stale after half a year of inactivity, close 14 days later
+          days-before-stale: 180
+          days-before-close: 14
+          # needs-info issues have their own shorter lifecycle (see below)
+          exempt-issue-labels: 'triaged,needs-info'
+          stale-issue-label: 'stale'
+          stale-issue-message: >
+            This issue has been automatically marked as stale because it has not
+            had recent activity. It will be closed in 14 days if no further
+            activity occurs.
+          close-issue-message: >
+            This issue was closed because it has been inactive for 14 days since
+            it was marked stale. Feel free to reopen it if the problem persists.
+
+  needs-info-cleanup:
+    name: Close issues that need info
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v10
+        with:
+          # Issues only, never touch pull requests
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+          # Only issues carrying the needs-info label
+          any-of-labels: 'needs-info'
+          days-before-stale: 7
+          # Close immediately once the 7-day window has passed
+          days-before-close: 0
+          stale-issue-label: 'stale'
+          close-issue-message: >
+            This issue was closed because the requested information was not
+            provided within 7 days. Please reopen it or open a new issue with
+            the requested details.
