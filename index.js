@@ -1,4 +1,4 @@
-import exec from './src/_exec.js';
+import runNpm from './src/runNpm.js';
 import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
 
@@ -8,7 +8,11 @@ const __dirname = dirname(__filename);
 const run = async () => {
   // Install Dependencies
   {
-    const {stdout, stderr} = await exec('npm --loglevel error ci --only=prod', {
+    // Prefer running npm through the current Node executable so package
+    // manager shims (e.g. Corepack) can't intercept this install in normal
+    // environments. If the current Node distribution does not bundle
+    // npm-cli.js, runNpm will fall back to the `npm` executable from PATH.
+    const {stdout, stderr} = await runNpm(['ci', '--only=prod', '--loglevel', 'error'], {
       cwd: path.resolve(__dirname)
     });
     console.log(stdout);
