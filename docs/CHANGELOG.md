@@ -1,3 +1,25 @@
+## [8.0.1](https://github.com/cycjimmy/semantic-release-action/compare/v8.0.0...v8.0.1) (2026-10-13)
+
+
+### Bug Fixes
+
+* bypass package manager shims for internal npm calls ([45d3d9c](https://github.com/cycjimmy/semantic-release-action/commit/45d3d9ca6a8641eba2ca90e7fd4b6cafb7f7f115)), closes [#258](https://github.com/cycjimmy/semantic-release-action/issues/258)
+
+# [8.0.0](https://github.com/cycjimmy/semantic-release-action/compare/v7.1.2...v8.0.0) (2026-10-12)
+
+
+### Features
+
+* require semantic-release v20 or above ([1d650fa](https://github.com/cycjimmy/semantic-release-action/commit/1d650fa5fbe0ed1117ab9c015ab002fe26d6508c))
+
+
+### BREAKING CHANGES
+
+* semantic-release v16~v19 are no longer supported. The minimum
+supported version is now v20. If semantic_version is pinned below 20, the action
+fails with an error; update it to v20 or above, or remove it to use the latest
+version.
+
 ## [7.1.2](https://github.com/cycjimmy/semantic-release-action/compare/v7.1.1...v7.1.2) (2026-10-10)
 
 

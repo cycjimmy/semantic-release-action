@@ -1,0 +1,61 @@
+name: Bug report
+description: Create a report to help us improve
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the sections below so the issue can be triaged quickly.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+
+  - type: input
+    id: action-version
+    attributes:
+      label: Action version
+      description: The version of cycjimmy/semantic-release-action you are using.
+      placeholder: v4.0.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Workflow file
+      description: The workflow file (or the relevant part of it) that shows the problem.
+      placeholder: |
+        jobs:
+          release:
+            runs-on: ubuntu-latest
+            steps:
+              - uses: cycjimmy/semantic-release-action@v4
+                with:
+                  semantic_release_version: 24.2.3
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: The workflow run log around the failure, if available.
+      render: shell
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.

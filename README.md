@@ -20,7 +20,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v7
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -45,8 +45,8 @@ then make sure that you configure this in your `package.json` file:
 ### Inputs
 |  Input Parameter  | Required | Description                                                                                                              |
 |:-----------------:|:--------:|--------------------------------------------------------------------------------------------------------------------------|
-| semantic_version  |  false   | Specify version range for semantic-release (v16 or above required). [[Details](#semantic_version)]                       |
-|     branches      |  false   | The branches on which releases should happen.[[Details](#branches)]<br>Requires **semantic-release v16 or above**.       |
+| semantic_version  |  false   | Specify version range for semantic-release (v20 or above required). [[Details](#semantic_version)]                       |
+|     branches      |  false   | The branches on which releases should happen.[[Details](#branches)]<br>Requires **semantic-release v20 or above**.       |
 |   extra_plugins   |  false   | Extra plugins for pre-install. [[Details](#extra_plugins)]                                                               |
 |      dry_run      |  false   | Whether to run semantic release in `dry-run` mode. [[Details](#dry_run)]                                                 |
 |        ci         |  false   | Whether to run semantic release with CI support. [[Details](#ci)]                                                        |
@@ -58,16 +58,16 @@ then make sure that you configure this in your `package.json` file:
 | skip_npm_plugin   |  false   | Whether to skip the @semantic-release/npm default plugin. [[Details](#skip_npm_plugin)]<br>Useful for non-Node.js projects. |
 
 #### semantic_version
-> {Optional Input Parameter} Specify version range for semantic-release.<br>The minimum supported semantic-release version is **v16**; older versions fail with an error.
+> {Optional Input Parameter} Specify version range for semantic-release.<br>The minimum supported semantic-release version is **v20**; older versions fail with an error.
 
 ```yaml
 steps:
   - name: Checkout
     uses: actions/checkout@v7
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     with:
-      semantic_version: 19.0.5  # It is recommended to specify a version range
+      semantic_version: 20.0.1  # It is recommended to specify a version range
                                 # for semantic-release when using
                                 # semantic-release-action lower than @v4
     env:
@@ -75,20 +75,20 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-If no version range is specified with `cycjimmy/semantic-release-action@v7` then [semantic-release@latest](https://github.com/semantic-release/semantic-release/releases) is used.
+If no version range is specified with `cycjimmy/semantic-release-action@v8` then [semantic-release@latest](https://github.com/semantic-release/semantic-release/releases) is used.
 
 #### branches
-> {Optional Input Parameter} The branches on which releases should happen.<br>`branches` requires **semantic-release v16 or above**.
+> {Optional Input Parameter} The branches on which releases should happen.<br>`branches` requires **semantic-release v20 or above**.
 
 ```yaml
 steps:
   - name: Checkout
     uses: actions/checkout@v7
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     with:
-      semantic_version: 16
-      # you can set branches for semantic-release v16 or above.
+      semantic_version: 20
+      # you can set branches for semantic-release v20 or above.
       branches: |
         [
           '+([0-9])?(.{+([0-9]),x}).x',
@@ -138,7 +138,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v7
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     with:
       # You can specify specifying version range for the extra plugins if you prefer.
       extra_plugins: |
@@ -170,7 +170,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v7
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     with:
       dry_run: true
     env:
@@ -188,7 +188,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v7
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     with:
       ci: false
     env:
@@ -206,7 +206,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v7
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     with:
       # You can extend an existing shareable configuration.
       # And you can specify version range for the shareable configuration if you prefer.
@@ -226,7 +226,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v7
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     with:
       # You can select another working directory like a subdirectory for example.
       working_directory: ./code
@@ -243,7 +243,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v7
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     with:
       tag_format: custom-v${version}
     env:
@@ -265,7 +265,7 @@ steps:
       git config --global user.email github-actions@github.com
       git merge --no-ff origin/${{ github.event.pull_request.head.ref }} --message "${{ github.event.pull_request.title }}"
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     with:
       unset_gha_env: ${{ github.event_name == 'pull_request' }}
       ci: ${{ github.event_name == 'pull_request' && false || '' }}
@@ -282,7 +282,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v7
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     with:
       skip_npm_plugin: true
     env:
@@ -321,7 +321,7 @@ steps:
   - name: Checkout
     uses: actions/checkout@v7
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     id: semantic   # Need an `id` for output variables
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -343,7 +343,7 @@ The `branch` input is no longer supported. Use the `branches` input instead:
 
 ```diff
   - name: Semantic Release
-    uses: cycjimmy/semantic-release-action@v7
+    uses: cycjimmy/semantic-release-action@v8
     with:
 -     branch: your-branch
 +     branches: your-branch
@@ -351,8 +351,8 @@ The `branch` input is no longer supported. Use the `branches` input instead:
 
 If the `branch` input is still passed, the action prints a deprecation warning and ignores it.
 
-### semantic-release below v16 is no longer supported
-This action now requires **semantic-release v16 or above**. If the installed semantic-release version is older (for example via `semantic_version: 15`), the action fails with an error. Update the `semantic_version` input to v16 or above, or remove it to use the latest version.
+### semantic-release below v20 is no longer supported
+This action now requires **semantic-release v20 or above**. If the installed semantic-release version is older (for example via `semantic_version: 19`), the action fails with an error. Update the `semantic_version` input to v20 or above, or remove it to use the latest version.
 
 ## Changelog
 See [CHANGELOG][changelog-url].

@@ -1,0 +1,85 @@
+name: Issue Bot
+
+# Rule-based triage for newly opened issues.
+# All untrusted issue content is passed through environment variables (never
+# interpolated into a shell command) so it cannot break out of the workflow.
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  triage:
+    name: Triage new issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apply triage rules
+        uses: actions/github-script@v9
+        env:
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        with:
+          script: |
+            const author = process.env.ISSUE_AUTHOR || '';
+            // Never react to issues opened by bots to avoid loops
+            if (author.endsWith('[bot]')) return;
+
+            const body = process.env.ISSUE_BODY || '';
+            const lower = body.toLowerCase();
+            const issueNumber = context.issue.number;
+
+            const labels = (names) => github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              labels: names,
+            });
+
+            const reply = (message) => github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: message,
+            });
+
+            // Rule 1: dependency resolution conflict caused by outdated plugin pins
+            if (/eresolve|peer ?dep/.test(lower)) {
+              await labels(['outdated-plugins']);
+              await reply(
+                'This looks like an npm dependency resolution (ERESOLVE) conflict.\n\n' +
+                'This action installs a recent semantic-release version and resolves ' +
+                'plugin versions on its own. Please make sure `extra_plugins` does not ' +
+                'pin old plugin versions (for example `@semantic-release/git@9`). ' +
+                'Remove the version pins and let the action pick compatible versions.'
+              );
+              return;
+            }
+
+            // Rule 2: unsupported runtime or package manager
+            if (/\bbun\b|\bpnpm\b|yarn (run|dlx|add)/.test(lower)) {
+              await labels(['platform-constraint']);
+              await reply(
+                'This action only supports npm/node. It invokes `npm`/`npx` directly, ' +
+                'so alternative runtimes (bun) and package managers (pnpm, yarn) are ' +
+                'currently not supported.'
+              );
+              return;
+            }
+
+            // Rule 3: low-information report (likely an empty or minimal template)
+            if (body.trim().length < 200) {
+              await labels(['needs-info']);
+              await reply(
+                'Thanks for opening this issue! Unfortunately, there is not enough ' +
+                'information to investigate it yet. Please edit the issue and add:\n\n' +
+                '- The version of this action you are using\n' +
+                '- The workflow file (or the relevant part of it)\n' +
+                '- The workflow run log around the failure\n\n' +
+                'The issue will be closed automatically if there is no response within 7 days.'
+              );
+              return;
+            }

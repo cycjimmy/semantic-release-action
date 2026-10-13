@@ -1,9 +1,9 @@
 import * as core from '@actions/core';
 
-const MINIMUM_MAJOR_VERSION = 16;
+const MINIMUM_MAJOR_VERSION = 20;
 
 /**
- * Assert the installed semantic-release version is supported (v16 or above)
+ * Assert the installed semantic-release version is supported (v20 or above)
  * @returns {Promise<void>}
  * @throws {Error} when the installed semantic-release major version is below the minimum
  */
