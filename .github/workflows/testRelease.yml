@@ -146,3 +146,31 @@ jobs:
             ]
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Regression test for #137: last_release_* outputs must be available even
+  # when no new release is published (derived from the Git tags)
+  test-last-release-without-new-release:
+    name: test-last-release-without-new-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # no remote fetch happens when semantic-release skips a PR run,
+          # so all tags must be checked out up front
+          fetch-depth: 0
+
+      - name: Semantic Release
+        uses: ./
+        id: semantic
+        with:
+          dry_run: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SKIP_NPM_AUTH: 'true'
+
+      - name: Test last_release outputs
+        run: |
+          test -n "${{ steps.semantic.outputs.last_release_version }}"
+          echo "last_release_version: ${{ steps.semantic.outputs.last_release_version }}"
+          echo "last_release_git_tag: ${{ steps.semantic.outputs.last_release_git_tag }}"

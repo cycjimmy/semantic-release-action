@@ -1,5 +1,15 @@
 import * as core from '@actions/core';
 import outputs from './outputs.json' with { type: 'json' };
+import getLastReleaseFromGit from './getLastReleaseFromGit.js';
+
+const setLastReleaseOutputs = (lastRelease = {}) => {
+  if (lastRelease.version) {
+    core.debug(`The last release was "${lastRelease.version}".`);
+    core.setOutput(outputs.last_release_version, lastRelease.version);
+    core.setOutput(outputs.last_release_git_head, lastRelease.gitHead);
+    core.setOutput(outputs.last_release_git_tag, lastRelease.gitTag);
+  }
+};
 
 /**
  * windUpJob
@@ -9,6 +19,9 @@ import outputs from './outputs.json' with { type: 'json' };
 export default async (result) => {
   if (!result) {
     core.debug('No release published.');
+    // semantic-release resolves to `false` when no release is published and
+    // the last release is not part of the result: derive it from the Git tags
+    setLastReleaseOutputs(await getLastReleaseFromGit());
     return;
   }
 
@@ -19,12 +32,7 @@ export default async (result) => {
     releases = [],
   } = result;
 
-  if (lastRelease?.version) {
-    core.debug(`The last release was "${lastRelease.version}".`);
-    core.setOutput(outputs.last_release_version, lastRelease.version);
-    core.setOutput(outputs.last_release_git_head, lastRelease.gitHead);
-    core.setOutput(outputs.last_release_git_tag, lastRelease.gitTag);
-  }
+  setLastReleaseOutputs(lastRelease);
 
   if (!nextRelease?.version) {
     core.debug('No release published.');

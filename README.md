@@ -333,6 +333,8 @@ This is equivalent to running `semantic-release --debug` locally. You can also e
 | last_release_git_head     | The sha of the last commit being part of the last release, if there was one. |
 | last_release_git_tag      | The Git tag associated with the last release, if there was one. |                                                         |
 
+**NOTE**: When no new release is published, `semantic-release` resolves to `false` and no release data is returned. In that case the `last_release_*` outputs are determined on a best-effort basis from the local Git tags: the highest stable version matching `tag_format` (the `tag_format` input, or the version is extracted from the tag name when the input is not set) is used, falling back to the highest pre-release version only when no stable version exists. Setups with several release channels or maintenance branches may resolve to a different last release than the one `semantic-release` would report.
+
 #### Using Output Variables:
 ```yaml
 steps:
