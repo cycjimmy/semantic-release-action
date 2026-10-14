@@ -1,3 +1,10 @@
+# [8.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v8.0.2...v8.1.0) (2026-10-14)
+
+
+### Features
+
+* output last_release_* from Git tags when no release is published ([ef475bf](https://github.com/cycjimmy/semantic-release-action/commit/ef475bf14275f08c55587c9a217a2316417362d4))
+
 ## [8.0.2](https://github.com/cycjimmy/semantic-release-action/compare/v8.0.1...v8.0.2) (2026-10-14)
 
 
