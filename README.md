@@ -299,6 +299,24 @@ Similar to the other options, it will override the `plugins` attribute in your c
 
 **NOTE**: `NPM_TOKEN` is not required when the npm plugin is skipped. Also note that configuring `npmPublish: false` or `private: true` on the npm plugin does **not** avoid the ENOPKG error, as the plugin checks for a `package.json` file before taking those settings into account. The only way to release a project without a `package.json` file is to not use the npm plugin at all.
 
+### Debugging
+This action runs semantic-release as a library, so the CLI `--debug` flag is not available. Instead, set the [`DEBUG`][debug-env-var-url] environment variable — semantic-release's internal debug logs (`semantic-release:config`, `semantic-release:plugins`, `semantic-release:git`, etc.) are printed to stderr:
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v7
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v8
+    with:
+      dry_run: true
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      DEBUG: semantic-release:*
+```
+
+This is equivalent to running `semantic-release --debug` locally. You can also enable a single namespace to reduce noise, e.g. `DEBUG: semantic-release:git`.
+
 ### Outputs
 |     Output Parameter      | Description                                                                                                                       |
 |:-------------------------:|-----------------------------------------------------------------------------------------------------------------------------------|
@@ -377,3 +395,5 @@ This project is released under the [MIT License][license-url].
 [changelog-url]: https://github.com/cycjimmy/semantic-release-action/blob/main/docs/CHANGELOG.md
 
 [github-packages-registry]: https://github.com/features/packages
+
+[debug-env-var-url]: https://github.com/debug-js/debug#shell-command
