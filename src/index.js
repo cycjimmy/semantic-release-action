@@ -15,6 +15,7 @@ import setUpJob from './setUpJob.task.js';
 import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic.task.js';
 import assertSemanticReleaseVersion from './assertSemanticReleaseVersion.task.js';
 import preInstall from './preInstall.task.js';
+import extendNodePath from './extendNodePath.task.js';
 import cleanupNpmrc from './cleanupNpmrc.task.js';
 import windUpJob from './windUpJob.task.js';
 import inputs from './inputs.json' with { type: 'json' };
@@ -34,6 +35,11 @@ const release = async () => {
   await assertSemanticReleaseVersion();
   await preInstall(core.getInput(inputs.extra_plugins));
   await preInstall(core.getInput(inputs.extends));
+
+  // Expose the action's node_modules to the CommonJS resolver fallback so
+  // pre-installed plugins are found even when semantic-release resolves them
+  // from the working directory or from a relatively-extended config file
+  await extendNodePath();
 
   if (core.getInput(inputs.unset_gha_env) === 'true') {
     core.debug('Unset GITHUB_ACTIONS environment variable');

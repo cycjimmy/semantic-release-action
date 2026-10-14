@@ -119,3 +119,30 @@ jobs:
           echo ${{ steps.semantic.outputs.new_release_major_version }}
           echo ${{ steps.semantic.outputs.new_release_minor_version }}
           echo ${{ steps.semantic.outputs.new_release_patch_version }}
+
+  test-working-directory-extends:
+    name: test-working-directory-extends
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # Regression test for #254: plugins declared in a config file reached
+      # through a relative `extends` must be resolvable when
+      # `working_directory` points to a subdirectory
+      - name: Semantic Release
+        uses: ./
+        id: semantic
+        with:
+          dry_run: true
+          working_directory: test/working-directory-project/packages/package-1
+          extra_plugins: '@semantic-release/exec'
+          branches: |
+            [
+              'main',
+              'master',
+              {name: 'beta', prerelease: true},
+              {name: 'alpha', prerelease: true}
+            ]
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
