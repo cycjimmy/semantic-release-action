@@ -16,7 +16,7 @@ jobs:
     name: Mark and close stale issues
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v10
+      - uses: actions/stale@v11
         with:
           # Issues only, never touch pull requests
           days-before-pr-stale: -1
@@ -39,7 +39,7 @@ jobs:
     name: Close issues that need info
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v10
+      - uses: actions/stale@v11
         with:
           # Issues only, never touch pull requests
           days-before-pr-stale: -1
