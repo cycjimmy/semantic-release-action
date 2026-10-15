@@ -109,11 +109,12 @@ steps:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-`branches` will override the `branches` attribute in your configuration file. If the attribute is not configured on both sides, the default is:
+`branches` will override the `branches` attribute in your configuration file. If the attribute is not configured on either side, semantic-release uses its own defaults. For the bundled semantic-release v25.0.9, these are:
 ```
 [
   '+([0-9])?(.{+([0-9]),x}).x',
   'master',
+  'main',
   'next',
   'next-major',
   {name: 'beta', prerelease: true},
@@ -236,7 +237,7 @@ steps:
 ```
 
 #### tag_format
-The default tag format on semantic-release is `v{version}`. You can override that behavior using this option (helpful when you are using monorepos)
+The default tag format on semantic-release is `v${version}`. You can override that behavior using this option (helpful when you are using monorepos)
 
 ```yaml
 steps:
