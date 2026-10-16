@@ -3,7 +3,6 @@ name: Release
 on:
   push:
     branches:
-      - master
       - main
       - next
       - next-major
@@ -36,7 +35,6 @@ jobs:
           branches: |
             [
               '+([0-9])?(.{+([0-9]),x}).x',
-              'master',
               'main',
               'next',
               'next-major',

@@ -92,7 +92,7 @@ steps:
       branches: |
         [
           '+([0-9])?(.{+([0-9]),x}).x',
-          'master',
+          'main',
           'next',
           'next-major',
           {
@@ -121,6 +121,8 @@ steps:
   {name: 'alpha', prerelease: true}
 ]
 ```
+
+**NOTE**: semantic-release treats the *first* release branch that exists in your repository as the default one (published to the `latest` npm dist-tag and as the Latest GitHub Release), and every other release branch gets a distribution channel named after the branch. With the defaults above, if your repository still has a leftover `master` branch next to `main`, releases from `main` would be published to the `main` npm dist-tag instead of `latest`, and their GitHub Releases would be flagged as pre-releases. If your default branch is `main`, explicitly list it **first** (as in the example above) and remove stale `master` branches.
 
 See [configuration#branches](https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches) for more information.
 
