@@ -1,3 +1,10 @@
+## [8.1.2](https://github.com/cycjimmy/semantic-release-action/compare/v8.1.1...v8.1.2) (2026-10-16)
+
+
+### Bug Fixes
+
+* **deps:** update @semantic-release/github to 12.0.10 ([2479d22](https://github.com/cycjimmy/semantic-release-action/commit/2479d22f5358f7ea88770573254a1ef2c7fb1829)), closes [semantic-release/github#1224](https://github.com/semantic-release/github/issues/1224)
+
 ## [8.1.1](https://github.com/cycjimmy/semantic-release-action/compare/v8.1.0...v8.1.1) (2026-10-16)
 
 
