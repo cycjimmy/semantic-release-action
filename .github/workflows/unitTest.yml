@@ -1,0 +1,35 @@
+name: Unit Test
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  unit-test:
+    name: unit-test
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      # Node 22 is the oldest line satisfying the lockfile engines
+      # (^22.14.0 || >=24.10.0); Node 24 matches the action runtime
+      matrix:
+        node-version: [22, 24]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Unit Tests
+        run: npm test
