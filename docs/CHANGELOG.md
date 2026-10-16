@@ -1,3 +1,10 @@
+## [8.1.1](https://github.com/cycjimmy/semantic-release-action/compare/v8.1.0...v8.1.1) (2026-10-16)
+
+
+### Bug Fixes
+
+* split extends configurations on whitespace ([6938171](https://github.com/cycjimmy/semantic-release-action/commit/6938171c698102e6a85cb8524db870b4c8e536d6))
+
 # [8.1.0](https://github.com/cycjimmy/semantic-release-action/compare/v8.0.2...v8.1.0) (2026-10-14)
 
 
