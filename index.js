@@ -8,10 +8,11 @@ const __dirname = dirname(__filename);
 const run = async () => {
   // Install Dependencies
   {
-    // Prefer running npm through the current Node executable so package
-    // manager shims (e.g. Corepack) can't intercept this install in normal
-    // environments. If the current Node distribution does not bundle
-    // npm-cli.js, runNpm will fall back to the `npm` executable from PATH.
+    // Prefer running npm through a Node executable so package manager
+    // shims (e.g. Corepack) can't intercept this install in normal
+    // environments. runNpm resolves the npm-cli.js bundled with a Node
+    // distribution (next to the running Node executable or, on Windows,
+    // in PATH) and falls back to the plain `npm` from PATH on POSIX.
     const {stdout, stderr} = await runNpm(['ci', '--only=prod', '--loglevel', 'error'], {
       cwd: path.resolve(__dirname)
     });

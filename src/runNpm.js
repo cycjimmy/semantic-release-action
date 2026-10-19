@@ -5,20 +5,64 @@ import { execFile } from 'child_process';
 
 const execFileAsync = promisify(execFile);
 
-// npm's cli entry bundled with the running Node distribution. Running npm
-// through the current Node executable keeps the invocation shell-free on
-// every platform (spawning `npm.cmd` on Windows would require a shell).
-const resolveNpmCliPath = () => {
-  const nodeDir = path.dirname(process.execPath);
+// npm's cli entry bundled with a Node distribution. Running npm through a
+// Node executable keeps the invocation shell-free on every platform
+// (spawning `npm.cmd` on Windows would require a shell).
+//
+// A JavaScript action executes on the Node runtime bundled with the runner,
+// which does not ship npm, so the entry next to `process.execPath` is
+// usually missing there. On Windows there is no shell-free `npm` fallback
+// (it is a .cmd shim), so PATH is scanned for a Node installation that
+// bundles npm, the layout actions/setup-node and the official Node
+// installer provide.
+export const resolveNpm = ({
+  platform = process.platform,
+  execPath = process.execPath,
+  pathEnv = process.env.PATH
+} = {}) => {
+  const nodeDir = path.dirname(execPath);
 
   // Layout of the official Node distributions:
   // - Windows: <node-dir>/node_modules/npm/bin/npm-cli.js
   // - POSIX:   <node-dir>/../lib/node_modules/npm/bin/npm-cli.js
-  const npmCliPath = process.platform === 'win32'
+  const bundledNpmCliPath = platform === 'win32'
     ? path.join(nodeDir, 'node_modules', 'npm', 'bin', 'npm-cli.js')
     : path.join(nodeDir, '..', 'lib', 'node_modules', 'npm', 'bin', 'npm-cli.js');
 
-  return fs.existsSync(npmCliPath) ? npmCliPath : '';
+  if (fs.existsSync(bundledNpmCliPath)) {
+    return {npmCliPath: bundledNpmCliPath, nodePath: execPath};
+  }
+
+  if (platform !== 'win32') {
+    // No bundled npm next to the running Node: the caller falls back to
+    // the plain `npm` executable from PATH, a shebang script that spawns
+    // without a shell on POSIX
+    return null;
+  }
+
+  // Windows only: scan PATH in order for a Node installation bundling npm
+  for (const rawDir of (pathEnv || '').split(';')) {
+    // PATH entries may be quoted (e.g. "C:\Program Files\nodejs")
+    const dir = rawDir.replace(/^"|"$/g, '');
+    if (!dir) {
+      continue;
+    }
+
+    const npmCliPath = path.join(dir, 'node_modules', 'npm', 'bin', 'npm-cli.js');
+    if (!fs.existsSync(npmCliPath)) {
+      continue;
+    }
+
+    // Prefer the node.exe shipped with that installation so npm and the
+    // processes it spawns run on the Node the workflow set up
+    const nodePath = path.join(dir, 'node.exe');
+    return {
+      npmCliPath,
+      nodePath: fs.existsSync(nodePath) ? nodePath : execPath
+    };
+  }
+
+  return null;
 };
 
 /**
@@ -30,18 +74,19 @@ const resolveNpmCliPath = () => {
  * @returns {Promise<{stdout: string, stderr: string}>}
  */
 export default async (args, options = {}) => {
-  const npmCliPath = resolveNpmCliPath();
+  const resolved = resolveNpm();
 
-  if (npmCliPath) {
-    return execFileAsync(process.execPath, [npmCliPath, ...args], options);
+  if (resolved) {
+    return execFileAsync(resolved.nodePath, [resolved.npmCliPath, ...args], options);
   }
 
   if (process.platform === 'win32') {
     // `npm` on Windows is npm.cmd, which cannot be spawned without a shell.
     // Fail with a clear message instead of an opaque ENOENT.
     throw new Error(
-      'Unable to locate npm-cli.js for the current Node installation on Windows. ' +
-      'semantic-release-action requires Node to be installed with npm bundled.'
+      'Unable to locate npm-cli.js on Windows. ' +
+      'semantic-release-action requires a Node installation bundled with npm; ' +
+      'none was found next to the running Node executable or in PATH.'
     );
   }
 

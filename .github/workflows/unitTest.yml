@@ -11,13 +11,17 @@ on:
 jobs:
   unit-test:
     name: unit-test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       # Node 22 is the oldest line satisfying the lockfile engines
-      # (^22.14.0 || >=24.10.0); Node 24 matches the action runtime
+      # (^22.14.0 || >=24.10.0); Node 24 matches the action runtime.
+      # windows-latest guards the shell-free npm resolution in runNpm.js:
+      # the action runtime is the runner's Node, which does not bundle
+      # npm (#332)
       matrix:
         node-version: [22, 24]
+        os: [ubuntu-latest, windows-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v7
