@@ -1,3 +1,10 @@
+## [8.1.3](https://github.com/cycjimmy/semantic-release-action/compare/v8.1.2...v8.1.3) (2026-10-19)
+
+
+### Bug Fixes
+
+* locate npm-cli.js from PATH on Windows runners ([b810ddb](https://github.com/cycjimmy/semantic-release-action/commit/b810ddb8ecdab2e00482bc8e51a84ba47736039e)), closes [#332](https://github.com/cycjimmy/semantic-release-action/issues/332)
+
 ## [8.1.2](https://github.com/cycjimmy/semantic-release-action/compare/v8.1.1...v8.1.2) (2026-10-16)
 
 
