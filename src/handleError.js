@@ -6,6 +6,12 @@ const EGITNOPERMISSION_HINT =
   `This is also required in dry-run mode: semantic-release verifies push permission with "git push --dry-run". ` +
   `See https://github.com/cycjimmy/semantic-release-action#dry_run`;
 
+const ENOPKG_HINT =
+  `The default @semantic-release/npm plugin requires a package.json file in the working directory. ` +
+  `If this is not a Node.js project, set the 'skip_npm_plugin' input to true, or keep a custom 'plugins' ` +
+  `array in your release configuration without @semantic-release/npm. ` +
+  `See https://github.com/cycjimmy/semantic-release-action#skip_npm_plugin`;
+
 /**
  * Check whether an error, or any aggregated sub-error, has the given code.
  * @param {Error|String} error
@@ -24,6 +30,10 @@ const hasErrorCode = (error, code) =>
 const handleError = (error) => {
   if (hasErrorCode(error, 'EGITNOPERMISSION')) {
     core.warning(EGITNOPERMISSION_HINT);
+  }
+
+  if (hasErrorCode(error, 'ENOPKG')) {
+    core.warning(ENOPKG_HINT);
   }
 
   core.setFailed(error);
