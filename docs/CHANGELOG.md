@@ -1,3 +1,10 @@
+## [8.1.4](https://github.com/cycjimmy/semantic-release-action/compare/v8.1.3...v8.1.4) (2026-10-28)
+
+
+### Bug Fixes
+
+* hint on ENOPKG instead of warning about a missing package.json ([0773dda](https://github.com/cycjimmy/semantic-release-action/commit/0773dda94a0255d2d30e7b691fe7be6c56629d60)), closes [#333](https://github.com/cycjimmy/semantic-release-action/issues/333)
+
 ## [8.1.3](https://github.com/cycjimmy/semantic-release-action/compare/v8.1.2...v8.1.3) (2026-10-19)
 
 
